@@ -2,7 +2,7 @@
 site_name: 'Material Template'
 site_description: 'A Material Design theme for MkDocs'
 site_author: 'Wes Roach'
-site_url: 'https://squidfunk.github.io/mkdocs-material/'
+site_url: 'https://squidfunk.github.io/mkdocs-material/' # TODO(Wes): update
 
 pages:
   - Home: index.md
@@ -40,11 +40,11 @@ extra:
       link: 'https://www.linkedin.com/in/wes-roach/'
   search:
     tokenizer: '[\s\-\.]+'
-  # disqus: 'mkdocs-material' # site_url must be set
+  disqus: 'mkdocs-material' # site_url must be set
 
 # Google Analytics
 google_analytics:
-  - 'UA-113461484-2'
+  - 'UA-113461484-1'
   - 'auto'
 
 # Extensions
