@@ -1,0 +1,46 @@
+# Project information
+site_name: 'Material Template'
+site_description: 'A Material Design theme for MkDocs'
+site_author: 'Wes Roach'
+site_url: 'https://squidfunk.github.io/mkdocs-material/'
+
+# Repository
+repo_name: 'WesRoach/mkdocs-template'
+repo_url: 'https://github.com/WesRoach/mkdocs-template'
+
+# Copyright
+copyright: 'Copyright &copy; 2018 Wes Roach'
+
+# Configuration
+theme:
+  name: 'material'
+  language: 'en'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+# Customization
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/WesRoach'
+    - type: 'twitter'
+      link: 'https://twitter.com/WesRoach'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/in/wes-roach/'
+
+# Google Analytics
+google_analytics:
+  - 'UA-113461484-2'
+  - 'auto'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
