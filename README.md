@@ -1,3 +1,3 @@
 # mkdocs-wesroach
 
-[mkdocs.wesroach.com](mkdocs.wesroach.com)
+[mkdocs.wesroach.com](http://mkdocs.wesroach.com)

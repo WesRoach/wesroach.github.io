@@ -1,8 +1,8 @@
 # Project information
-site_name: 'Material Template'
+site_name: 'Mostly Notes by Wes'
 site_description: 'A Material Design theme for MkDocs'
 site_author: 'Wes Roach'
-site_url: 'https://squidfunk.github.io/mkdocs-material/' # TODO(Wes): update
+site_url: 'http://mkdocs.wesroach.com'
 
 pages:
   - Home: index.md
@@ -10,8 +10,8 @@ pages:
   - License: license.md
 
 # Repository
-repo_name: 'WesRoach/mkdocs-template'
-repo_url: 'https://github.com/WesRoach/mkdocs-template'
+repo_name: 'WesRoach/mkdocs-wesroach'
+repo_url: 'https://github.com/WesRoach/mkdocs-wesroach'
 
 # Copyright
 copyright: 'Copyright &copy; 2018 Wes Roach'
