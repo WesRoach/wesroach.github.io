@@ -4,6 +4,11 @@ site_description: 'A Material Design theme for MkDocs'
 site_author: 'Wes Roach'
 site_url: 'https://squidfunk.github.io/mkdocs-material/'
 
+pages:
+  - Home: index.md
+  - About: about.md
+  - License: license.md
+
 # Repository
 repo_name: 'WesRoach/mkdocs-template'
 repo_url: 'https://github.com/WesRoach/mkdocs-template'
@@ -21,6 +26,8 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
+  feature:
+    tabs: true
 
 # Customization
 extra:
@@ -31,6 +38,9 @@ extra:
       link: 'https://twitter.com/WesRoach'
     - type: 'linkedin'
       link: 'https://www.linkedin.com/in/wes-roach/'
+  search:
+    tokenizer: '[\s\-\.]+'
+  # disqus: 'mkdocs-material' # site_url must be set
 
 # Google Analytics
 google_analytics:
@@ -44,3 +54,23 @@ markdown_extensions:
       guess_lang: false
   - toc:
       permalink: true
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
