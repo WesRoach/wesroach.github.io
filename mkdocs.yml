@@ -8,6 +8,7 @@ pages:
   - Home: index.md
   - About: about.md
   - SAS: sas-notes.md
+  - pandas: pandas/pandas-notes.md
   - License: license.md
 
 # Repository
