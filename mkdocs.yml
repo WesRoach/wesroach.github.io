@@ -1,5 +1,5 @@
 # Project information
-site_name: 'Notes - Wes Roach'
+site_name: 'Notes'
 site_description: ''
 site_author: 'Wes Roach'
 site_url: 'http://mkdocs.wesroach.com'
@@ -7,6 +7,7 @@ site_url: 'http://mkdocs.wesroach.com'
 pages:
   - Home: index.md
   - About: about.md
+  - SAS: sas-notes.md
   - License: license.md
 
 # Repository
@@ -27,7 +28,7 @@ theme:
     text: 'Roboto'
     code: 'Roboto Mono'
   feature:
-    tabs: true
+    tabs: false
 
 # Customization
 extra:
