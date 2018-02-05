@@ -37,13 +37,35 @@ print(df.index.names)
 => ['col1', 'col2']
 ```
 
+## df.unstack(level='col1')
+
+`df.unstack` a multilevel index results in the same type of hierarchical columns from `df.pivot`
+
+## df.stack(level='col1')
+
+`df.stack` hierarchical columns to create multilevel index
+
+## df.swaplevel()
+
+swaps inner/outter indexes in multilevel index
+
+## df.sort_index()
+
+## pd.melt()
+
+```python
+pd.melt(df, id_vars=['colN'], value_vars=['colN'])
+pd.melt(df, id_vars=['colN'], var_name='col1', value_name='col2')
+```
+
+
 ## Index Sorting
 
 ```python
 df = df.sort_index()
 ```
 
-## df.loc 
+## df.loc[]
 
 ```python
 stocks.loc[('CSCO', '2016-10-04')] # returns all columns
@@ -71,7 +93,7 @@ all_month2 = sales.loc[(slice(None), 2), :]
 
 TODO(Wes) - go back to lecture on this
 
-## df.iloc 
+## df.iloc[]
 
 TODO(Wes)
 
@@ -80,7 +102,20 @@ TODO(Wes)
 TODO(Wes)
 
 
+## Rotating / Pivot Data
 
+### df.pivot()
+
+```python
+df.pivot(	index='col1'
+			,columns='col2'
+			,values='col3'		
+)
+
+# all columns used as values
+df.pivot(index='col1' ,columns='col2'
+)
+```
 
 
 
