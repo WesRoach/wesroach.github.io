@@ -9,6 +9,8 @@ pages:
   - Python:
     - 10Apps: python/10apps.md
   - Pandas: pandas/pandas.md
+  - Kubernetes:
+    - EDx: kubernetes/edx.md
   - SAS: sas/sas.md
   - License: license.md
 
