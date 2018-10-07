@@ -531,6 +531,178 @@ APISERVER=$(kubectl config view | grep https | cut -f 2- -d ":" | tr -d " ")
 # Access API Server using curl
 curl $APISERVER --header "Authorization: Bearer $TOKEN" --insecure
 ```
+## Ch.7 Kubernetes Building Blocks
+
+### Review the Kubernetes object model.
+
+- Object Model:
+    - what containerized apps are running on each node
+    - app resource consumption
+    - Policies attached to app (restart/upgrade, fault tolerance, etc)
+
+- For each Object:
+    - dcl desired state using **spec** field.
+    - k8s manages **status** field for objects - state of object.
+    - k8s Control Plane always attempting to match desired state with actual state.
+
+- Ex Objects:
+    - Pods, ReplicaSets, Deployments, Namespaces, etc
+
+- To create Objects:
+    - Provide **spec** field to k8s API server.
+    - **spec** describes desired state & basic info (name, etc)
+        - JSON format
+    - usually define object's definition in .yaml file
+        - **kubectl** converts to JSON payload and sends to API server.
+
+TODO(Wes): Reduce
+    > With the apiVersion field in the example above, we mention the API endpoint on the API server which we want to connect to. With the kind field, we mention the object type - in our case, we have Deployment. With the metadata field, we attach the basic information to objects, like the name. You may have noticed that in our example we have two spec fields (spec and spec.template.spec). With spec, we define the desired state of the deployment. In our example, we want to make sure that, at any point in time, at least 3 Pods are running, which are created using the Pods Template defined in spec.template. In spec.template.spec, we define the desired state of the Pod. Here, our Pod would be created using nginx:1.7.9.
+
+### Discuss Labels and Selectors.
+
+- **Labels**
+    - key-value pairs attached to k8s objects (e.g. Pods).
+    - organize & subset objects
+    - many objects -to- one label
+    - labels != unique to object
+
+![labels](img/labels.png)
+
+- Above Labels:
+    - **app** / **env**
+
+- **Label Selectors**
+    - Equality-Based
+        - filter objects on Label keys and values
+        - `=`, `==`, `!=` operators
+        - Ex: **env==dev**
+    - Set-Based
+        - filter objects on set of values
+        - `in`, `notin`, `exists` operators
+        - Ex: **env in (dev, qa)**
+
+![selectors](img/selectors.png)
+
+
+### Discuss Kubernetes building blocks
+
+#### Pods
+
+- smallest k8s object.
+- unit of deployment in k8s
+- represents single instance of the app
+- Pod is logical collection of 1+ containers, which:
+    - Are scheduled together on the same host
+    - Share the same network namespace
+    - Mount the same external storage (volumes).
+
+![pods](img/pods.png)
+
+- Ephemeral; 
+- can not self-heal
+    - use with controllers
+        - handle Pod's replication, fault tolerance, self-heal, etc
+- Controller Ex:
+    - Deployments, ReplicaSets, ReplicationControllers, etc
+- Pod Templates
+    - attach Pod's specificiation to other objects
+
+
+#### **[ReplicationController (rc)](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)**
+
+- part of master node's controller manager.
+- assures specified # replicas for Pod are running.
+- controllers like **rc** always used to create/manage Pods.
+- only supports equality-based Selectors.
+
+#### [ReplicaSets](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+
+- next generation ReplicationController
+- support both equality- and set-based selectors
+
+![replicaSet](img/replicaSet.png)
+
+One Pod dies, current state != desired state
+
+![replicaSet](img/replicaSet-2.png)
+
+ReplicaSet detects; creates Pod
+
+![replicaSet](img/replicaSet-3.png)
+
+ReplicaSets can be independent; mostly used by Deployments to orchestrate Pod creation, deletion, updates.  Deployment automatically creates ReplicaSets.
+
+#### [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+
+- object
+- provides declarative updates to Pods and ReplicaSets.
+- DeploymentController part of master node's controller manager.
+- assures curret state == desired state.
+- feature: **Deployment recording** (deployments explained below)
+    - if something goes wrong - rollback to previous state
+
+
+Below graphic:
+
+- **Deployment** creates **ReplicaSet A**.
+- **ReplicaSet A** creates **3 Pods**.
+- Each Pod - one container uses **nginx:1.7.9**.
+
+![deployment](img/deployment.png)
+
+
+Next graphic:
+
+- in Deployment
+    - we change Pods Template & update image for **nginx** container to **nginx:1.9.1**.
+    - Pod Template modified: new **ReplicaSet B** created.
+    - process referred to as **Deployment rollout**.
+        - rollout only triggered on Pods Template update for deployment.
+    - Scaling operations do not trigger deployment.
+
+![deployment](img/deployment-2.png)
+
+Next graphic:
+
+- When **ReplicaSet B** ready:
+    - Deployment points to it.
+
+![deployment](img/deployment-3.png)
+
+
+#### [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
+
+- partitions k8s cluster.
+- Ex: numerous users - organize into teams/projects.
+- names of resources/objects created in **Namespace** are unique, but not across **Namespaces**.
+
+List all **Namespaces**:
+```bash
+$ kubectl get namespaces
+NAME          STATUS       AGE
+default       Active       11h
+kube-public   Active       11h
+kube-system   Active       11h
+```
+
+- k8s creates 2 default Namespaces:
+    - **kube-system** 
+        - objects created by k8s system.
+    - **default**
+        - objects from any other Namespace.
+- by default, we connect to **default** Namespace.
+- **kube-public**
+    - readable by all users.
+    - used for special purposes (Ex: bootstrapping a cluster).
+- [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
+    - divide cluster resources within Namespaces.
+
+## Ch.8 Authentication, Authorization, Admission Control
+
+
+
+
+
 
 
 
