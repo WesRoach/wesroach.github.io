@@ -699,17 +699,398 @@ kube-system   Active       11h
 
 ## Ch.8 Authentication, Authorization, Admission Control
 
+Objective: 
+
+- Discuss authentication, authorization, and access control stages of the Kubernetes API access.
+- Understand the different kinds of Kubernetes users.
+- Discuss the different modules for authentication and authorization.
+
+### Stages of k8s API access 
+
+#### Authentication
+Logs in user.
+
+- k8s does not have object *user*, or store *usernames*.
+- k8s can use usernames for access control and request logging.
+- Two kinds of users:
+    - **Normal Users**
+        - Managed outside k8s cluster
+            - via independent services, Ex:
+                - User/Client Certificates
+                - file listing usernames/passwords
+                - Google accounts
+                - etc
+    - **Service Accounts**
+        - in-cluster processes communicate with API server to perform operations.
+        - Most Service Account users auto-created via API server
+        - Can also create manually
+        - Service Account users tied to given Namespace
+            - mounts respective credentials to communicate with API server as Secrets.
+
+##### [Authentication Modules](https://kubernetes.io/docs/admin/authentication/#authentication-strategies)
+
+- Overview:
+    - Multiple authenticators can be enabled
+    - first module to successfully authenticate request short-circuits the evaluation.
+    - to be successful - enable at least 2 methods:
+        - service account tokens authenticator
+        - user authenticator
+    - k8s also supports **anonymous requests**, if configured
+
+- **Client Certificates**
+    - enable w/reference to file w/1+ cert authorities
+        - pass `--client-ca-file=SOMEFILE` option to API server.
+        - cert auths in file validate client certs presented to API server.
+        - Demo Video: <!-- TODO(Wes): Add video -->
+- **Static Token File**
+    - pass file w/pre-defined bearer tokens 
+        - pass with `--token-auth-file=SOMEFILE` option to API server.
+        - these tokens last indefinitely.
+        - cannot change w/o restarting API server
+- **Bootstrap Tokens**
+    - alpha; used in bootstrapping new k8s cluster.
+- **Static Password File**
+    - pass file w/basic authentication details
+        - pass w/ `--basic-auth-file=SOMEFILE` option to API server.
+        - lasts indefinitely
+        - change w/API server restart
+- **Service Account Tokens**
+    - auto-enabled authenticator
+    - uses signed bearer tokens to verify requests
+    - tokens attached to Pods using **ServiceAccount Admission Controller**.
+        - allows in-cluster processes to talk to API server.
+- **OpenID Connect Tokens**
+    - connect with OAuth 2 providers
+        - Ex: Azure Active Directory, Salesforce, Google, etc
+- **Webhook Token Authentication**
+    - verification of bearer tokens offloaded to remote servce.
+- **Keystone Password**
+    - pass `--experimental-keystone-url=<AuthURL>` option to API Server.
+        - **AuthURL** is Keystone server endpoint.
+- **Authenticating Proxy**
+    - used to program additional authentication logic
 
 
 
+#### Authorization
+    
+Authorizes API requests.
 
+- After Authentication, users send API requests to perform operations.
+- API requests are Authorized
+- API request attributes authorized:
+    - user, group extra, Resource, Namespace, etc
+    - these attributes evaluated against policies.
+    - if evalualtion success - request allowed; otherwise denied.
+- Multiple Authorization modules/authorizers.
+- 1+ module can be configured for k8s cluster
+    - each module checked in sequence
+    - if **any** authorizer approves/denies - that decision is returned immediately.
 
+##### Authorization Modules
 
+- **Node Authorizer**
+    - authorizes API requests from kubelets
+    - authorizes kubelet's:
+        - read operations for services, endpoints, nodes, etc
+        - write operators for nodes, pods, events, etc
+    - [Kubernetes documentation](https://kubernetes.io/docs/admin/authorization/node/)
+- **Attribute-Based Access Control (ABAC) Authorizer**
+    - k8s grants access to API requests - combine policies with attributes.
+    - Ex: user *nkhare* can only read Pods in Namespace **lfs158**:
+    ```bash
+    {
+      "apiVersion": "abac.authorization.kubernetes.io/v1beta1",
+      "kind": "Policy",
+      "spec": {
+        "user": "nkhare",
+        "namespace": "lfs158",
+        "resource": "pods",
+        "readonly": true
+      }
+    }
+    ```
+    - enable w/`--authorization-mode=ABAC` option to API server.
+        - specify authorization policy: `--authorization-policy-file=PolicyFile.json`
+    - [Kubernetes documentation](https://kubernetes.io/docs/admin/authorization/abac/)
+- **Webhook Authorizer**
+    - k8s offers authorization decisions to 3rd-party services
+    - enable: `--authorization-webhook-config-file=SOME_FILENAME`
+        - SOME_FILENAME: config of remote authorization service
+    - [Kubernetes documentation](https://kubernetes.io/docs/admin/authorization/webhook/)
+- **Role-Based Access Control (RBAC) Authorizer**
+    - regulate access to resources based on user assigned roles
+        - roles: users, service accounts, etc
+    - enable: `--authorization-mode=RBAC` to API server.
+    - [Kubernetes documentation](https://kubernetes.io/docs/admin/authorization/rbac/)
+    - roles assigned operations:
+        - **create**, **get**, **update**, **patch**, etc
+        - operations known as "verbs"
+    - Two kids of roles:
+        - **Role**
+            - grant access to resource within specific Namespace
+            ```bash
+            kind: Role
+            apiVersion: rbac.authorization.k8s.io/v1
+            metadata:
+              namespace: lfs158
+              name: pod-reader
+            rules:
+            - apiGroups: [""] # "" indicates the core API group
+              resources: ["pods"]
+              verbs: ["get", "watch", "list"]
+            ```
+            - creates **pod-reader** role
+                - access only to Pods of **lfs158** Namespace.
+        - **ClusterRole**
+            - grany access to resource with cluster-wide scope
+        - Once **Role** is created - bind users with *RoleBinding*
+            - *RoleBinding*
+                - bind users to same namespace as a Role.
+                ```bash
+                kind: RoleBinding
+                apiVersion: rbac.authorization.k8s.io/v1
+                metadata:
+                  name: pod-read-access
+                  namespace: lfs158
+                subjects:
+                - kind: User
+                  name: nkhare
+                  apiGroup: rbac.authorization.k8s.io
+                roleRef:
+                  kind: Role
+                  name: pod-reader
+                  apiGroup: rbac.authorization.k8s.io
+                ```
+                - user *nkhare* access to read Pods of **lfs158** Namespace.
+            - *ClusterRoleBinding*
+                - grant access to resources @ cluster-level and to all Namespaces.
 
+#### Admission Control
 
+Modules which modify/reject requests based on additional checks:
 
+- Ex: **Quota**
 
+![accessing-api](img/accessing-api.png)
 
+- Granular access control policies
+    - allowing privledged containers, checking resource quota, etc
+    - Resource Controllers:
+        - ResourceQuota, AlwaysAdmit, DefaultStorageClass, etc
+        - in effect only after API requests authenticated/authorized
+
+- enable admission controls:
+    - start k8s API server w/**admission-control**
+    - takes comma-delimited, ordered list of controller names
+    - `--admission-control=NamespaceLifecyl,ResourceQuota,PodSecurityPolicy,DefaultStorageClass`
+    - [Kubernetes documentation](https://kubernetes.io/docs/admin/admission-controllers/#defaultstorageclass)
+
+## Ch.9 Services
+
+### Objective:
+
+- Discuss the benefits of grouping Pods into Services to access an application.
+- Explain the role of the kube-proxy daemon running on each worker node.
+- Explore the Service discovery options available in Kubernetes.
+- Discuss different Service types.
+
+### Connecting Users to Pods
+
+- IP's assigned dynamically - Pods are ephemeral.
+
+![pod-ip-1](img/pod-ip-1.png)
+
+User/Client connected Pod dies - new Pod created. New Pod - New IP.
+
+![pod-ip-2](img/pod-ip-2.png)
+
+k8s provides **[Services](https://kubernetes.io/docs/concepts/services-networking/service/)** 
+
+- higher level abstraction than IP.
+- groups Pods and policy to access them.
+- grouping via **Labels** and **Selectors**.
+
+### Services
+
+- **app** keyword as Label.
+- **frontend** & **db** values for Pods
+
+![group-pods-1](img/group-pods-1.png)
+
+- Selectors (**app==frontend** & **app==db**)
+- groups into 2 logical groups:
+    - 1 w/3 Pods
+    - 1 w/1 Pod
+- assign name to logical grouping: **Service name**.
+- Ex:
+    - Two Services:
+        - **frontend-svc**
+            - selector: **app==frontend**
+        - **db-svc**
+            - selector: **app==db**
+
+![group-pods-2](img/group-pods-2.png)
+
+#### Service Object Example
+
+```bash
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend-svc
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+```
+
+Explain:
+
+- Service: **frontend-svc**
+- Selects Pods w/Label **app==frontend**
+- Each Service receives IP address by default
+    - routable only inside cluster
+    - In Example:
+        - **172.17.0.4** for **frontend-svc** Service
+        - **172.17.0.5** for **db-svc** Service
+    - IP address attached to Service known as ClusterIP for that Service.
+
+![service-object1](img/service-object-1.png)
+
+- User/Client connects to service via IP.
+- Service forwards traffic to one of attached Pods.
+    - Service load balances while selecting the Pods for forwarding.
+    - can select Port to forward
+        - Ex: 
+            - **frontend-svc** receives requests from user/client on Port **80**.
+            - **frontend-svc** forwards to Pod on Port **5000**.
+    - If no port designated:
+        - Service forwards on same port received
+- **Service endpoint**
+    - tuple of Pods, IP, targetPort
+    - Ex:
+        - **frontend-svc** has 3 endpoints:
+            - **10.0.1.3:5000**
+            - **10.0.1.4:5000**
+            - **10.0.1.5:5000**
+
+### kube-proxy
+
+- worker nodes run daemon called [kube-proxy](https://kubernetes.io/docs/concepts/services-networking/service/#virtual-ips-and-service-proxies)
+    - watches API server on master node for addition/removal of Services/endpoints.
+    - For each new Service, on each node, **kube-proxy** configures iptables to capture traffic for its ClusterIP & forwards to one of the endpoints.
+    - When Service removed:
+        - **kube-proxy** removes iptables rules on all nodes as well.
+
+![kube-proxy](img/kube-proxy.png)
+
+### Service Discovery
+
+Two methods for discovering Services:
+
+- **Environment Variables**
+    - @Pod Start, **kubelet** daemon on node adds env variables in Pod for all active Services.
+    - Ex:
+        - Service: **redis-master**; 
+        - exposes port **6379**
+        - ClusterIP 172.17.0.6
+        - then, new Pod:
+        ```bash
+        REDIS_MASTER_SERVICE_HOST=172.17.0.6
+        REDIS_MASTER_SERVICE_PORT=6379
+        REDIS_MASTER_PORT=tcp://172.17.0.6:6379
+        REDIS_MASTER_PORT_6379_TCP=tcp://172.17.0.6:6379
+        REDIS_MASTER_PORT_6379_TCP_PROTO=tcp
+        REDIS_MASTER_PORT_6379_TCP_PORT=6379
+        REDIS_MASTER_PORT_6379_TCP_ADDR=172.17.0.6
+        ```
+    - **Note**: Pods will not have env variables for Services created after Pod creation.
+- **DNS**
+    - most common; recommended.
+    - [addon](https://github.com/kubernetes/kubernetes/blob/master/cluster/addons/README.md) for [DNS](https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/dns).
+    - creates DNS record for each Service
+        - format: **my-svc.my-namespace.svc.cluster.local**
+    - Services w/same Namespace can talk.
+        - Ex:
+            - Service: **redis-master** in **my-ns** Namespace.
+            - All Pods in same Namespace can reach **redis** Service by using its name: **redis-master**
+            - Pods from other Namespaces can reach **redis-master** Service, by:
+                - Add respective Namespace as suffix: **redis-master.my-ns**.
+
+### ServiceType
+
+- Access scope decided by *ServiceType* - can be mentioned when creating Service.
+    - Is the Service:
+        - only accessible within the cluster?
+        - accessible from within the cluster and the external world?
+        - Maps to an external entity which resides outside the cluster?
+
+#### ClusterIP
+
+- default *ServiceType*
+- Service receives Virtual IP using ClusterIP.
+    - assigned IP used for communicating w/Service 
+    - accessible only within Cluster.
+
+#### NodePort
+
+- in addition to creating ClusterIP:
+    - port range 30000-32767 mapped to respective Service, from all worker nodes.
+    - Ex:
+        - mapped NodePort: **32233** for service **frontend-svc**
+        - connect to any worker node on **32233**
+        - node redirects all traffic to ClusterIP - **172.17.0.4**
+- Default: 
+    - when expose NodePort => random port auto-selected by k8s Master from range **30000-32767**.
+    - can assign specific port to avoid dynamic port value while creating service.
+
+![NodePort](img/nodeport.png)
+
+- **NodePort** *ServiceType* can make Services accessible to external world.
+    - end-user connects to worker nodes on specified port
+    - worker node forwards traffic to apps running inside cluster.
+    - admins can configure reverse proxy outside k8s cluster
+        - map specific endpoint to respective port on worker nodes
+
+#### LoadBalancer
+
+- NodePort & ClusterIP Services automatically created
+    - external load balancer will route to them
+- Services exposed @ static port on each worker node
+- Service exposed externally w/underlying cloud provider's load balance feature.
+
+![LoadBalancer](img/LoadBalancer.png)
+
+- **LoadBalancer** *ServiceType* only works if:
+    - underlying IaaS supports automatic creation of Load Balancers
+        - **and**
+    - support in k8s (GCP/AWS)
+
+#### ExternalIP
+
+- Service mapped to **ExternalIP** if it can route to one or more worker nodes.
+- Traffic ingressed with ExternalIP (as destination IP) on Service port is routed to one of the Service endpoints.
+
+![ExternalIP](img/ExternalIP.png)
+
+- Note: 
+    - ExternalIPs not managed by k8s.
+    - cluster admins configure routing to map ExternalIP address to one of the nodes.
+
+#### ExternalName
+
+- **ExternalName** special *ServiceType*
+    - no Selectors
+    - does not define any endpoints
+    - when accessed within cluster:
+        - returns **CNAME** record of externally configured Service.
+- make externally configured Services (**my-database.example.com**) available inside cluster
+    - requires just the name (like, **my-database**)
+    - available inside same Namespace
 
 
 
