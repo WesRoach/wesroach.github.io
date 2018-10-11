@@ -1092,9 +1092,298 @@ Two methods for discovering Services:
     - requires just the name (like, **my-database**)
     - available inside same Namespace
 
+## Ch.10 Deploying a Stand-Alone Application
+
+- Objective:
+    - Deploy an application from the dashboard.
+    - Deploy an application from a YAML file using kubectl.
+    - Expose a service using NodePort.
+    - Access the application from the external world.
+
+## Minikube GUI
+
+```bash
+minikube start
+minikube status
+minikube dashboard
+```
+
+- Deploy webserver usign nginx:alpine image:
+    - Dashboard:
+        - click: CREATE
+
+![deploy-containerized-app-web-gui](img/deploy-containerized-app-web-gui.png)
+
+- Tab: CREATE AN APP
+- Enter as seen:
+
+![deploy-containerized-app-web-gui-2](img/deploy-containerized-app-web-gui-2.png)
+
+- Click: DEPLOY
+
+![deploy-containerized-app-web-gui-3](img/deploy-containerized-app-web-gui-3.png)
+
+## kubectl CLI
+
+```bash
+kubectl get deployments
+kubectl get replicasets
+kubectl get pods
+```
+
+## Labels / Selectors
+
+```bash
+kubectl describe pod webserver-74d8bd488f-xxxxx
+kubectl get pods -L k8s-app,label2
+# -L option = add additional columns in output
+
+kubectl get pods -l k8s-app=webserver
+# -l option = selector
+```
+
+## Delete Deployment
+
+```bash
+kubectl delete deployments webserver
+# Also deletes ReplicaSets & Pods
+```
+
+## Deployment YAML
+
+- Create **webserver.yaml**
+
+```yml
+# webserver.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+```
+
+```bash
+kubectl create -f webserver.yaml
+```
+
+## Create / Expose w/NodePort
+
+- *ServiceTypes*: define access method for given Service.
+- With **NodePort** *ServiceType* k8s opens static port on all worker nodes.
+    - Connect to open static port from any node - forwarded to respective Service.
+
+Create **webserver-svc.yaml**:
+
+```yml
+# webserver-svc.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+  labels:
+    run: web-service
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: nginx 
+```
+```bash
+kubectl create -f webserver-svc.yaml
+```
+```bash
+kubectl get svc
+NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+kubernetes    ClusterIP   10.96.0.1        <none>        443/TCP        4d
+web-service   NodePort    10.108.132.106   <none>        80:31791/TCP   3m
+```
+
+- ClusterIP: 10.108.132.106
+- Port: 80:31791
+    - We've reserved static port 31791 on node.
+    - If connect to node on that port - request forwarded to ClusterIP on port 80.
+
+Deployment / Service creation can happen in any order.
+
+```bash
+kubectl describe svc web-service
+```
+
+**web-service** uses **app=nginx** as Selector, which selects the three Pods - listed as endpoints. So, whenever a request is sent to our Service - served by one of Pods listed in **Endpoints** section.
 
 
+## Access App Using Exposed NodePort
 
+```bash
+minikube ip
+```
+
+Open browser @ listed IP and `kubectl describe svc web-service` NodePort.
+
+**or**, at CLI:
+
+```bash
+minikube service web-service
+```
+
+## Liveness / Readiness Probes
+
+[Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/)
+
+- Liveness Probe
+    - checks application health
+        - if fails - restarts container
+    - Set by Defining:
+        - Liveness Command
+        - Liveness HTTP request
+        - TCP Liveness Probe
+
+### Liveness Command
+
+- Check existence of file **/tmp/healthy**:
+
+```yml
+# liveness-exec.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-exec
+spec:
+  containers:
+  - name: liveness
+    image: k8s.gcr.io/busybox
+    args:
+    - /bin/sh
+    - -c
+    - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+    livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+      initialDelaySeconds: 3
+      periodSeconds: 5
+```
+```bash
+kubectl create -f liveness-exec.yaml
+kubectl get pods 
+kubectl describe pod liveness-exec
+```
+- periodSeconds: **tmp/healthy** checked every 5 seconds.
+- initialDelaySeconds: requests kubelet to wait 3 seoncds before first probe.
+
+### Liveness HTTP Request
+
+- kubelet sends HTTP GET request to /healthz endpoint of application on port 8080.
+
+```bash
+# liveness-http.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-exec
+spec:
+  containers:
+  - name: liveness
+    image: k8s.gcr.io/busybox
+    args:
+    - /bin/sh
+    - -c
+    - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8080
+        httpHeaders:
+        - name: X-Custom-Header
+          value: Awesome
+      initialDelaySeconds: 3
+      periodSeconds: 3
+```
+
+### TCP Liveness Probe
+
+- kubelet attempts to open TCP socket to the container running application.
+
+```bash
+# liveness-tcp.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: liveness-exec
+spec:
+  containers:
+  - name: liveness
+    image: k8s.gcr.io/busybox
+    args:
+    - /bin/sh
+    - -c
+    - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
+```
+
+### Readiness Probes
+
+Application must meet conditions before receiving traffic.
+
+```bash
+# readiness-probe.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: readiness
+  name: readiness-exec
+spec:
+  containers:
+  - name: readiness
+    image: k8s.gcr.io/busybox
+    args:
+    - /bin/sh
+    - -c
+    - sleep 20; touch /tmp/healthy; sleep 20; rm -rf /tmp/healthy; sleep 600
+    readinessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+      initialDelaySeconds: 5
+      periodSeconds: 5
+```
 
 
 
