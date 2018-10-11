@@ -178,7 +178,7 @@ Terms:
 			- containerd directly - no Docker.
 		![cri-containerd](img/cri-containerd.png)
 
-		- CRI-O	
+		- CRI-O
 			- enables using Open Container Initiative (OCI) compatibile runtimes.
 			- supports runC & Clear Containers
 			- Any OCI-compliant runtime can be plugged-in.
@@ -305,9 +305,9 @@ In this mode, etcd is configured in a clustered mode, outside the Kubernetes clu
 
 ### Review Kubernetes installation tools and resources.
 
-#### [kubeadm](https://github.com/kubernetes/kubeadm) 
+#### [kubeadm](https://github.com/kubernetes/kubeadm)
 
-- first-class citizen in k8s ecosystem. 
+- first-class citizen in k8s ecosystem.
 - secure/recommended bootstrap of k8s.
 - Contains building blocks to setup cluster.
 - Easily extendable to add functionality.
@@ -598,7 +598,7 @@ TODO(Wes): Reduce
 
 ![pods](img/pods.png)
 
-- Ephemeral; 
+- Ephemeral;
 - can not self-heal
     - use with controllers
         - handle Pod's replication, fault tolerance, self-heal, etc
@@ -686,7 +686,7 @@ kube-system   Active       11h
 ```
 
 - k8s creates 2 default Namespaces:
-    - **kube-system** 
+    - **kube-system**
         - objects created by k8s system.
     - **default**
         - objects from any other Namespace.
@@ -699,13 +699,13 @@ kube-system   Active       11h
 
 ## Ch.8 Authentication, Authorization, Admission Control
 
-Objective: 
+Objective:
 
 - Discuss authentication, authorization, and access control stages of the Kubernetes API access.
 - Understand the different kinds of Kubernetes users.
 - Discuss the different modules for authentication and authorization.
 
-### Stages of k8s API access 
+### Stages of k8s API access
 
 #### Authentication
 Logs in user.
@@ -743,7 +743,7 @@ Logs in user.
         - cert auths in file validate client certs presented to API server.
         - Demo Video: <!-- TODO(Wes): Add video -->
 - **Static Token File**
-    - pass file w/pre-defined bearer tokens 
+    - pass file w/pre-defined bearer tokens
         - pass with `--token-auth-file=SOMEFILE` option to API server.
         - these tokens last indefinitely.
         - cannot change w/o restarting API server
@@ -773,7 +773,7 @@ Logs in user.
 
 
 #### Authorization
-    
+
 Authorizes API requests.
 
 - After Authentication, users send API requests to perform operations.
@@ -905,7 +905,7 @@ User/Client connected Pod dies - new Pod created. New Pod - New IP.
 
 ![pod-ip-2](img/pod-ip-2.png)
 
-k8s provides **[Services](https://kubernetes.io/docs/concepts/services-networking/service/)** 
+k8s provides **[Services](https://kubernetes.io/docs/concepts/services-networking/service/)**
 
 - higher level abstraction than IP.
 - groups Pods and policy to access them.
@@ -965,7 +965,7 @@ Explain:
 - Service forwards traffic to one of attached Pods.
     - Service load balances while selecting the Pods for forwarding.
     - can select Port to forward
-        - Ex: 
+        - Ex:
             - **frontend-svc** receives requests from user/client on Port **80**.
             - **frontend-svc** forwards to Pod on Port **5000**.
     - If no port designated:
@@ -995,7 +995,7 @@ Two methods for discovering Services:
 - **Environment Variables**
     - @Pod Start, **kubelet** daemon on node adds env variables in Pod for all active Services.
     - Ex:
-        - Service: **redis-master**; 
+        - Service: **redis-master**;
         - exposes port **6379**
         - ClusterIP 172.17.0.6
         - then, new Pod:
@@ -1033,7 +1033,7 @@ Two methods for discovering Services:
 
 - default *ServiceType*
 - Service receives Virtual IP using ClusterIP.
-    - assigned IP used for communicating w/Service 
+    - assigned IP used for communicating w/Service
     - accessible only within Cluster.
 
 #### NodePort
@@ -1044,7 +1044,7 @@ Two methods for discovering Services:
         - mapped NodePort: **32233** for service **frontend-svc**
         - connect to any worker node on **32233**
         - node redirects all traffic to ClusterIP - **172.17.0.4**
-- Default: 
+- Default:
     - when expose NodePort => random port auto-selected by k8s Master from range **30000-32767**.
     - can assign specific port to avoid dynamic port value while creating service.
 
@@ -1077,7 +1077,7 @@ Two methods for discovering Services:
 
 ![ExternalIP](img/ExternalIP.png)
 
-- Note: 
+- Note:
     - ExternalIPs not managed by k8s.
     - cluster admins configure routing to map ExternalIP address to one of the nodes.
 
@@ -1206,7 +1206,7 @@ spec:
   - port: 80
     protocol: TCP
   selector:
-    app: nginx 
+    app: nginx
 ```
 ```bash
 kubectl create -f webserver-svc.yaml
@@ -1289,7 +1289,7 @@ spec:
 ```
 ```bash
 kubectl create -f liveness-exec.yaml
-kubectl get pods 
+kubectl get pods
 kubectl describe pod liveness-exec
 ```
 - periodSeconds: **tmp/healthy** checked every 5 seconds.
@@ -1384,6 +1384,104 @@ spec:
       initialDelaySeconds: 5
       periodSeconds: 5
 ```
+
+## Ch.11 Kubernetes Volume Management
+
+- Explain the need for persistent data management.
+- Discuss Kubernetes Volume and its types.
+- Discuss PersistentVolumes and PersistentVolumeClaims.
+
+### Volumes
+
+Containers, and their data, are ephemeral.  Solve with Volumes.
+
+![podvolume](img/podvolume.png)
+
+- Volume attached to a Pod, shared among containers in Pod.
+- Volume has same life span as Pod.
+    - Outlives containers of Pod.
+    - Data preserved across container restart.
+
+### Volume Types
+
+Directory mounted in Pod backed by underlying Volume Type - decides properties of directory (size, content, etc).
+
+- **emptyDir**
+    - **empty** Volume created for Pod as soon as it's scheduled on worker node.
+    - Volume life coupled with Pod.
+    - Pod dies - content of **emptyDir** deleted.
+- **hostPath**
+    - share a directory from the host to Pod.
+    - Pod dies - content of Volume available on host.
+- **gcePersistentDisk**
+    - mount [Google Compute Engine (GCE) persistent disk](https://cloud.google.com/compute/docs/disks/) into Pod.
+- **awsElasticBlockStore**
+    - mount [AWS EBS Volume](https://aws.amazon.com/ebs/) into Pod.
+- **nfs**
+    - mount NFS share into Pod.
+- **iscsi**
+    - mount iSCSI share into Pod.
+- **secret**
+    - pass sensitive information (passwords) to Pods.
+- **persistentVolumeClaim**
+    - attach [PersistentVolume](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) to Pod.
+
+[Kubernetes Volume Types](https://kubernetes.io/docs/concepts/storage/volumes/)
+
+#### Persistent Volumes
+
+Network-attached storage in the cluster - provisioned by admin.
+
+- **PersistentVolume (PV)** subsystem
+    - provides APIs for users/admins to manage / consume storage.
+    - Manage: PersistentVolume API resource type.
+    - Consume: PersistentVolumeClaim API resource type.
+
+![pv](img/pv.png)
+
+- PersistentVolumes can be dynamically provisioned based on StorageClass resource.
+- StorageClass contains pre-defined provisioners and parameters to create a PersistentVolume.
+- Using PersistentVolumeClaims:
+    - User sends request for dynamic PV creation.
+        - wired to StorageClass resource.
+- Volume Types that support managing using PersistentVolumes:
+    - GCEPersistentDisk
+    - AWSElasticBlockStore
+    - AzureFile
+    - NFS
+    - iSCSI
+    - Complete List: [Kubernetes Documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes)
+
+#### PersistentVolumeClaims
+
+- **PersistentVolumeClaim (PVC)** is user request for storage.
+- User requests for PersistentVolume resources based on size, access models, etc.
+- Once suitable PersistentVolume is found:
+    - bound to a PersistentVolumeClaim.
+
+![pvc1](img/pvc1.png)
+
+After successful bound, PersistentVolumeClaim resource can be used in Pod.
+
+![pvc2](img/pvc2.png)
+
+When finished - attached PersistentVolumes can be released, reclaimed, recycled.
+
+See [Kubernetes Documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims).
+
+#### Container Storage Interface (CSI)
+
+- Container orchestrators (k8s, Mesos, Docker, etc) each have unqiue method of managing external storage using Volumes.
+- Storage Vendors can't keep up with differences.
+    - Let's standardize!
+        - [**Container Storage Interface** specifications](https://github.com/container-storage-interface/spec/blob/master/spec.md).
+
+
+
+
+
+
+
 
 
 
