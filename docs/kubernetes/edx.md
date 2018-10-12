@@ -1476,6 +1476,219 @@ See [Kubernetes Documentation](https://kubernetes.io/docs/concepts/storage/persi
     - Let's standardize!
         - [**Container Storage Interface** specifications](https://github.com/container-storage-interface/spec/blob/master/spec.md).
 
+## Ch.12 Deploying a Multi-Tier Application
+
+- Analyze a sample multi-tier application.
+- Deploy a multi-tier application.
+- Scale an application.
+
+### RSVP Application
+
+- users register for event.
+    - provide username/email.
+- name/email goes in table.
+- App:
+    - backend database: MongoDB
+    - frontend: Python Flask-based
+
+![rsvp](img/rsvp.png)
+
+Code: [github](https://github.com/cloudyuga/rsvpapp)
+- rsvp.py
+    - look for MONGODB_HOST env variable for db endpoint.
+    - connect to it on port 27017
+
+```bash
+MONGODB_HOST=os.environ.get('MONGODB_HOST', 'localhost')
+client = MongoCLient(MONGODB_HOST, 27017)
+```
+
+- Deploy with 1 backend / 1 frontend
+- then, scale
+
+
+#### Backend
+
+```bash
+# rsvp-db.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rsvp-db
+  labels:
+    appdb: rsvpdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      appdb: rsvpdb
+  template:
+    metadata:
+      labels:
+        appdb: rsvpdb
+    spec:
+      containers:
+      - name: rsvp-db
+        image: mongo:3.3
+        ports:
+        - containerPort: 27017
+```
+
+```bash
+kubectl create -f rsvp-db.yaml
+```
+
+Create **mongodb** service.
+
+```bash
+# rsvp-db-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  labels:
+    app: rsvpdb
+spec:
+  ports:
+  - port: 27017
+    protocol: TCP
+  selector:
+    appdb: rsvpdb
+```
+```bash
+kubectl create -f rsvp-db-service.yaml
+```
+
+- did not specify *ServiceType*
+    - **mongodb** has default ClusterIP *ServiceType*.
+    - **mongodb** will not be accessible from external world.
+
+```bash
+kubectl get deployments
+```
+
+```bash
+kubectl get services
+```
+
+#### Frontend
+
+- using [Python Flask-based microframework](http://flask.pocoo.org/)
+    - source: [https://raw.githubusercontent.com/cloudyuga/rsvpapp/master/rsvp.py](https://raw.githubusercontent.com/cloudyuga/rsvpapp/master/rsvp.py)
+    - Docker image: [teamcloudyuga/rsvpapp](https://hub.docker.com/r/teamcloudyuga/rsvpapp/)
+    - Dockerfile to create teamcloudyuga/rsvpapp: [https://raw.githubusercontent.com/cloudyuga/rsvpapp/master/Dockerfile](https://raw.githubusercontent.com/cloudyuga/rsvpapp/master/Dockerfile)
+
+Create Deployment for **rsvp** Frontend.
+
+```bash
+# rsvp-web.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rsvp
+  labels:
+    app: rsvp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rsvp
+  template:
+    metadata:
+      labels:
+        app: rsvp
+    spec:
+      containers:
+      - name: rsvp-app
+        image: teamcloudyuga/rsvpapp
+        env:
+        - name: MONGODB_HOST
+          value: mongodb
+        ports:
+        - containerPort: 5000
+          name: web-port
+```
+
+```bash
+kubectl create -f rsvp-web.yaml
+```
+
+- passing name of MongoDB Service, **mongodb**, as env variable.
+    - expected by frontend
+- Note Ports:
+    - containerPort **5000**
+    - name: **web-port**
+    - Can change underlying **containerPort** without making changes Service.
+
+Create Service for **rsvp** Frontend.
+
+```bash
+# rsvp-web-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rsvp
+  labels:
+    app: rsvp
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: web-port
+    protocol: TCP
+  selector:
+    app: rsvp
+```
+
+```bash
+kubectl create -f rsvp-web-service.yaml
+```
+
+- Note:
+    - **targetPort** in **ports** section.
+        - forwards requests on port **80** for ClusterIP to **web-port** port (5000) on connected Pods.
+
+Look @ available deployments and services:
+
+```bash
+kubectl get deployments
+kubectl get services
+```
+
+#### Access RSVP Application
+
+```bash
+minikube ip
+# NodePort Port
+kubectl get services
+```
+**OR**
+```bash
+minikube service rsvp
+```
+
+![rsvpapp1](img/rsvpapp1.png)
+
+#### Scale Frontend
+
+Scale from 1 to 4 replicas:
+
+```bash
+kubectl scale deployment rsvp --replicas=3
+kubectl get deployments
+```
+
+Refreshing site will show multiple Host: rsvp-xxx-xxx as routed to different endpoints.
+
+
+
+
+
+
 
 
 
