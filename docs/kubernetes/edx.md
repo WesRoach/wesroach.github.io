@@ -630,11 +630,12 @@ ReplicaSet detects; creates Pod
 
 ![replicaSet](img/replicaSet-3.png)
 
-ReplicaSets can be independent; mostly used by Deployments to orchestrate Pod creation, deletion, updates.  Deployment automatically creates ReplicaSets.
+ReplicaSets can be independent; mostly used by Deployments to orchestrate Pod creation, deletion, updates.
 
 #### [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
 - object
+- automatically creates ReplicaSets.
 - provides declarative updates to Pods and ReplicaSets.
 - DeploymentController part of master node's controller manager.
 - assures curret state == desired state.
@@ -1685,20 +1686,508 @@ kubectl get deployments
 Refreshing site will show multiple Host: rsvp-xxx-xxx as routed to different endpoints.
 
 
+## Ch.13 ConfigMaps and Secrets
+
+- Discuss configuration management for applications in Kubernetes using ConfigMaps.
+- Share sensitive data (such as passwords) using Secrets.
+
+### [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+
+- decouples config details from container image.
+- pass as key-value pairs
+    - later consumed by Pods, controllers, other system components, etc.
+- Create by:
+    - literal value
+    - files
+
+#### Create **ConfigMap** @ CLI
+
+```bash
+kubectl create configmap my-config --from-literal=key1=value1 --from-literal=key2=value2
+```
+
+#### Get **ConfigMap** Details
+
+```bash
+kubectl get configmaps my-config -o yaml
+```
+
+#### Create **ConfigMap** from file.
+
+```bash
+# customer1-configmap.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: customer1
+data:
+  TEXT1: Customer1_Company
+  TEXT2: Welcomes You
+  COMPANY: Customer1 Company Technology Pct. Ltd.
+```
+
+```bash
+kubectl create -f customer1-configmap.yaml
+```
+
+#### Use ConfigMap in Pods
+
+While creating deployment - assign values for env variables from **customer1** ConfigMap:
+
+```bash
+# container
+....
+  containers:
+      - name: rsvp-app
+        image: teamcloudyuga/rsvpapp
+        env:
+        - name: MONGODB_HOST
+          value: mongodb
+        - name: TEXT1
+          valueFrom:
+            configMapKeyRef:
+              name: customer1
+              key: TEXT1
+        - name: TEXT2
+          valueFrom:
+            configMapKeyRef:
+              name: customer1
+              key: TEXT2
+        - name: COMPANY
+          valueFrom:
+            configMapKeyRef:
+              name: customer1
+              key: COMPANY
+....
+```
+
+- **TEXT1** env var: "Customer1_Company"
+- **TEXT2** env var: "Welcomes You"
 
 
+#### Mount ConfigMap as Volume
+
+- [Kubernetes documentation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#adding-configmap-data-to-a-volume) on **ConfigMaps**.
+- For Each key:
+    - file in mount path is **key**
+    - content of file becomes **value**
+
+### [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+
+- Shares sensitive info (pws, tokens, keys)
+- passed as key-value pairs
+- Secret objects are *referenced* in Deployments.
+- Secret data stored as plain text inside **etcd**.
+
+```bash
+kubectl create secret generic my-password --from-literal=password=my3q1p@ssw0rd
+```
+
+```bash
+kubectl get secret my-password
+kubectl describe secret my-password
+```
+
+#### Create Secret Manually
+
+With Secrets, each object must be encoded using base64.
+
+```bash
+echo mysqlpassword | base64
+```
+
+Use **base64** encoded password in config file:
+
+```bash
+# my-password.yaml
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-password
+type: Opaque
+data:
+  password: bXlzcWxwYXNzd29yZAo=
+```
+
+**base64** != encryption:
+
+```bash
+echo "bXlzcWxwYXNzd29yZAo=" | base64 --decode
+```
+
+#### Use Secrets Inside Pods
+
+- expose as env variable
+    - **or**
+- mount as data volume
+
+##### Environment Variable
+
+Reference a Secret & assign value of its key as env variable **WORDPRESS_DB_PASSWORD**:
+
+```bash
+.....
+    spec:
+      containers:
+      - image: wordpress:4.7.3-apache
+        name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: wordpress-mysql
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-password
+              key: password
+.....
+```
+
+##### Mount as Volume
+
+- Secrets as Files from Pod:
+    - mount Secret as Volume inside Pod.
+    - file created for each key in Secret
+        - contents = value
+
+[Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod)
 
 
+## Ch.14 Ingress
+
+- Objective:
+    - Explain what Ingress and Ingress Controllers are.
+    - Learn when to use Ingress.
+    - Access an application from the external world using Ingress.
 
 
+[Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) allows updates to app w/o worrying about external access.
+
+> "An Ingress is a collection of rules that allow inbound connections to reach the cluster Services."
+
+- Ingress configures Layer 7 HTTP load balancer for Services.
+- Provides:
+    - TLS (Transport Layer Security)
+    - Name-based virtual hosting
+    - Path-based routing
+    - Custom roles
+
+![ingress_updated](img/ingress_updated.png)
+
+- Users don't connect directly to Service.
+- Users reach Ingress endpoint, forwarded to respective Service.
+
+```bash
+# webserver-ingress.yaml
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web-ingress
+  namespace: default
+spec:
+  rules:
+  - host: blue.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: webserver-blue-svc
+          servicePort: 80
+  - host: green.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: webserver-green-svc
+          servicePort: 80
+```
+
+- Above, Example of Name-Based Virtual Hosting Ingress rule:
+    - User requests to both **blue.example.com** & **green.example.com** routed to same Ingress endpoint.
+    - forwarded to **webserver-blue-svc** & **webserver-green-svn**, respectively.
+
+- Below, Example of Fan Out Ingress rules:
+    - requests: **example.com/blue** & **example.com/green**
+    - forwarded: **webserver-blue-svc** & **webserver-green-svc**, respectively.
+
+![Ingress_URL_mapping](img/Ingress_URL_mapping.png)
 
 
+### Ingress Controller
 
+- [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers) watches Master Node's API server for changes in Ingress resources
+    - updates Layer 7 Load Balancer accordingly.
+- k8s has several Ingress Controllers:
+    - [GCE L7 Load Balancer](https://github.com/kubernetes/ingress-gce/blob/master/README.md)
+    - [Nginx Ingress Controller](https://github.com/kubernetes/ingress-nginx/blob/master/README.md)
+    - can also build your own
 
+#### Start Ingress Controller w/Minikube
 
+Minikube v0.14.0+ contains Nginx Ingress Controller setup as addon:
 
+```bash
+minikube addons enable ingress
+```
 
+#### Deploy Ingress Resource
 
+```bash
+# webserver-ingress.yaml
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web-ingress
+  namespace: default
+spec:
+  rules:
+  - host: blue.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: webserver-blue-svc
+          servicePort: 80
+  - host: green.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: webserver-green-svc
+          servicePort: 80
+```
+
+```bash
+kubectl create -f webserver-ingress.yaml
+```
+
+#### Access Services Using Ingress
+
+- Should now have access to:
+    - **webserver-blue-svc** & **webserver-green-svc**
+        - **via**
+    - **blue.example.com** & **green.example.com**
+
+Setup on Minikube (local VM), update host config file (**/etc/hosts** on Mac/Linux):
+
+```bash
+minikube ip
+192.168.99.100
+
+cat /etc/hosts
+127.0.0.1        localhost
+::1              localhost
+192.168.99.100   blue.example.com green.example.com
+```
+
+## Ch.15 Advanced Topics
+
+### [Annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
+
+- Attach arbitrary non-identifying metadata to any objects, K-V
+
+```json
+"annotations": {
+  "key1" : "value1",
+  "key2" : "value2"
+}
+```
+
+- Not used to ID/select objects, instead:
+    - Store buid/release IDs, PR numbers, git branch ,etc
+    - Phone/pager numbers of people responsible, directory entries specifying where that info can be found
+    - Pointers to logging, monitoring, analytics, audit repositories, debugging tools, etc.
+    - Etc
+
+Ex: While Create Deployment, add description like:
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: webserver
+  annotations:
+    description: Deployment based PoC dates 2nd June'2017
+....
+```
+
+Look @ annotations while describing object:
+
+```bash
+kubectl describe deployment webserver
+Name:                webserver
+Namespace:           default
+CreationTimestamp:   Sat, 03 Jun 2017 05:10:38 +0530
+Labels:              app=webserver
+Annotations:         deployment.kubernetes.io/revision=1
+                     description=Deployment based PoC dates 2nd June'2017
+...
+```
+
+### Deployment Features
+
+Record Deployment, revert if wrecks.
+
+![rolback1](img/rolback1.png)
+
+If recorded Deployment before update, revert back to known working state:
+
+![ROLLBACK2](img/ROLLBACK2.png)
+
+- [Deployment Object](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#scaling-a-deployment) also provides:
+    - Autoscaling
+    - Proportional scaling
+    - Pausing and resuming.
+
+### [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#what-is-a-job)
+
+- Creates 1+ Pods to perform task.
+- Job object takes responsibility of Pod failures.
+- Assures task completed successfully.
+- Task complete - Pods terminate automatically.
+- Can be scheduled for times/dates. [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+
+### Quota Management
+
+- [ResourceQuota](https://kubernetes.io/docs/concepts/policy/resource-quotas/) object.
+- Provides contraints that limit aggregate resource consumption per Namespace.
+- Types of Quotas per Namespace:
+    - **Compute Resource Quota**
+        - limit total sum of compute resources (CPU, memory, etc) which can be requested in Namespace.
+    - **Storage Resource Quota**
+        - Limit sum of storage resources (PersistentVolumeClaims, requests.storage, etc).
+    - **Object Count Quota**
+        - Restrict # objects of given type (Pods, ConfigMaps, PersistentVolumeClaims, ReplicationControllers, Services, Secrets, etc).
+
+### [DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+
+- DaemonSet object allows:
+    - collecting monitoring data from all nodes.
+    - running storage daemon on all nodes.
+    - etc.
+    - specific type of Pod running on all nodes at all times.
+- When Node added to Cluster:
+    - Pod from given DaemonSet created on it.
+- When Node dies
+    - Respective Pods garbage collected.
+- If DaemonSet deleted - all Pods it created are deleted as well.
+
+### StatefulSets
+
+- StatefulSet controller used for apps requiring unique identity:
+    - name
+    - network identifications
+    - strict ordering
+    - etc, Ex:
+        - **MySQL cluster**, **etcd cluster**
+- Provides ID and guaranteed ordering of deployment and scaling of Pods.
+
+### [Kubernetes Cluster Federation](https://kubernetes.io/docs/concepts/cluster-administration/federation/)
+
+- Manage multiple k8s clusters from single control plane.
+- Sync resources across clusters & cross-cluster discovery.
+- Allows Deployments across regions, and access using global DNS record.
+- Useful w/hybrid solutions:
+    - Cluster inside private datacenter.
+        - **and**
+    - Cluster on public cloud.
+- Can assign weights for each cluster in the Federation - distribute load.
+
+### Custom Resources
+
+- A **resource** is an API endpoint which stores a collection of API objects.
+    - Ex: Pod resource contains all Pod objects.
+- k8s existing resources fullfill most requirements.
+- Can create new resources using **custom resources**
+    - dynamic in nature
+        - appear/disappear in already running cluster @ anytime.
+- Make resource declarative:
+    - create/install **custom controller**
+        - interprets resource structure
+        - performs required actions
+        - can be deployed/managed in pre-running clusters
+- Two Methods to Add Custom Resources:
+    - [Custom Resource Definitions (CRDs)](https://kubernetes.io/docs/concepts/api-extension/custom-resources/)
+        - Easiest
+        - doesn't require programming knowledge
+        - building custom controller would require some programming
+    - [API Aggregation](https://kubernetes.io/docs/concepts/api-extension/apiserver-aggregation/)
+        - Fine grained control
+        - subordinate API servers
+        - sit behind primary API server & act as proxy
+
+### [Helm](https://github.com/kubernetes/helm)
+
+- k8s manifests:
+    - Deployments
+    - Services
+    - Volume Claims
+    - Ingress
+    - etc
+- *Chart*
+    - Can bundle manifests after templatizing them into well-defined format, along with other metadata.
+    - can be served via repositories
+        - like **rpm** & **deb** packages.
+- Helm:
+    - Package manager (like **yum** & **apt**) for k8s.
+    - install/update/delete Charts in k8s cluster.
+    - Two components:
+        - Client - *Helm* - runs on user's workstation.
+        - Server - *tiller* - runs inside k8s cluster.
+        - Client *helm* connects to server *tiller* to manage Charts.
+- [Github Helm Charts](https://github.com/kubernetes/charts)
+
+### Monitoring and Logging
+
+Collect resource usage data by Pods, Services, nodes, etc to determine scaling decisions.
+
+- **[Heapster](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-usage-monitoring/)**
+    - cluster-wide aggregator of monitoring & event data
+    - native k8s support
+- **[Prometheus](https://prometheus.io/)**
+    - part of [CNCF](https://www.cncf.io/)
+    - can be used to gather resource usage from k8s components and objects.
+    - Using client libraries - can instrument code of app.
+
+Logging important for debugging - collected from objects, nodes, etc.
+
+- [Elasticsearch](https://kubernetes.io/docs/tasks/debug-application-cluster/logging-elasticsearch-kibana/)
+    - Uses [fluentd](http://www.fluentd.org/) w/custom config as an agent on nodes.
+        - open source data collector.
+        - part for CNCF.
+
+## Ch.16 Community
+
+- Understand the importance of Kubernetes community.
+- Learn about the different channels to interact with the Kubernetes community.
+- List major CNCF events.
+
+[K8sPort](http://k8sport.org/)
+    - recognizes / rewards community members
+
+- Weekly Meetings using video conference tools.
+    - [https://groups.google.com/forum/#!forum/kubernetes-community-video-chat](https://groups.google.com/forum/#!forum/kubernetes-community-video-chat)
+- Meetup Groups
+    - [https://www.meetup.com/topics/kubernetes/](https://www.meetup.com/topics/kubernetes/)
+- Slack Channels: **#kubernetes-users**
+- Mailing Lists
+    - [Users](https://groups.google.com/forum/#!forum/kubernetes-users)
+    - [Developers](https://groups.google.com/forum/#!forum/kubernetes-dev)
+- Special Interest Groups
+    - Scheduling, authorization, networking, documentation, etc
+    - [Existing SIGs](https://github.com/kubernetes/community/blob/master/sig-list.md)
+    - [New SIG Creation](https://github.com/kubernetes/community/blob/master/sig-governance.md#sig-creation-procedure)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/kubernetes)
+- [CNCF Events](https://www.cncf.io/events/)
+    - Three of the major conferences it organizes are:
+        - KubeCon + CloudNativeCon Europe
+        - KubeCon + CloudNativeCon North America
+        - KubeCon + CloudNativeCon China.
+
+Next Course:
+- [Kubernetes Fundamentals](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-fundamentals)
+- [Kubernetes Administrator](https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-administration)
+- [Certified Kubernetes Adminsitrator Exam](https://www.cncf.io/certification/expert/cka/)
+- [Certified Kubernetes Application Developer Program](https://www.cncf.io/certification/expert/cka/ckad/)
 
 
 
