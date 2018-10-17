@@ -1,2 +1,5 @@
 # ignore build site
 site/
+
+# ignore files
+*.glue
