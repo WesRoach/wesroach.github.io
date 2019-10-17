@@ -53,9 +53,169 @@ def agg_func(x):
         )
     )
 
-%%timeit
+
 ddf.groupby(["bene_id", "hdr_icn"]).apply(
     agg_func, meta={"rot1": "str", "rot2": "str", "rot3": "str"}
 ).compute()
-len(ddf.dask)
+```
+
+We can condense some of this code down by passing a list of columns to agg_func.
+
+```python
+import pandas as pd
+import dask.dataframe as dd
+import numpy as np
+
+
+def convert_dates_to_strings(df, date_columns: list, date_format) -> dd.DataFrame:
+    for col in date_columns:
+        df[col] = df[col].dt.strftime(date_format)
+        df[col] = df[col].replace("01011800", "")
+    return df
+    
+
+df = pd.DataFrame(
+    {
+        "bene_id": ["1", "1", "1", "1", "1"],
+        "hdr_icn": ["1", "1", "2", "2", "2"],
+        "rot1": ["A", "B", "C", " ", "E"],
+        "rot2": ["X", "Y", "Z", " ", " "],
+        "rot3": [
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+        ],
+    }
+)
+ddf = dd.from_pandas(df, 4)
+ddf = convert_dates_to_strings(ddf, ["rot3"], "%m%d%Y")
+ddf = ddf.set_index("bene_id").persist()
+
+
+def agg_func(x, cols):
+    return pd.Series({col: ";".join(x[col]) for col in cols})
+
+
+ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"]).compute()
+```
+
+We can further reduce runtime by providing agg_func with the expected "meta" output from .apply(...)
+
+```python
+import pandas as pd
+import dask.dataframe as dd
+import numpy as np
+
+
+def convert_dates_to_strings(df, date_columns: list, date_format) -> dd.DataFrame:
+    for col in date_columns:
+        df[col] = df[col].dt.strftime(date_format)
+        df[col] = df[col].replace("01011800", "")
+    return df
+    
+
+df = pd.DataFrame(
+    {
+        "bene_id": ["1", "1", "1", "1", "1"],
+        "hdr_icn": ["1", "1", "2", "2", "2"],
+        "rot1": ["A", "B", "C", " ", "E"],
+        "rot2": ["X", "Y", "Z", " ", " "],
+        "rot3": [
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+        ],
+    }
+)
+ddf = dd.from_pandas(df, 4)
+ddf = convert_dates_to_strings(ddf, ["rot3"], "%m%d%Y")
+ddf = ddf.set_index("bene_id").persist()
+
+
+def agg_func(x, cols):
+    return pd.Series({col: ";".join(x[col]) for col in cols})
+
+
+ddf_meta = pd.DataFrame(
+    columns=["rot1", "rot2", "rot3"],
+    index=pd.MultiIndex(
+        levels=[["a", "b"], ["foo"]], codes=[[], []], names=["bene_id", "hdr_icn"]
+    ),
+)
+ddf_meta = ddf_meta.astype(dtype={"rot1": "str", "rot2": "str", "rot3": "str"})
+
+ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"]).compute()
+```
+
+The creation of ddf_meta looks like a wizard wrote it, but there's a simple way to generate.
+
+```python
+import pandas as pd
+import dask.dataframe as dd
+import numpy as np
+
+
+def convert_dates_to_strings(df, date_columns: list, date_format) -> dd.DataFrame:
+    for col in date_columns:
+        df[col] = df[col].dt.strftime(date_format)
+        df[col] = df[col].replace("01011800", "")
+    return df
+    
+
+df = pd.DataFrame(
+    {
+        "bene_id": ["1", "1", "1", "1", "1"],
+        "hdr_icn": ["1", "1", "2", "2", "2"],
+        "rot1": ["A", "B", "C", " ", "E"],
+        "rot2": ["X", "Y", "Z", " ", " "],
+        "rot3": [
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+            pd.to_datetime("2018-01-01"),
+        ],
+    }
+)
+ddf = dd.from_pandas(df, 4)
+ddf = convert_dates_to_strings(ddf, ["rot3"], "%m%d%Y")
+ddf = ddf.set_index("bene_id").persist()
+
+
+def agg_func(x, cols):
+    return pd.Series({col: ";".join(x[col]) for col in cols})
+
+
+# On a subset of data, pass the groupby object to dask.dataframe.utils.make_meta()
+ddf_meta = dd.utils.make_meta(ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"]))
+# You can view what you'll need to use as the meta object by accessing ddf_meta & ddf_meta.index
+>> ddf_meta
+Empty DataFrame
+Columns: [rot1, rot2, rot3]
+Index: []
+
+>> ddf_meta.index
+MultiIndex(levels=[['a', 'b'], ['foo']],
+           codes=[[], []],
+           names=['bene_id', 'hdr_icn'])
+
+# The ddf_meta object obviously wont be available @ runtime - we use the output to manually define
+# the object's properties
+           
+typed_ddf_meta = pd.DataFrame(
+    columns=["rot1", "rot2", "rot3"],
+    index=pd.MultiIndex(
+        levels=[["a", "b"], ["foo"]], codes=[[], []], names=["bene_id", "hdr_icn"]
+    ),
+)
+typed_ddf_meta = ddf_meta.astype(dtype={"rot1": "str", "rot2": "str", "rot3": "str"})
+
+# note that the output of typed_ddf_meta and ddf_meta are equivalent
+
+# you can now pass typed_ddf_meta as the meta object to .apply() - you should notice a marginal speedup
+ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"], meta=typed_ddf_meta).compute()
 ```
