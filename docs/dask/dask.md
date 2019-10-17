@@ -140,18 +140,37 @@ def agg_func(x, cols):
     return pd.Series({col: ";".join(x[col]) for col in cols})
 
 
-ddf_meta = pd.DataFrame(
+# On a subset of data, pass the groupby object to dask.dataframe.utils.make_meta()
+ddf_meta = dd.utils.make_meta(ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"]))
+# You can view what you'll need to use as the meta object by accessing ddf_meta & ddf_meta.index
+>> ddf_meta
+Empty DataFrame
+Columns: [rot1, rot2, rot3]
+Index: []
+
+>> ddf_meta.index
+MultiIndex(levels=[['a', 'b'], ['foo']],
+           codes=[[], []],
+           names=['bene_id', 'hdr_icn'])
+
+# The ddf_meta object obviously wont be available @ runtime - we use the output to manually define
+# the object's properties
+           
+typed_ddf_meta = pd.DataFrame(
     columns=["rot1", "rot2", "rot3"],
     index=pd.MultiIndex(
         levels=[["a", "b"], ["foo"]], codes=[[], []], names=["bene_id", "hdr_icn"]
     ),
 )
-ddf_meta = ddf_meta.astype(dtype={"rot1": "str", "rot2": "str", "rot3": "str"})
+typed_ddf_meta = ddf_meta.astype(dtype={"rot1": "str", "rot2": "str", "rot3": "str"})
 
-ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"]).compute()
+# note that the output of typed_ddf_meta and ddf_meta are equivalent
+
+# you can now pass typed_ddf_meta as the meta object to .apply() - you should notice a marginal speedup
+ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"], meta=typed_ddf_meta).compute()
 ```
 
-The creation of ddf_meta looks like a wizard wrote it, but there's a simple way to generate.
+It wouldn't make sense to run the .groupby() @ runtime, every time, to generate the meta_ddf information, so we'll define it by hand below:
 
 ```python
 import pandas as pd
@@ -190,32 +209,18 @@ def agg_func(x, cols):
     return pd.Series({col: ";".join(x[col]) for col in cols})
 
 
-# On a subset of data, pass the groupby object to dask.dataframe.utils.make_meta()
-ddf_meta = dd.utils.make_meta(ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"]))
-# You can view what you'll need to use as the meta object by accessing ddf_meta & ddf_meta.index
->> ddf_meta
-Empty DataFrame
-Columns: [rot1, rot2, rot3]
-Index: []
-
->> ddf_meta.index
-MultiIndex(levels=[['a', 'b'], ['foo']],
-           codes=[[], []],
-           names=['bene_id', 'hdr_icn'])
-
-# The ddf_meta object obviously wont be available @ runtime - we use the output to manually define
-# the object's properties
-           
-typed_ddf_meta = pd.DataFrame(
+# Create ddf_meta object representing expected output from .apply()
+ddf_meta = pd.DataFrame(
     columns=["rot1", "rot2", "rot3"],
     index=pd.MultiIndex(
         levels=[["a", "b"], ["foo"]], codes=[[], []], names=["bene_id", "hdr_icn"]
     ),
 )
-typed_ddf_meta = ddf_meta.astype(dtype={"rot1": "str", "rot2": "str", "rot3": "str"})
+ddf_meta = ddf_meta.astype(dtype={"rot1": "str", "rot2": "str", "rot3": "str"})
 
-# note that the output of typed_ddf_meta and ddf_meta are equivalent
-
-# you can now pass typed_ddf_meta as the meta object to .apply() - you should notice a marginal speedup
-ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"], meta=typed_ddf_meta).compute()
+# Pass ddf_meta to .apply(..., meta=ddf_meta)
+ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"], meta=ddf_meta).compute()
 ```
+
+
+
