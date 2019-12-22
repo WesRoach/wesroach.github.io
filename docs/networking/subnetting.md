@@ -5,13 +5,13 @@
 - Notes on [https://www.youtube.com/watch?v=vcArZIAmnYQ&list=PLSNNzog5eydt_plAtt3k_LYuIXrAS4aDZ](https://www.youtube.com/watch?v=vcArZIAmnYQ&list=PLSNNzog5eydt_plAtt3k_LYuIXrAS4aDZ)
 
 Class|First Octet decimal (range)|First Octet binary (range)|IP Range|Subnet Mask|Hosts per Network ID|# of Networks
--|-|-|-|-|-|-|-
+-|-|-|-|-|-|-
 Class A|0-127|0XXXXXXX|0.0.0.0 - 127.255.255.255|255.0.0.0|2<sup>24</sup>-2|2<sup>7</sup>
 Class B|128-191|10XXXXXX|128.0.0.0 - 191.255.255.255|255.255.0.0|2<sup>16</sup>-2|2<sup>14</sup>
 Class C|192-223|110XXXXX|192.0.0.0 - 223.255.255.255|255.255.255.0|2<sup>8<sup>-2|2<sup>21</sup>
 Class D (Multicast)|224-239|1110XXXX|224.0.0.0 - 239.255.255.255||
 Class E (Experimental)|240-255|1111XXXX|240.0.0.0 - 255.255.255.255||
-||||||h = 2<sup>x</sup>-2|n = 2<sup>y</sup>
+|||||h = 2<sup>x</sup>-2|n = 2<sup>y</sup>
 
 - h = 2<sup>x</sup>-2 ; `x` is the number of 0's (in binary) in the subnet mask
 - n = 2<sup>y</sup> ; `y` is the number of 1's (in binary) in the subnet mask - only including _unfixed_ values.
