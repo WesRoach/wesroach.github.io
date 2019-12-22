@@ -4,7 +4,7 @@ site_description: ''
 site_author: 'Wes Roach'
 site_url: 'http://mkdocs.wesroach.com'
 
-pages:
+nav:
   - Home: index.md
   - Python:
     - 10Apps: python/10apps.md
@@ -37,6 +37,7 @@ theme:
     code: 'Roboto Mono'
   feature:
     tabs: false
+use_directory_urls: false
 
 # Customization
 extra:
