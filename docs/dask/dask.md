@@ -222,5 +222,89 @@ ddf_meta = ddf_meta.astype(dtype={"rot1": "str", "rot2": "str", "rot3": "str"})
 ddf.groupby(["bene_id", "hdr_icn"]).apply(agg_func, ["rot1", "rot2", "rot3"], meta=ddf_meta).compute()
 ```
 
+## Joining on Index + Separate Column
 
+### Setup Data
 
+```python
+import pandas as pd
+import dask.dataframe as dd
+
+from io import StringIO
+
+ddf1_string = StringIO(
+    """hdr_icn_num,ver,col1
+1,1,foo
+2,1,foo
+3,1,foo
+4,1,foo
+5,1,foo
+    """
+)
+ddf1 = dd.from_pandas(pd.read_csv(ddf1_string, sep=","), 5)
+ddf1 = ddf1.set_index("hdr_icn_num")
+
+ddf2_string = StringIO(
+    """hdr_icn_num,ver,col2,col3
+1,1,bar!,baz
+1,2,X,X
+2,1,bar!,
+2,2,X,X
+3,1,bar!,baz
+3,2,X,X
+4,1,bar!,
+4,2,X,X
+5,1,bar!,baz
+5,2,X,X
+    """
+)
+
+ddf2 = dd.from_pandas(pd.read_csv(ddf2_string, sep=",", keep_default_na=False), 5)
+ddf2 = ddf2.set_index("hdr_icn_num")
+
+ddf1.head(10, ddf1.npartitions)
+
+ddf2.head(10, ddf2.npartitions)
+```
+
+### Works
+
+```python
+join_df = dd.merge(
+    left=ddf1,
+    right=ddf2,
+    on=["hdr_icn_num"],
+    left_on=["hdr_icn_num", "ver"],
+    right_on=["hdr_icn_num", "ver"],
+    how="left",
+)
+join_df.head(10, join_df.npartitions)
+```
+
+### Works
+
+```python
+join_df = dd.merge(
+    left=ddf1,
+    right=ddf2,
+    left_on=["hdr_icn_num", "ver"],
+    right_on=["hdr_icn_num", "ver"],
+    how="left",
+)
+join_df.head(10, join_df.npartitions)
+```
+
+### Does Not Work
+
+```python
+join_df = dd.merge(
+    left=ddf1,
+    right=ddf2,
+    left_index=True,
+    right_index=True,
+    left_on=["ver"],
+    right_on=["ver"],
+    how="left",
+)
+join_df.head(10, join_df.npartitions)
+```
