@@ -313,6 +313,8 @@ join_df.head(10, join_df.npartitions)
 
 # Run on Scheduler
 
+`client.run_on_scheduler` takes a custom function. The custom function should include an argument `dask_scheduler` if the custom function requires access to the Scheduler object and its [API](https://distributed.dask.org/en/latest/scheduling-state.html#distributed.scheduler.Scheduler).
+
 ```python
 client = Client("etcetc")
 
@@ -330,4 +332,25 @@ def kill_task_across_clients(dask_sheduler, task_key):
         dask_scheduler.cancel_key(key=task_key, client=client)
     
 task_stream = client.run_on_scheduler(get_task_stream)
+
+def user_info() -> dict:
+    """
+    Returns dict of user information for the current process.
+
+    Returns: Dict
+    """
+    import os
+    import getpass
+
+    return dict(
+        uid=os.geteuid(),
+        gid=os.getgid(),
+        egid=os.getegid(),
+        groups=os.getgroups(),
+        user=getpass.getuser(),
+    )
+
+# Retrieve user info for the scheduler owner
+client.run_on_scheduler(user_info)
+user_info()
 ```
