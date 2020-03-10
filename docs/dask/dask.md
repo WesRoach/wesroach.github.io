@@ -308,3 +308,26 @@ join_df = dd.merge(
 )
 join_df.head(10, join_df.npartitions)
 ```
+
+## Task / Scheduler Notes
+
+# Run on Scheduler
+
+```python
+client = Client("etcetc")
+
+# shows tasks on workers
+client.has_what()
+
+def get_task_stream(dask_scheduler):
+    # Shows tasks that have been run/submitted in the past?
+    return dask_scheduler.get_task_stream() 
+    
+def kill_task_across_clients(dask_sheduler, task_key):
+    # Kill some task that exist w/some client
+    # task_key == 'etc_etc-c07efb0ea6dd8c15df9a948ccd19e28c'
+    for client in dask_scheduler.clients:
+        dask_scheduler.cancel_key(key=task_key, client=client)
+    
+task_stream = client.run_on_scheduler(get_task_stream)
+```
