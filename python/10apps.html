@@ -1,0 +1,1838 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Wes Roach">
+      
+      
+        <link rel="canonical" href="http://mkdocs.wesroach.com/python/10apps.html">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+    
+    
+      
+        <title>10Apps - Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e35208c4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113461484-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#learn-python-by-building-10-apps" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Notes" class="md-header__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10Apps
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/WesRoach/mkdocs-wesroach/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    WesRoach/mkdocs-wesroach
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Notes" class="md-nav__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Notes
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/WesRoach/mkdocs-wesroach/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    WesRoach/mkdocs-wesroach
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Python
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="python.html" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          10Apps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="10apps.html" class="md-nav__link md-nav__link--active">
+        10Apps
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accept-user-input" class="md-nav__link">
+    Accept user input
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-else-statements" class="md-nav__link">
+    if / else statements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while-loops" class="md-nav__link">
+    while loops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-formatting" class="md-nav__link">
+    string formatting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    functions
+  </a>
+  
+    <nav class="md-nav" aria-label="functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app3-birthday" class="md-nav__link">
+    App3 - birthday
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dates" class="md-nav__link">
+    dates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#times" class="md-nav__link">
+    times
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timespans" class="md-nav__link">
+    timespans
+  </a>
+  
+    <nav class="md-nav" aria-label="timespans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app4" class="md-nav__link">
+    App4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-files-modules" class="md-nav__link">
+    multiple files / modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-io" class="md-nav__link">
+    file i/o
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-independent-path-management" class="md-nav__link">
+    os independent path management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-in-loops" class="md-nav__link">
+    for-in loops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterators" class="md-nav__link">
+    iterators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_-_name_-_" class="md-nav__link">
+    _ _name_ _
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doc-strings" class="md-nav__link">
+    doc strings
+  </a>
+  
+    <nav class="md-nav" aria-label="doc strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app5" class="md-nav__link">
+    App5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screen-scraping" class="md-nav__link">
+    screen scraping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-requests" class="md-nav__link">
+    http requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-environments" class="md-nav__link">
+    virtual environments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuples-and-named-tuples" class="md-nav__link">
+    tuples and named tuples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beautiful-soup-package" class="md-nav__link">
+    beautiful soup package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slicing" class="md-nav__link">
+    slicing
+  </a>
+  
+    <nav class="md-nav" aria-label="slicing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app6" class="md-nav__link">
+    App6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-clients-binary-data" class="md-nav__link">
+    http clients (binary data)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subprocesses-platform" class="md-nav__link">
+    subprocesses / platform
+  </a>
+  
+    <nav class="md-nav" aria-label="subprocesses / platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app-7" class="md-nav__link">
+    App 7
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duck-typing-and-polymorphism" class="md-nav__link">
+    duck typing and polymorphism
+  </a>
+  
+    <nav class="md-nav" aria-label="duck typing and polymorphism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app8" class="md-nav__link">
+    App8
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-methods" class="md-nav__link">
+    generator methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yield-from" class="md-nav__link">
+    yield from
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursion" class="md-nav__link">
+    recursion
+  </a>
+  
+    <nav class="md-nav" aria-label="recursion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app9" class="md-nav__link">
+    App9
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionaries" class="md-nav__link">
+    dictionaries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-methods" class="md-nav__link">
+    lambda methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv-file-format-and-parsing" class="md-nav__link">
+    csv file format and parsing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-for-python-3-and-2" class="md-nav__link">
+    coding for python 3 and 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-comprehensions" class="md-nav__link">
+    list comprehensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-expressions" class="md-nav__link">
+    generator expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-pipelines" class="md-nav__link">
+    data pipelines
+  </a>
+  
+    <nav class="md-nav" aria-label="data pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app10" class="md-nav__link">
+    App10
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-and-exception-handling" class="md-nav__link">
+    error and exception handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-except" class="md-nav__link">
+    try / except
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-errors-by-type" class="md-nav__link">
+    handling errors by type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raising-errors" class="md-nav__link">
+    raising errors
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/pandas.html" class="md-nav__link">
+        Pandas
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dask/dask.html" class="md-nav__link">
+        Dask
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Kubernetes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/edx.html" class="md-nav__link">
+        EDx
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sas/sas.html" class="md-nav__link">
+        SAS
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Networking
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Networking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/osi.html" class="md-nav__link">
+        OSI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/arp.html" class="md-nav__link">
+        ARP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networking/subnetting.html" class="md-nav__link">
+        Subnetting
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license.html" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#accept-user-input" class="md-nav__link">
+    Accept user input
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-else-statements" class="md-nav__link">
+    if / else statements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while-loops" class="md-nav__link">
+    while loops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-formatting" class="md-nav__link">
+    string formatting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    functions
+  </a>
+  
+    <nav class="md-nav" aria-label="functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app3-birthday" class="md-nav__link">
+    App3 - birthday
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dates" class="md-nav__link">
+    dates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#times" class="md-nav__link">
+    times
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timespans" class="md-nav__link">
+    timespans
+  </a>
+  
+    <nav class="md-nav" aria-label="timespans">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app4" class="md-nav__link">
+    App4
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-files-modules" class="md-nav__link">
+    multiple files / modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-io" class="md-nav__link">
+    file i/o
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-independent-path-management" class="md-nav__link">
+    os independent path management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-in-loops" class="md-nav__link">
+    for-in loops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iterators" class="md-nav__link">
+    iterators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_-_name_-_" class="md-nav__link">
+    _ _name_ _
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doc-strings" class="md-nav__link">
+    doc strings
+  </a>
+  
+    <nav class="md-nav" aria-label="doc strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app5" class="md-nav__link">
+    App5
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#screen-scraping" class="md-nav__link">
+    screen scraping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-requests" class="md-nav__link">
+    http requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-environments" class="md-nav__link">
+    virtual environments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuples-and-named-tuples" class="md-nav__link">
+    tuples and named tuples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beautiful-soup-package" class="md-nav__link">
+    beautiful soup package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slicing" class="md-nav__link">
+    slicing
+  </a>
+  
+    <nav class="md-nav" aria-label="slicing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app6" class="md-nav__link">
+    App6
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-clients-binary-data" class="md-nav__link">
+    http clients (binary data)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subprocesses-platform" class="md-nav__link">
+    subprocesses / platform
+  </a>
+  
+    <nav class="md-nav" aria-label="subprocesses / platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app-7" class="md-nav__link">
+    App 7
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duck-typing-and-polymorphism" class="md-nav__link">
+    duck typing and polymorphism
+  </a>
+  
+    <nav class="md-nav" aria-label="duck typing and polymorphism">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app8" class="md-nav__link">
+    App8
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-methods" class="md-nav__link">
+    generator methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yield-from" class="md-nav__link">
+    yield from
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursion" class="md-nav__link">
+    recursion
+  </a>
+  
+    <nav class="md-nav" aria-label="recursion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app9" class="md-nav__link">
+    App9
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionaries" class="md-nav__link">
+    dictionaries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-methods" class="md-nav__link">
+    lambda methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csv-file-format-and-parsing" class="md-nav__link">
+    csv file format and parsing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-for-python-3-and-2" class="md-nav__link">
+    coding for python 3 and 2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-comprehensions" class="md-nav__link">
+    list comprehensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generator-expressions" class="md-nav__link">
+    generator expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-pipelines" class="md-nav__link">
+    data pipelines
+  </a>
+  
+    <nav class="md-nav" aria-label="data pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app10" class="md-nav__link">
+    App10
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-and-exception-handling" class="md-nav__link">
+    error and exception handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-except" class="md-nav__link">
+    try / except
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-errors-by-type" class="md-nav__link">
+    handling errors by type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raising-errors" class="md-nav__link">
+    raising errors
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/WesRoach/mkdocs-wesroach/edit/master/docs/python/10apps.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="learn-python-by-building-10-apps">Learn Python by Building 10 Apps<a class="headerlink" href="#learn-python-by-building-10-apps" title="Permanent link">&para;</a></h1>
+<h2 id="accept-user-input">Accept user input<a class="headerlink" href="#accept-user-input" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Prompt: &quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="if-else-statements">if / else statements<a class="headerlink" href="#if-else-statements" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">condition</span> <span class="ow">and</span> <span class="n">condition</span> <span class="ow">or</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
+<span class="k">elif</span> <span class="n">conidtion</span> <span class="ow">or</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
+</code></pre></div>
+<h2 id="while-loops">while loops<a class="headerlink" href="#while-loops" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
+</code></pre></div>
+<h2 id="string-formatting">string formatting<a class="headerlink" href="#string-formatting" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Wes&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="functions">functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+    <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
+    <span class="k">return</span> <span class="n">new_thing</span>
+</code></pre></div>
+<h3 id="app3-birthday">App3 - birthday<a class="headerlink" href="#app3-birthday" title="Permanent link">&para;</a></h3>
+<h2 id="dates">dates<a class="headerlink" href="#dates" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="c1"># date = datetime.date(year, month, day)</span>
+<span class="n">May_1_2018</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">days_difference</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span> <span class="o">-</span> <span class="n">May_1_2018</span><span class="o">.</span><span class="n">day</span>
+</code></pre></div>
+<h2 id="times">times<a class="headerlink" href="#times" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<h2 id="timespans">timespans<a class="headerlink" href="#timespans" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<h3 id="app4">App4<a class="headerlink" href="#app4" title="Permanent link">&para;</a></h3>
+<h2 id="multiple-files-modules">multiple files / modules<a class="headerlink" href="#multiple-files-modules" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<h2 id="file-io">file i/o<a class="headerlink" href="#file-io" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;journals&#39;</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.jrl&#39;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">fin</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+            <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">journal_data</span><span class="p">:</span>
+        <span class="n">fout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">entry</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="os-independent-path-management">os independent path management<a class="headerlink" href="#os-independent-path-management" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;journals&#39;</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.jrl&#39;</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="for-in-loops">for-in loops<a class="headerlink" href="#for-in-loops" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="iterators">iterators<a class="headerlink" href="#iterators" title="Permanent link">&para;</a></h2>
+<p><img alt="datacamp-iterator" src="http://res.cloudinary.com/dyd911kmh/image/upload/f_auto,q_auto:best/v1517824971/python-iterators-tutorial_2x_z24ygb.png" /></p>
+<h2 id="_-_name_-_">_ _name_ _<a class="headerlink" href="#_-_name_-_" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="doc-strings">doc strings<a class="headerlink" href="#doc-strings" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method creates and loads a new journal.</span>
+
+<span class="sd">    :param name: The base name of the journal to load.</span>
+<span class="sd">    :return: A new journal data structure populated with the file data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div>
+<h3 id="app5">App5<a class="headerlink" href="#app5" title="Permanent link">&para;</a></h3>
+<h2 id="screen-scraping">screen scraping<a class="headerlink" href="#screen-scraping" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">bs4</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.wunderground.com/weather-forecast/72202&#39;</span>
+
+<span class="c1"># get page</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># parse html (reponse.text) into DOM</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+<span class="c1"># get location, condition, temp, scale (F vs C)</span>
+<span class="n">loc</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;region-content-header&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<span class="n">condition</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;condition-icon&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;wu-unit-temperature&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+    <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;wu-value&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;wu-unit-temperature&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
+    <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;wu-label&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="http-requests">http requests<a class="headerlink" href="#http-requests" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.wunderground.com/weather-forecast/72202&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="virtual-environments">virtual environments<a class="headerlink" href="#virtual-environments" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<h2 id="tuples-and-named-tuples">tuples and named tuples<a class="headerlink" href="#tuples-and-named-tuples" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="mf">22.5</span><span class="p">,</span> <span class="mf">44.234</span><span class="p">,</span> <span class="mf">19.02</span><span class="p">,</span> <span class="s1">&#39;strong&#39;</span><span class="p">)</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">quality</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mf">22.5</span><span class="p">,</span> <span class="mf">44.234</span><span class="p">,</span> <span class="mf">19.02</span><span class="p">,</span> <span class="s1">&#39;strong&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c1"># (22.5, 44.234, 19.02, &#39;strong&#39;) </span>
+
+<span class="n">t</span><span class="p">,</span> <span class="n">la</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">m</span>
+<span class="c1"># t=22.5, la=44.234, lo=19.02, q=&#39;strong&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="n">WeatherReport</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s1">&#39;Measurement&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;temp, lat, long, quality&#39;</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Measurement</span><span class="p">(</span><span class="mf">22.5</span><span class="p">,</span> <span class="mf">44.234</span><span class="p">,</span> <span class="mf">19.02</span><span class="p">,</span> <span class="s1">&#39;strong&#39;</span><span class="p">)</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">temp</span>
+<span class="n">quality</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">quality</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1">#  Measurement(temp=22.5, lat=44.234, long=19.02, quality=&#39;strong&#39;)</span>
+</code></pre></div>
+<h2 id="beautiful-soup-package">beautiful soup package<a class="headerlink" href="#beautiful-soup-package" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bs4</span>
+
+<span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">reponse</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="slicing">slicing<a class="headerlink" href="#slicing" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+
+<span class="n">first_prime</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># 2</span>
+<span class="n">last_prime</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 23</span>
+
+<span class="n">lowest_four</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># [2, 3, 5, 7]</span>
+<span class="n">lowest_four</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># [2, 3, 5, 7]</span>
+
+<span class="n">Middle</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>  <span class="c1"># [7, 11, 13]</span>
+
+<span class="n">last_four</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>  <span class="c1"># [13, 17, 19, 23]</span>
+<span class="n">last_four</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span>  <span class="c1"># [13, 17, 19, 23]</span>
+
+<span class="n">last_four</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span>  <span class="c1"># [13, 17, 19, 23]</span>
+</code></pre></div>
+<h3 id="app6">App6<a class="headerlink" href="#app6" title="Permanent link">&para;</a></h3>
+<h2 id="http-clients-binary-data">http clients (binary data)<a class="headerlink" href="#http-clients-binary-data" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">get_cat</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://consuming-python-services-api.azurewebsites.net/cats/random&#39;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">get_data_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">save_image</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_data_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">raw</span>
+
+<span class="k">def</span> <span class="nf">save_image</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.jpg&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="subprocesses-platform">subprocesses / platform<a class="headerlink" href="#subprocesses-platform" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">platform</span>
+<span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">])</span>
+<span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Windows&#39;</span><span class="p">:</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;explorer&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">])</span>
+<span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Linux&#39;</span><span class="p">:</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;xdg-open&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We don&#39;t support your os: &quot;</span> <span class="o">+</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">())</span>
+</code></pre></div>
+<h3 id="app-7">App 7<a class="headerlink" href="#app-7" title="Permanent link">&para;</a></h3>
+<h2 id="classes">classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Creature</span><span class="p">:</span>
+    <span class="c1"># initializer</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Creature </span><span class="si">{}</span><span class="s2"> of level </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> walks around&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="inheritance">inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Creature</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">scale_thickness</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span> <span class="c1"># initializer for Creature</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale_thickness</span> <span class="o">=</span> <span class="n">scale_thickness</span>
+
+    <span class="k">def</span> <span class="nf">breath_fire</span><span class="p">():</span> <span class="o">...</span>
+</code></pre></div>
+<h2 id="duck-typing-and-polymorphism">duck typing and polymorphism<a class="headerlink" href="#duck-typing-and-polymorphism" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># all types derive from Creature</span>
+<span class="n">creatures</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">SmallAnimal</span><span class="p">(</span><span class="s1">&#39;Toad&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">Creature</span><span class="p">(</span><span class="s1">&#39;Tiger&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+        <span class="n">SmallAnimal</span><span class="p">(</span><span class="s1">&#39;Bat&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="n">Dragon</span><span class="p">(</span><span class="s1">&#39;Dragon&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">),</span>
+        <span class="n">Wizard</span><span class="p">(</span><span class="s1">&#39;Evil Wizard&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">wiard</span> <span class="o">=</span> <span class="n">Wizard</span><span class="p">(</span><span class="s1">&#39;Gandolf&#39;</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">creatures</span><span class="p">:</span>
+    <span class="n">wizard</span><span class="o">.</span><span class="n">attack</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># Wizard knows how to battle any type of Creature</span>
+
+<span class="c1"># Duck Typing</span>
+<span class="c1"># &quot;If it looks/acts like a Duck -- it&#39;s a duck&quot;</span>
+<span class="c1"># wizard.attack(c) in most languages would require &#39;c&#39;</span>
+<span class="c1"># to have inherited from Creature, given that .attack()</span>
+<span class="c1"># takes a creature. Python&#39;s Duck Typing takes</span>
+<span class="c1"># &#39;things that look like creatures&#39;</span>
+</code></pre></div>
+<h3 id="app8">App8<a class="headerlink" href="#app8" title="Permanent link">&para;</a></h3>
+<h2 id="generator-methods">generator methods<a class="headerlink" href="#generator-methods" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># yield makes fibonacci a generator method</span>
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">limit</span><span class="p">):</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">next</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># after item is returned and processed,</span>
+    <span class="c1"># execution returns and resumes</span>
+    <span class="k">while</span> <span class="n">current</span> <span class="o">&lt;</span> <span class="n">limit</span><span class="p">:</span>
+        <span class="n">current</span><span class="p">,</span> <span class="nb">next</span> <span class="o">=</span> <span class="nb">next</span><span class="p">,</span> <span class="nb">next</span> <span class="o">+</span> <span class="n">current</span>
+        <span class="k">yield</span> <span class="n">current</span>
+        <span class="c1"># yield keyword returns one element of a sequence</span>
+</code></pre></div>
+<h2 id="yield-from">yield from<a class="headerlink" href="#yield-from" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">search_folders</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="c1"># for macOS if .DS_Store error</span>
+    <span class="c1"># glob.glob(os.path.join(folder, &#39;*&#39;))</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="n">full_item</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">full_item</span><span class="p">):</span>
+            <span class="k">yield from</span> <span class="n">search_folders</span><span class="p">(</span><span class="n">full_item</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">yield from</span> <span class="n">search_file</span><span class="p">(</span><span class="n">full_item</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">search_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">search_text</span><span class="p">):</span>
+    <span class="c1"># matches = []</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+
+        <span class="n">line_num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fin</span><span class="p">:</span>
+            <span class="n">line_num</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">search_text</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="n">SearchResult</span><span class="p">(</span><span class="n">line</span><span class="o">=</span><span class="n">line_num</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">line</span><span class="p">)</span>
+                <span class="k">yield</span> <span class="n">m</span>
+</code></pre></div>
+<h2 id="recursion">recursion<a class="headerlink" href="#recursion" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># base case - break out of loop</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="app9">App9<a class="headerlink" href="#app9" title="Permanent link">&para;</a></h3>
+<h2 id="dictionaries">dictionaries<a class="headerlink" href="#dictionaries" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">info</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">info</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">info</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Italy&#39;</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;Italy&#39;</span><span class="p">)</span>
+<span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="s1">&#39;Italy&#39;</span><span class="p">}</span>
+
+<span class="n">location</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="s1">&#39;age&#39;</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>  <span class="c1"># test for key</span>
+    <span class="c1"># use info[&#39;age&#39;]</span>
+</code></pre></div>
+<h2 id="lambda-methods">lambda methods<a class="headerlink" href="#lambda-methods" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_sig_nums</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">predicate</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">predicate</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">n</span>
+
+<span class="n">number</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">]</span>
+<span class="n">sig</span> <span class="o">=</span> <span class="n">find_sig_nums</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># sig -&gt; [1, 1, 3, 5, 13, 21]</span>
+</code></pre></div>
+<h2 id="csv-file-format-and-parsing">csv file format and parsing<a class="headerlink" href="#csv-file-format-and-parsing" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Purchase</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">street</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">zipcode</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">beds</span><span class="p">,</span> <span class="n">baths</span><span class="p">,</span> <span class="n">sq__ft</span><span class="p">,</span>
+                 <span class="n">home_type</span><span class="p">,</span> <span class="n">sale_date</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">longitude</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="n">latitude</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sale_date</span> <span class="o">=</span> <span class="n">sale_date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">home_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sq__ft</span> <span class="o">=</span> <span class="n">sq__ft</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baths</span> <span class="o">=</span> <span class="n">baths</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beds</span> <span class="o">=</span> <span class="n">beds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zip</span> <span class="o">=</span> <span class="n">zipcode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">street</span> <span class="o">=</span> <span class="n">street</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">create_from_dict</span><span class="p">(</span><span class="n">lookup</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Purchase</span><span class="p">(</span>
+            <span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;street&#39;</span><span class="p">],</span>
+            <span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">],</span>
+            <span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;zip&#39;</span><span class="p">],</span>
+            <span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">],</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;beds&#39;</span><span class="p">]),</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;baths&#39;</span><span class="p">]),</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;sq__ft&#39;</span><span class="p">]),</span>
+            <span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">],</span>
+            <span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;sale_date&#39;</span><span class="p">],</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]),</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">])</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">load_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+        <span class="n">purchases</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">Purchase</span><span class="o">.</span><span class="n">create_from_dict</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="n">purchases</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">purchases</span>
+</code></pre></div>
+<h2 id="coding-for-python-3-and-2">coding for python 3 and 2<a class="headerlink" href="#coding-for-python-3-and-2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">statistics</span> <span class="c1"># only Python 3.4.3+</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">statistics_2_stand_in</span> <span class="k">as</span> <span class="nn">statistics</span>
+
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">the_avg</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="c1"># statistics_2_stand_in.py</span>
+<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="c1"># your implementation of mean here...</span>
+    <span class="k">return</span> <span class="n">avg</span>
+</code></pre></div>
+<h2 id="list-comprehensions">list comprehensions<a class="headerlink" href="#list-comprehensions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">paying_usernames</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">u</span><span class="o">.</span><span class="n">name</span>                          <span class="c1"># projection</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">get_active_customers</span><span class="p">()</span> <span class="c1"># source</span>
+    <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">last_purchase</span> <span class="o">==</span> <span class="n">today</span>     <span class="c1"># filter</span>
+<span class="p">]</span>
+</code></pre></div>
+<h2 id="generator-expressions">generator expressions<a class="headerlink" href="#generator-expressions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># works like generator methods / yield</span>
+<span class="n">paying_usernames</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">u</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">get_active_customers</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">last_purchase</span> <span class="o">==</span> <span class="n">today</span>
+<span class="p">)</span>
+
+<span class="c1"># You can not index into generators</span>
+</code></pre></div>
+<h2 id="data-pipelines">data pipelines<a class="headerlink" href="#data-pipelines" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">all_transactions</span> <span class="o">=</span> <span class="n">get_tx_stream</span><span class="p">()</span>
+
+<span class="n">interesting_tx</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">tx</span>
+    <span class="k">for</span> <span class="n">tx</span> <span class="ow">in</span> <span class="n">all_transactions</span>  <span class="c1"># calls transaction stream</span>
+    <span class="k">if</span> <span class="n">is_interesting</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">potentially_sellable_tx</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">tx</span>
+    <span class="k">for</span> <span class="n">tx</span> <span class="ow">in</span> <span class="n">interesting_tx</span>  <span class="c1"># calls above</span>
+    <span class="k">if</span> <span class="n">is_sellable</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">nearby_sellable_interesting_tx</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">tx</span>
+    <span class="k">for</span> <span class="n">tx</span> <span class="ow">in</span> <span class="n">potentially_sellable_tx</span>  <span class="c1"># calls above</span>
+    <span class="k">if</span> <span class="n">is_nearby</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="app10">App10<a class="headerlink" href="#app10" title="Permanent link">&para;</a></h3>
+<h2 id="error-and-exception-handling">error and exception handling<a class="headerlink" href="#error-and-exception-handling" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">search_text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">search_text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Search text is required.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="try-except">try / except<a class="headerlink" href="#try-except" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">method1</span><span class="p">()</span>
+    <span class="n">method2</span><span class="p">()</span>
+    <span class="n">method3</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">ConnectionError</span> <span class="k">as</span> <span class="n">ce</span><span class="p">:</span>
+    <span class="c1"># handle network error</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span>
+    <span class="c1"># handle general error</span>
+</code></pre></div>
+<h2 id="handling-errors-by-type">handling errors by type<a class="headerlink" href="#handling-errors-by-type" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Movie search text (x to exit): &quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">search</span> <span class="o">!=</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">movie_svc</span><span class="o">.</span><span class="n">find_movies</span><span class="p">(</span><span class="n">search</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found </span><span class="si">{}</span><span class="s2"> results.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> -- </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">r</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">title</span>
+            <span class="p">))</span>
+        <span class="nb">print</span><span class="p">()</span>
+<span class="c1"># Order from more specfic to more general</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Search text is required.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Your network is down.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unexpected error. Details: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div>
+<h2 id="raising-errors">raising errors<a class="headerlink" href="#raising-errors" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_movies</span><span class="p">(</span><span class="n">search_text</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">search_text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">search_text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Search text is required.&quot;</span><span class="p">)</span>
+        <span class="c1"># raise will immediately return from function with error</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="python.html" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              General
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../pandas/pandas.html" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Pandas
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 Wes Roach
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/WesRoach" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/WesRoach" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/wes-roach/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>
