@@ -1,11 +1,12 @@
 # Project information
-site_name: 'Notes'
+site_name: ''
 site_description: ''
 site_author: 'Wes Roach'
-site_url: 'http://mkdocs.wesroach.com'
+site_url: 'http://wesroach.dev'
 
 nav:
-  - Home: index.md
+  - Summary: index.md
+  - About Me: about.md
   - Python:
     - 10Apps: python/10apps.md
   - Pandas: pandas/pandas.md
@@ -20,8 +21,8 @@ nav:
   - License: license.md
 
 # Repository
-repo_name: 'WesRoach/mkdocs-wesroach'
-repo_url: 'https://github.com/WesRoach/mkdocs-wesroach'
+repo_name: 'WesRoach/wesroach.github.io'
+repo_url: 'https://github.com/WesRoach/wesroach.github.io'
 
 # Copyright
 copyright: 'Copyright &copy; 2021 Wes Roach'
