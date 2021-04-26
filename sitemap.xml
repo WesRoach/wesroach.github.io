@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>http://mkdocs.wesroach.com/index.html</loc>
+     <loc>http://wesroach.dev/index.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/python/10apps.html</loc>
+     <loc>http://wesroach.dev/about.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/pandas/pandas.html</loc>
+     <loc>http://wesroach.dev/python/10apps.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/dask/dask.html</loc>
+     <loc>http://wesroach.dev/pandas/pandas.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/kubernetes/edx.html</loc>
+     <loc>http://wesroach.dev/dask/dask.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/sas/sas.html</loc>
+     <loc>http://wesroach.dev/kubernetes/edx.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/networking/osi.html</loc>
+     <loc>http://wesroach.dev/sas/sas.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/networking/arp.html</loc>
+     <loc>http://wesroach.dev/networking/osi.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/networking/subnetting.html</loc>
+     <loc>http://wesroach.dev/networking/arp.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://mkdocs.wesroach.com/license.html</loc>
+     <loc>http://wesroach.dev/networking/subnetting.html</loc>
+     <lastmod>2021-04-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>http://wesroach.dev/license.html</loc>
      <lastmod>2021-04-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
