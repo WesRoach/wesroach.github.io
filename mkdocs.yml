@@ -9,6 +9,7 @@ nav:
   - Python:
     - 10Apps: python/10apps.md
   - Pandas: pandas/pandas.md
+  - Dask: dask/dask.md
   - Kubernetes:
     - EDx: kubernetes/edx.md
   - SAS: sas/sas.md
@@ -23,7 +24,7 @@ repo_name: 'WesRoach/mkdocs-wesroach'
 repo_url: 'https://github.com/WesRoach/mkdocs-wesroach'
 
 # Copyright
-copyright: 'Copyright &copy; 2018 Wes Roach'
+copyright: 'Copyright &copy; 2021 Wes Roach'
 
 # Configuration
 theme:
@@ -42,15 +43,15 @@ use_directory_urls: false
 # Customization
 extra:
   social:
-    - type: 'github'
+    - icon: fontawesome/brands/github-alt
       link: 'https://github.com/WesRoach'
-    - type: 'twitter'
+    - icon: fontawesome/brands/twitter
       link: 'https://twitter.com/WesRoach'
-    - type: 'linkedin'
+    - icon: fontawesome/brands/linkedin
       link: 'https://www.linkedin.com/in/wes-roach/'
   search:
     tokenizer: '[\s\-\.]+'
-  disqus: 'mkdocs-material' # site_url must be set
+
 
 # Google Analytics
 google_analytics:
