@@ -1,5 +1,7 @@
 # wesroach.github.io
 
+[wesroach.dev](wesroach.dev)
+
 ## Deploy
 
 ```bash
