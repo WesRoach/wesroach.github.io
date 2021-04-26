@@ -1,3 +1,21 @@
-# mkdocs-wesroach
+# wesroach.github.io
 
-[mkdocs.wesroach.com](http://mkdocs.wesroach.com)
+## Deploy
+
+```bash
+mkdocs gh-deploy
+```
+
+## Local Development
+
+### Build
+
+```bash
+mkdocs build
+```
+
+### Serve
+
+```bash
+mkdocs serve
+```
