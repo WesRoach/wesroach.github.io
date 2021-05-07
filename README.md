@@ -1,6 +1,6 @@
 # wesroach.github.io
 
-[wesroach.dev](wesroach.dev)
+[wesroach.dev](https://www.wesroach.dev)
 
 ## Deploy
 
