@@ -1,6 +1,6 @@
 ## Life
 
-I live in Austin, Texas with my wife and our cat.
+I live in Austin, Texas with my wife, son, and our cat.
 
 ![profile](https://avatars.githubusercontent.com/u/8878926?v=4)
 
