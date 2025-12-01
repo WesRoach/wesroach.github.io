@@ -2,10 +2,16 @@
 
 [wesroach.dev](https://www.wesroach.dev)
 
+## Setup
+
+```bash
+uv sync
+```
+
 ## Deploy
 
 ```bash
-mkdocs gh-deploy
+uv run mkdocs gh-deploy
 ```
 
 ## Local Development
@@ -13,11 +19,11 @@ mkdocs gh-deploy
 ### Build
 
 ```bash
-mkdocs build
+uv run mkdocs build
 ```
 
 ### Serve
 
 ```bash
-mkdocs serve
+uv run mkdocs serve
 ```
