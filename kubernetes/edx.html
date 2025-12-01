@@ -7,14 +7,23 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-      
         <meta name="author" content="Wes Roach">
       
       
         <link rel="canonical" href="http://wesroach.dev/kubernetes/edx.html">
       
+      
+        <link rel="prev" href="../dask/dask.html">
+      
+      
+        <link rel="next" href="../sas/sas.html">
+      
+      
+        
+      
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -22,34 +31,32 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.e35208c4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#4051b5">
-        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
-    
+      
+
+
     
     
       
+    
+    
+      
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113461484-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+
     
     
   </head>
@@ -60,10 +67,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -80,16 +85,22 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
+    <a href="../index.html" title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -108,45 +119,57 @@
       </div>
     </div>
     
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
       
-<div class="md-search" data-md-component="search" role="dialog">
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/WesRoach/wesroach.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/WesRoach/wesroach.github.io" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     WesRoach/wesroach.github.io
@@ -155,11 +178,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -173,23 +199,23 @@
                     
 
 
+
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
+    <a href="../index.html" title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/WesRoach/wesroach.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/WesRoach/wesroach.github.io" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     WesRoach/wesroach.github.io
@@ -201,14 +227,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
-        Summary
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -216,14 +254,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../about.html" class="md-nav__link">
-        About Me
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -231,56 +281,108 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      <label class="md-nav__link" for="__nav_3">
-        Python
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Python" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Python
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
           
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../python/10apps.html" class="md-nav__link">
-        10Apps
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10Apps
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-          
-        </ul>
-      </nav>
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../pandas/pandas.html" class="md-nav__link">
-        Pandas
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -288,14 +390,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../dask/dask.html" class="md-nav__link">
-        Dask
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dask
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -303,52 +417,104 @@
     
       
       
-      
-
   
   
     
   
   
+  
+    
+    
+    
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
-      
-      <label class="md-nav__link" for="__nav_6">
-        Kubernetes
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          Kubernetes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
           
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
+  <span class="md-ellipsis">
     
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
   
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          EDx
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDx
+  
+
+    
+  </span>
+  
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="edx.html" class="md-nav__link md-nav__link--active">
-        EDx
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDx
+  
+
+    
+  </span>
+  
+  
+
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -362,7 +528,11 @@
       
         <li class="md-nav__item">
   <a href="#ch1-container-orchestration" class="md-nav__link">
-    Ch1. Container Orchestration
+    <span class="md-ellipsis">
+      
+        Ch1. Container Orchestration
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch1. Container Orchestration">
@@ -370,7 +540,11 @@
         
           <li class="md-nav__item">
   <a href="#learning-objectives" class="md-nav__link">
-    Learning Objectives
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
   </a>
   
 </li>
@@ -382,7 +556,11 @@
       
         <li class="md-nav__item">
   <a href="#ch2-kubernetes" class="md-nav__link">
-    Ch2. Kubernetes
+    <span class="md-ellipsis">
+      
+        Ch2. Kubernetes
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch2. Kubernetes">
@@ -390,35 +568,55 @@
         
           <li class="md-nav__item">
   <a href="#define-kubernetes" class="md-nav__link">
-    Define Kubernetes.
+    <span class="md-ellipsis">
+      
+        Define Kubernetes.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#explain-the-reasons-for-using-kubernetes" class="md-nav__link">
-    Explain the reasons for using Kubernetes.
+    <span class="md-ellipsis">
+      
+        Explain the reasons for using Kubernetes.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-the-features-of-kubernetes" class="md-nav__link">
-    Discuss the features of Kubernetes.
+    <span class="md-ellipsis">
+      
+        Discuss the features of Kubernetes.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-the-evolution-of-kubernetes-from-borg" class="md-nav__link">
-    Discuss the evolution of Kubernetes from Borg.
+    <span class="md-ellipsis">
+      
+        Discuss the evolution of Kubernetes from Borg.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#explain-what-the-cloud-native-computing-foundation-does" class="md-nav__link">
-    Explain what the Cloud Native Computing Foundation does.
+    <span class="md-ellipsis">
+      
+        Explain what the Cloud Native Computing Foundation does.
+      
+    </span>
   </a>
   
 </li>
@@ -430,7 +628,11 @@
       
         <li class="md-nav__item">
   <a href="#ch3-kubernets-architecture" class="md-nav__link">
-    Ch3. Kubernets Architecture
+    <span class="md-ellipsis">
+      
+        Ch3. Kubernets Architecture
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch3. Kubernets Architecture">
@@ -438,14 +640,22 @@
         
           <li class="md-nav__item">
   <a href="#discuss-the-kubernetes-architecture" class="md-nav__link">
-    Discuss the Kubernetes architecture.
+    <span class="md-ellipsis">
+      
+        Discuss the Kubernetes architecture.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#explain-the-different-components-for-master-and-worker-nodes" class="md-nav__link">
-    Explain the different components for master and worker nodes.
+    <span class="md-ellipsis">
+      
+        Explain the different components for master and worker nodes.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Explain the different components for master and worker nodes.">
@@ -453,7 +663,11 @@
         
           <li class="md-nav__item">
   <a href="#master" class="md-nav__link">
-    Master
+    <span class="md-ellipsis">
+      
+        Master
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Master">
@@ -461,28 +675,44 @@
         
           <li class="md-nav__item">
   <a href="#api-server" class="md-nav__link">
-    API server
+    <span class="md-ellipsis">
+      
+        API server
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#scheduler" class="md-nav__link">
-    Scheduler
+    <span class="md-ellipsis">
+      
+        Scheduler
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#controller-manager" class="md-nav__link">
-    Controller Manager
+    <span class="md-ellipsis">
+      
+        Controller Manager
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#etcd" class="md-nav__link">
-    etcd
+    <span class="md-ellipsis">
+      
+        etcd
+      
+    </span>
   </a>
   
 </li>
@@ -494,7 +724,11 @@
         
           <li class="md-nav__item">
   <a href="#worker" class="md-nav__link">
-    Worker
+    <span class="md-ellipsis">
+      
+        Worker
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Worker">
@@ -502,21 +736,33 @@
         
           <li class="md-nav__item">
   <a href="#container-runtime" class="md-nav__link">
-    Container runtime.
+    <span class="md-ellipsis">
+      
+        Container runtime.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kubelet" class="md-nav__link">
-    kubelet
+    <span class="md-ellipsis">
+      
+        kubelet
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kube-proxy" class="md-nav__link">
-    kube-proxy
+    <span class="md-ellipsis">
+      
+        kube-proxy
+      
+    </span>
   </a>
   
 </li>
@@ -533,14 +779,22 @@
         
           <li class="md-nav__item">
   <a href="#discuss-about-cluster-state-management-with-etcd" class="md-nav__link">
-    Discuss about cluster state management with etcd.
+    <span class="md-ellipsis">
+      
+        Discuss about cluster state management with etcd.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#review-the-kubernetes-network-setup-requirements" class="md-nav__link">
-    Review the Kubernetes network setup requirements.
+    <span class="md-ellipsis">
+      
+        Review the Kubernetes network setup requirements.
+      
+    </span>
   </a>
   
 </li>
@@ -552,7 +806,11 @@
       
         <li class="md-nav__item">
   <a href="#ch4-installing-kubernetes" class="md-nav__link">
-    Ch.4 Installing Kubernetes
+    <span class="md-ellipsis">
+      
+        Ch.4 Installing Kubernetes
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.4 Installing Kubernetes">
@@ -560,7 +818,11 @@
         
           <li class="md-nav__item">
   <a href="#discuss-about-the-different-kubernetes-configuration-options" class="md-nav__link">
-    Discuss about the different Kubernetes configuration options.
+    <span class="md-ellipsis">
+      
+        Discuss about the different Kubernetes configuration options.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Discuss about the different Kubernetes configuration options.">
@@ -568,28 +830,44 @@
         
           <li class="md-nav__item">
   <a href="#all-in-one-single-node-installation" class="md-nav__link">
-    All-in-One Single-Node Installation
+    <span class="md-ellipsis">
+      
+        All-in-One Single-Node Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#single-node-etcd-single-master-and-multi-worker-installation" class="md-nav__link">
-    Single-Node etcd, Single-Master, and Multi-Worker Installation
+    <span class="md-ellipsis">
+      
+        Single-Node etcd, Single-Master, and Multi-Worker Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#single-node-etcd-multi-master-and-multi-worker-installation" class="md-nav__link">
-    Single-Node etcd, Multi-Master, and Multi-Worker Installation
+    <span class="md-ellipsis">
+      
+        Single-Node etcd, Multi-Master, and Multi-Worker Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#multi-node-etcd-multi-master-and-multi-worker-installation" class="md-nav__link">
-    Multi-Node etcd, Multi-Master, and Multi-Worker Installation
+    <span class="md-ellipsis">
+      
+        Multi-Node etcd, Multi-Master, and Multi-Worker Installation
+      
+    </span>
   </a>
   
 </li>
@@ -601,14 +879,22 @@
         
           <li class="md-nav__item">
   <a href="#discuss-infrastructure-considerations-before-installing-kubernetes" class="md-nav__link">
-    Discuss infrastructure considerations before installing Kubernetes.
+    <span class="md-ellipsis">
+      
+        Discuss infrastructure considerations before installing Kubernetes.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-infrastructure-choices-for-a-kubernetes-deployment" class="md-nav__link">
-    Discuss infrastructure choices for a Kubernetes deployment.
+    <span class="md-ellipsis">
+      
+        Discuss infrastructure choices for a Kubernetes deployment.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Discuss infrastructure choices for a Kubernetes deployment.">
@@ -616,21 +902,33 @@
         
           <li class="md-nav__item">
   <a href="#localhost-installation" class="md-nav__link">
-    Localhost Installation
+    <span class="md-ellipsis">
+      
+        Localhost Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#on-premise-installation" class="md-nav__link">
-    On-Premise Installation
+    <span class="md-ellipsis">
+      
+        On-Premise Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cloud-installation" class="md-nav__link">
-    Cloud Installation
+    <span class="md-ellipsis">
+      
+        Cloud Installation
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Cloud Installation">
@@ -638,21 +936,33 @@
         
           <li class="md-nav__item">
   <a href="#hosted-solutions" class="md-nav__link">
-    Hosted Solutions
+    <span class="md-ellipsis">
+      
+        Hosted Solutions
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#turnkey-cloud-solutions" class="md-nav__link">
-    Turnkey Cloud Solutions
+    <span class="md-ellipsis">
+      
+        Turnkey Cloud Solutions
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#bare-metal" class="md-nav__link">
-    Bare Metal
+    <span class="md-ellipsis">
+      
+        Bare Metal
+      
+    </span>
   </a>
   
 </li>
@@ -669,7 +979,11 @@
         
           <li class="md-nav__item">
   <a href="#review-kubernetes-installation-tools-and-resources" class="md-nav__link">
-    Review Kubernetes installation tools and resources.
+    <span class="md-ellipsis">
+      
+        Review Kubernetes installation tools and resources.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Review Kubernetes installation tools and resources.">
@@ -677,21 +991,33 @@
         
           <li class="md-nav__item">
   <a href="#kubeadm" class="md-nav__link">
-    kubeadm
+    <span class="md-ellipsis">
+      
+        kubeadm
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kubespray" class="md-nav__link">
-    KubeSpray
+    <span class="md-ellipsis">
+      
+        KubeSpray
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kops" class="md-nav__link">
-    Kops
+    <span class="md-ellipsis">
+      
+        Kops
+      
+    </span>
   </a>
   
 </li>
@@ -708,7 +1034,11 @@
       
         <li class="md-nav__item">
   <a href="#ch5-setting-up-a-single-node-k8s-cluster-with-minikube" class="md-nav__link">
-    Ch.5 Setting Up a Single-Node k8s Cluster with Minikube
+    <span class="md-ellipsis">
+      
+        Ch.5 Setting Up a Single-Node k8s Cluster with Minikube
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.5 Setting Up a Single-Node k8s Cluster with Minikube">
@@ -716,14 +1046,22 @@
         
           <li class="md-nav__item">
   <a href="#discuss-minikube" class="md-nav__link">
-    Discuss Minikube.
+    <span class="md-ellipsis">
+      
+        Discuss Minikube.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#install-minikube-on-linux-mac-and-windows" class="md-nav__link">
-    Install Minikube on Linux, Mac, and Windows.
+    <span class="md-ellipsis">
+      
+        Install Minikube on Linux, Mac, and Windows.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Install Minikube on Linux, Mac, and Windows.">
@@ -731,21 +1069,33 @@
         
           <li class="md-nav__item">
   <a href="#linux" class="md-nav__link">
-    Linux
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#mac" class="md-nav__link">
-    Mac
+    <span class="md-ellipsis">
+      
+        Mac
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
-    Windows
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
   </a>
   
 </li>
@@ -762,7 +1112,11 @@
       
         <li class="md-nav__item">
   <a href="#ch6-accessing-minikube" class="md-nav__link">
-    Ch.6 Accessing Minikube
+    <span class="md-ellipsis">
+      
+        Ch.6 Accessing Minikube
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.6 Accessing Minikube">
@@ -770,7 +1124,11 @@
         
           <li class="md-nav__item">
   <a href="#review-methods-to-access-any-kubernetes-cluster" class="md-nav__link">
-    Review methods to access any Kubernetes cluster.
+    <span class="md-ellipsis">
+      
+        Review methods to access any Kubernetes cluster.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Review methods to access any Kubernetes cluster.">
@@ -778,21 +1136,33 @@
         
           <li class="md-nav__item">
   <a href="#command-line-interface-cli" class="md-nav__link">
-    Command Line Interface (CLI)
+    <span class="md-ellipsis">
+      
+        Command Line Interface (CLI)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#graphical-user-interface-gui" class="md-nav__link">
-    Graphical User Interface (GUI)
+    <span class="md-ellipsis">
+      
+        Graphical User Interface (GUI)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#apis" class="md-nav__link">
-    APIs.
+    <span class="md-ellipsis">
+      
+        APIs.
+      
+    </span>
   </a>
   
 </li>
@@ -804,7 +1174,11 @@
         
           <li class="md-nav__item">
   <a href="#configure-kubectl-for-linux-macos-and-windows" class="md-nav__link">
-    Configure kubectl for Linux, macOS, and Windows.
+    <span class="md-ellipsis">
+      
+        Configure kubectl for Linux, macOS, and Windows.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Configure kubectl for Linux, macOS, and Windows.">
@@ -812,21 +1186,33 @@
         
           <li class="md-nav__item">
   <a href="#linux_1" class="md-nav__link">
-    Linux
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#macos" class="md-nav__link">
-    macOS
+    <span class="md-ellipsis">
+      
+        macOS
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#windows_1" class="md-nav__link">
-    Windows
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
   </a>
   
 </li>
@@ -838,14 +1224,22 @@
         
           <li class="md-nav__item">
   <a href="#access-the-minikube-dashboard" class="md-nav__link">
-    Access the Minikube dashboard.
+    <span class="md-ellipsis">
+      
+        Access the Minikube dashboard.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#access-minikube-via-apis" class="md-nav__link">
-    Access Minikube via APIs.
+    <span class="md-ellipsis">
+      
+        Access Minikube via APIs.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Access Minikube via APIs.">
@@ -853,14 +1247,22 @@
         
           <li class="md-nav__item">
   <a href="#with-kubectl-proxy" class="md-nav__link">
-    With kubectl proxy
+    <span class="md-ellipsis">
+      
+        With kubectl proxy
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#without-kubectl-proxy" class="md-nav__link">
-    Without kubectl proxy
+    <span class="md-ellipsis">
+      
+        Without kubectl proxy
+      
+    </span>
   </a>
   
 </li>
@@ -877,7 +1279,11 @@
       
         <li class="md-nav__item">
   <a href="#ch7-kubernetes-building-blocks" class="md-nav__link">
-    Ch.7 Kubernetes Building Blocks
+    <span class="md-ellipsis">
+      
+        Ch.7 Kubernetes Building Blocks
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.7 Kubernetes Building Blocks">
@@ -885,21 +1291,33 @@
         
           <li class="md-nav__item">
   <a href="#review-the-kubernetes-object-model" class="md-nav__link">
-    Review the Kubernetes object model.
+    <span class="md-ellipsis">
+      
+        Review the Kubernetes object model.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-labels-and-selectors" class="md-nav__link">
-    Discuss Labels and Selectors.
+    <span class="md-ellipsis">
+      
+        Discuss Labels and Selectors.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-kubernetes-building-blocks" class="md-nav__link">
-    Discuss Kubernetes building blocks
+    <span class="md-ellipsis">
+      
+        Discuss Kubernetes building blocks
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Discuss Kubernetes building blocks">
@@ -907,35 +1325,55 @@
         
           <li class="md-nav__item">
   <a href="#pods" class="md-nav__link">
-    Pods
+    <span class="md-ellipsis">
+      
+        Pods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#replicationcontroller-rc" class="md-nav__link">
-    ReplicationController (rc)
+    <span class="md-ellipsis">
+      
+        ReplicationController (rc)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#replicasets" class="md-nav__link">
-    ReplicaSets
+    <span class="md-ellipsis">
+      
+        ReplicaSets
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#deployments" class="md-nav__link">
-    Deployments
+    <span class="md-ellipsis">
+      
+        Deployments
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#namespaces" class="md-nav__link">
-    Namespaces
+    <span class="md-ellipsis">
+      
+        Namespaces
+      
+    </span>
   </a>
   
 </li>
@@ -952,7 +1390,11 @@
       
         <li class="md-nav__item">
   <a href="#ch8-authentication-authorization-admission-control" class="md-nav__link">
-    Ch.8 Authentication, Authorization, Admission Control
+    <span class="md-ellipsis">
+      
+        Ch.8 Authentication, Authorization, Admission Control
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.8 Authentication, Authorization, Admission Control">
@@ -960,7 +1402,11 @@
         
           <li class="md-nav__item">
   <a href="#stages-of-k8s-api-access" class="md-nav__link">
-    Stages of k8s API access
+    <span class="md-ellipsis">
+      
+        Stages of k8s API access
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Stages of k8s API access">
@@ -968,7 +1414,11 @@
         
           <li class="md-nav__item">
   <a href="#authentication" class="md-nav__link">
-    Authentication
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Authentication">
@@ -976,7 +1426,11 @@
         
           <li class="md-nav__item">
   <a href="#authentication-modules" class="md-nav__link">
-    Authentication Modules
+    <span class="md-ellipsis">
+      
+        Authentication Modules
+      
+    </span>
   </a>
   
 </li>
@@ -988,7 +1442,11 @@
         
           <li class="md-nav__item">
   <a href="#authorization" class="md-nav__link">
-    Authorization
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Authorization">
@@ -996,7 +1454,11 @@
         
           <li class="md-nav__item">
   <a href="#authorization-modules" class="md-nav__link">
-    Authorization Modules
+    <span class="md-ellipsis">
+      
+        Authorization Modules
+      
+    </span>
   </a>
   
 </li>
@@ -1008,7 +1470,11 @@
         
           <li class="md-nav__item">
   <a href="#admission-control" class="md-nav__link">
-    Admission Control
+    <span class="md-ellipsis">
+      
+        Admission Control
+      
+    </span>
   </a>
   
 </li>
@@ -1025,7 +1491,11 @@
       
         <li class="md-nav__item">
   <a href="#ch9-services" class="md-nav__link">
-    Ch.9 Services
+    <span class="md-ellipsis">
+      
+        Ch.9 Services
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.9 Services">
@@ -1033,21 +1503,33 @@
         
           <li class="md-nav__item">
   <a href="#objective" class="md-nav__link">
-    Objective:
+    <span class="md-ellipsis">
+      
+        Objective:
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#connecting-users-to-pods" class="md-nav__link">
-    Connecting Users to Pods
+    <span class="md-ellipsis">
+      
+        Connecting Users to Pods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#services" class="md-nav__link">
-    Services
+    <span class="md-ellipsis">
+      
+        Services
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Services">
@@ -1055,7 +1537,11 @@
         
           <li class="md-nav__item">
   <a href="#service-object-example" class="md-nav__link">
-    Service Object Example
+    <span class="md-ellipsis">
+      
+        Service Object Example
+      
+    </span>
   </a>
   
 </li>
@@ -1067,21 +1553,33 @@
         
           <li class="md-nav__item">
   <a href="#kube-proxy_1" class="md-nav__link">
-    kube-proxy
+    <span class="md-ellipsis">
+      
+        kube-proxy
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#service-discovery" class="md-nav__link">
-    Service Discovery
+    <span class="md-ellipsis">
+      
+        Service Discovery
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#servicetype" class="md-nav__link">
-    ServiceType
+    <span class="md-ellipsis">
+      
+        ServiceType
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="ServiceType">
@@ -1089,35 +1587,55 @@
         
           <li class="md-nav__item">
   <a href="#clusterip" class="md-nav__link">
-    ClusterIP
+    <span class="md-ellipsis">
+      
+        ClusterIP
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#nodeport" class="md-nav__link">
-    NodePort
+    <span class="md-ellipsis">
+      
+        NodePort
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#loadbalancer" class="md-nav__link">
-    LoadBalancer
+    <span class="md-ellipsis">
+      
+        LoadBalancer
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#externalip" class="md-nav__link">
-    ExternalIP
+    <span class="md-ellipsis">
+      
+        ExternalIP
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#externalname" class="md-nav__link">
-    ExternalName
+    <span class="md-ellipsis">
+      
+        ExternalName
+      
+    </span>
   </a>
   
 </li>
@@ -1134,63 +1652,99 @@
       
         <li class="md-nav__item">
   <a href="#ch10-deploying-a-stand-alone-application" class="md-nav__link">
-    Ch.10 Deploying a Stand-Alone Application
+    <span class="md-ellipsis">
+      
+        Ch.10 Deploying a Stand-Alone Application
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#minikube-gui" class="md-nav__link">
-    Minikube GUI
+    <span class="md-ellipsis">
+      
+        Minikube GUI
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#kubectl-cli" class="md-nav__link">
-    kubectl CLI
+    <span class="md-ellipsis">
+      
+        kubectl CLI
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#labels-selectors" class="md-nav__link">
-    Labels / Selectors
+    <span class="md-ellipsis">
+      
+        Labels / Selectors
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#delete-deployment" class="md-nav__link">
-    Delete Deployment
+    <span class="md-ellipsis">
+      
+        Delete Deployment
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#deployment-yaml" class="md-nav__link">
-    Deployment YAML
+    <span class="md-ellipsis">
+      
+        Deployment YAML
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#create-expose-wnodeport" class="md-nav__link">
-    Create / Expose w/NodePort
+    <span class="md-ellipsis">
+      
+        Create / Expose w/NodePort
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#access-app-using-exposed-nodeport" class="md-nav__link">
-    Access App Using Exposed NodePort
+    <span class="md-ellipsis">
+      
+        Access App Using Exposed NodePort
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#liveness-readiness-probes" class="md-nav__link">
-    Liveness / Readiness Probes
+    <span class="md-ellipsis">
+      
+        Liveness / Readiness Probes
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Liveness / Readiness Probes">
@@ -1198,28 +1752,44 @@
         
           <li class="md-nav__item">
   <a href="#liveness-command" class="md-nav__link">
-    Liveness Command
+    <span class="md-ellipsis">
+      
+        Liveness Command
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#liveness-http-request" class="md-nav__link">
-    Liveness HTTP Request
+    <span class="md-ellipsis">
+      
+        Liveness HTTP Request
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tcp-liveness-probe" class="md-nav__link">
-    TCP Liveness Probe
+    <span class="md-ellipsis">
+      
+        TCP Liveness Probe
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#readiness-probes" class="md-nav__link">
-    Readiness Probes
+    <span class="md-ellipsis">
+      
+        Readiness Probes
+      
+    </span>
   </a>
   
 </li>
@@ -1231,7 +1801,11 @@
       
         <li class="md-nav__item">
   <a href="#ch11-kubernetes-volume-management" class="md-nav__link">
-    Ch.11 Kubernetes Volume Management
+    <span class="md-ellipsis">
+      
+        Ch.11 Kubernetes Volume Management
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.11 Kubernetes Volume Management">
@@ -1239,14 +1813,22 @@
         
           <li class="md-nav__item">
   <a href="#volumes" class="md-nav__link">
-    Volumes
+    <span class="md-ellipsis">
+      
+        Volumes
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#volume-types" class="md-nav__link">
-    Volume Types
+    <span class="md-ellipsis">
+      
+        Volume Types
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Volume Types">
@@ -1254,21 +1836,33 @@
         
           <li class="md-nav__item">
   <a href="#persistent-volumes" class="md-nav__link">
-    Persistent Volumes
+    <span class="md-ellipsis">
+      
+        Persistent Volumes
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#persistentvolumeclaims" class="md-nav__link">
-    PersistentVolumeClaims
+    <span class="md-ellipsis">
+      
+        PersistentVolumeClaims
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#container-storage-interface-csi" class="md-nav__link">
-    Container Storage Interface (CSI)
+    <span class="md-ellipsis">
+      
+        Container Storage Interface (CSI)
+      
+    </span>
   </a>
   
 </li>
@@ -1285,7 +1879,11 @@
       
         <li class="md-nav__item">
   <a href="#ch12-deploying-a-multi-tier-application" class="md-nav__link">
-    Ch.12 Deploying a Multi-Tier Application
+    <span class="md-ellipsis">
+      
+        Ch.12 Deploying a Multi-Tier Application
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.12 Deploying a Multi-Tier Application">
@@ -1293,7 +1891,11 @@
         
           <li class="md-nav__item">
   <a href="#rsvp-application" class="md-nav__link">
-    RSVP Application
+    <span class="md-ellipsis">
+      
+        RSVP Application
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="RSVP Application">
@@ -1301,28 +1903,44 @@
         
           <li class="md-nav__item">
   <a href="#backend" class="md-nav__link">
-    Backend
+    <span class="md-ellipsis">
+      
+        Backend
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#frontend" class="md-nav__link">
-    Frontend
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#access-rsvp-application" class="md-nav__link">
-    Access RSVP Application
+    <span class="md-ellipsis">
+      
+        Access RSVP Application
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#scale-frontend" class="md-nav__link">
-    Scale Frontend
+    <span class="md-ellipsis">
+      
+        Scale Frontend
+      
+    </span>
   </a>
   
 </li>
@@ -1339,7 +1957,11 @@
       
         <li class="md-nav__item">
   <a href="#ch13-configmaps-and-secrets" class="md-nav__link">
-    Ch.13 ConfigMaps and Secrets
+    <span class="md-ellipsis">
+      
+        Ch.13 ConfigMaps and Secrets
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.13 ConfigMaps and Secrets">
@@ -1347,7 +1969,11 @@
         
           <li class="md-nav__item">
   <a href="#configmaps" class="md-nav__link">
-    ConfigMaps
+    <span class="md-ellipsis">
+      
+        ConfigMaps
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="ConfigMaps">
@@ -1355,35 +1981,55 @@
         
           <li class="md-nav__item">
   <a href="#create-configmap-cli" class="md-nav__link">
-    Create ConfigMap @ CLI
+    <span class="md-ellipsis">
+      
+        Create ConfigMap @ CLI
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#get-configmap-details" class="md-nav__link">
-    Get ConfigMap Details
+    <span class="md-ellipsis">
+      
+        Get ConfigMap Details
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#create-configmap-from-file" class="md-nav__link">
-    Create ConfigMap from file.
+    <span class="md-ellipsis">
+      
+        Create ConfigMap from file.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-configmap-in-pods" class="md-nav__link">
-    Use ConfigMap in Pods
+    <span class="md-ellipsis">
+      
+        Use ConfigMap in Pods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#mount-configmap-as-volume" class="md-nav__link">
-    Mount ConfigMap as Volume
+    <span class="md-ellipsis">
+      
+        Mount ConfigMap as Volume
+      
+    </span>
   </a>
   
 </li>
@@ -1395,7 +2041,11 @@
         
           <li class="md-nav__item">
   <a href="#secrets" class="md-nav__link">
-    Secrets
+    <span class="md-ellipsis">
+      
+        Secrets
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Secrets">
@@ -1403,14 +2053,22 @@
         
           <li class="md-nav__item">
   <a href="#create-secret-manually" class="md-nav__link">
-    Create Secret Manually
+    <span class="md-ellipsis">
+      
+        Create Secret Manually
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-secrets-inside-pods" class="md-nav__link">
-    Use Secrets Inside Pods
+    <span class="md-ellipsis">
+      
+        Use Secrets Inside Pods
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Use Secrets Inside Pods">
@@ -1418,14 +2076,22 @@
         
           <li class="md-nav__item">
   <a href="#environment-variable" class="md-nav__link">
-    Environment Variable
+    <span class="md-ellipsis">
+      
+        Environment Variable
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#mount-as-volume" class="md-nav__link">
-    Mount as Volume
+    <span class="md-ellipsis">
+      
+        Mount as Volume
+      
+    </span>
   </a>
   
 </li>
@@ -1447,7 +2113,11 @@
       
         <li class="md-nav__item">
   <a href="#ch14-ingress" class="md-nav__link">
-    Ch.14 Ingress
+    <span class="md-ellipsis">
+      
+        Ch.14 Ingress
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.14 Ingress">
@@ -1455,7 +2125,11 @@
         
           <li class="md-nav__item">
   <a href="#ingress-controller" class="md-nav__link">
-    Ingress Controller
+    <span class="md-ellipsis">
+      
+        Ingress Controller
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ingress Controller">
@@ -1463,21 +2137,33 @@
         
           <li class="md-nav__item">
   <a href="#start-ingress-controller-wminikube" class="md-nav__link">
-    Start Ingress Controller w/Minikube
+    <span class="md-ellipsis">
+      
+        Start Ingress Controller w/Minikube
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#deploy-ingress-resource" class="md-nav__link">
-    Deploy Ingress Resource
+    <span class="md-ellipsis">
+      
+        Deploy Ingress Resource
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#access-services-using-ingress" class="md-nav__link">
-    Access Services Using Ingress
+    <span class="md-ellipsis">
+      
+        Access Services Using Ingress
+      
+    </span>
   </a>
   
 </li>
@@ -1494,7 +2180,11 @@
       
         <li class="md-nav__item">
   <a href="#ch15-advanced-topics" class="md-nav__link">
-    Ch.15 Advanced Topics
+    <span class="md-ellipsis">
+      
+        Ch.15 Advanced Topics
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.15 Advanced Topics">
@@ -1502,70 +2192,110 @@
         
           <li class="md-nav__item">
   <a href="#annotations" class="md-nav__link">
-    Annotations
+    <span class="md-ellipsis">
+      
+        Annotations
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#deployment-features" class="md-nav__link">
-    Deployment Features
+    <span class="md-ellipsis">
+      
+        Deployment Features
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#jobs" class="md-nav__link">
-    Jobs
+    <span class="md-ellipsis">
+      
+        Jobs
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#quota-management" class="md-nav__link">
-    Quota Management
+    <span class="md-ellipsis">
+      
+        Quota Management
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#daemonsets" class="md-nav__link">
-    DaemonSets
+    <span class="md-ellipsis">
+      
+        DaemonSets
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#statefulsets" class="md-nav__link">
-    StatefulSets
+    <span class="md-ellipsis">
+      
+        StatefulSets
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kubernetes-cluster-federation" class="md-nav__link">
-    Kubernetes Cluster Federation
+    <span class="md-ellipsis">
+      
+        Kubernetes Cluster Federation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#custom-resources" class="md-nav__link">
-    Custom Resources
+    <span class="md-ellipsis">
+      
+        Custom Resources
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#helm" class="md-nav__link">
-    Helm
+    <span class="md-ellipsis">
+      
+        Helm
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#monitoring-and-logging" class="md-nav__link">
-    Monitoring and Logging
+    <span class="md-ellipsis">
+      
+        Monitoring and Logging
+      
+    </span>
   </a>
   
 </li>
@@ -1577,7 +2307,11 @@
       
         <li class="md-nav__item">
   <a href="#ch16-community" class="md-nav__link">
-    Ch.16 Community
+    <span class="md-ellipsis">
+      
+        Ch.16 Community
+      
+    </span>
   </a>
   
 </li>
@@ -1589,23 +2323,37 @@
     </li>
   
 
-          
-        </ul>
-      </nav>
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../sas/sas.html" class="md-nav__link">
-        SAS
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAS
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -1613,80 +2361,164 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      <label class="md-nav__link" for="__nav_8">
-        Networking
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Networking" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Networking
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
           
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../networking/osi.html" class="md-nav__link">
-        OSI
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSI
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-          
+              
             
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../networking/arp.html" class="md-nav__link">
-        ARP
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ARP
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-          
+              
             
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../networking/subnetting.html" class="md-nav__link">
-        Subnetting
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-          
-        </ul>
-      </nav>
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../license.html" class="md-nav__link">
-        License
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -1704,6 +2536,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -1717,7 +2550,11 @@
       
         <li class="md-nav__item">
   <a href="#ch1-container-orchestration" class="md-nav__link">
-    Ch1. Container Orchestration
+    <span class="md-ellipsis">
+      
+        Ch1. Container Orchestration
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch1. Container Orchestration">
@@ -1725,7 +2562,11 @@
         
           <li class="md-nav__item">
   <a href="#learning-objectives" class="md-nav__link">
-    Learning Objectives
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
   </a>
   
 </li>
@@ -1737,7 +2578,11 @@
       
         <li class="md-nav__item">
   <a href="#ch2-kubernetes" class="md-nav__link">
-    Ch2. Kubernetes
+    <span class="md-ellipsis">
+      
+        Ch2. Kubernetes
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch2. Kubernetes">
@@ -1745,35 +2590,55 @@
         
           <li class="md-nav__item">
   <a href="#define-kubernetes" class="md-nav__link">
-    Define Kubernetes.
+    <span class="md-ellipsis">
+      
+        Define Kubernetes.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#explain-the-reasons-for-using-kubernetes" class="md-nav__link">
-    Explain the reasons for using Kubernetes.
+    <span class="md-ellipsis">
+      
+        Explain the reasons for using Kubernetes.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-the-features-of-kubernetes" class="md-nav__link">
-    Discuss the features of Kubernetes.
+    <span class="md-ellipsis">
+      
+        Discuss the features of Kubernetes.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-the-evolution-of-kubernetes-from-borg" class="md-nav__link">
-    Discuss the evolution of Kubernetes from Borg.
+    <span class="md-ellipsis">
+      
+        Discuss the evolution of Kubernetes from Borg.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#explain-what-the-cloud-native-computing-foundation-does" class="md-nav__link">
-    Explain what the Cloud Native Computing Foundation does.
+    <span class="md-ellipsis">
+      
+        Explain what the Cloud Native Computing Foundation does.
+      
+    </span>
   </a>
   
 </li>
@@ -1785,7 +2650,11 @@
       
         <li class="md-nav__item">
   <a href="#ch3-kubernets-architecture" class="md-nav__link">
-    Ch3. Kubernets Architecture
+    <span class="md-ellipsis">
+      
+        Ch3. Kubernets Architecture
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch3. Kubernets Architecture">
@@ -1793,14 +2662,22 @@
         
           <li class="md-nav__item">
   <a href="#discuss-the-kubernetes-architecture" class="md-nav__link">
-    Discuss the Kubernetes architecture.
+    <span class="md-ellipsis">
+      
+        Discuss the Kubernetes architecture.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#explain-the-different-components-for-master-and-worker-nodes" class="md-nav__link">
-    Explain the different components for master and worker nodes.
+    <span class="md-ellipsis">
+      
+        Explain the different components for master and worker nodes.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Explain the different components for master and worker nodes.">
@@ -1808,7 +2685,11 @@
         
           <li class="md-nav__item">
   <a href="#master" class="md-nav__link">
-    Master
+    <span class="md-ellipsis">
+      
+        Master
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Master">
@@ -1816,28 +2697,44 @@
         
           <li class="md-nav__item">
   <a href="#api-server" class="md-nav__link">
-    API server
+    <span class="md-ellipsis">
+      
+        API server
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#scheduler" class="md-nav__link">
-    Scheduler
+    <span class="md-ellipsis">
+      
+        Scheduler
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#controller-manager" class="md-nav__link">
-    Controller Manager
+    <span class="md-ellipsis">
+      
+        Controller Manager
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#etcd" class="md-nav__link">
-    etcd
+    <span class="md-ellipsis">
+      
+        etcd
+      
+    </span>
   </a>
   
 </li>
@@ -1849,7 +2746,11 @@
         
           <li class="md-nav__item">
   <a href="#worker" class="md-nav__link">
-    Worker
+    <span class="md-ellipsis">
+      
+        Worker
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Worker">
@@ -1857,21 +2758,33 @@
         
           <li class="md-nav__item">
   <a href="#container-runtime" class="md-nav__link">
-    Container runtime.
+    <span class="md-ellipsis">
+      
+        Container runtime.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kubelet" class="md-nav__link">
-    kubelet
+    <span class="md-ellipsis">
+      
+        kubelet
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kube-proxy" class="md-nav__link">
-    kube-proxy
+    <span class="md-ellipsis">
+      
+        kube-proxy
+      
+    </span>
   </a>
   
 </li>
@@ -1888,14 +2801,22 @@
         
           <li class="md-nav__item">
   <a href="#discuss-about-cluster-state-management-with-etcd" class="md-nav__link">
-    Discuss about cluster state management with etcd.
+    <span class="md-ellipsis">
+      
+        Discuss about cluster state management with etcd.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#review-the-kubernetes-network-setup-requirements" class="md-nav__link">
-    Review the Kubernetes network setup requirements.
+    <span class="md-ellipsis">
+      
+        Review the Kubernetes network setup requirements.
+      
+    </span>
   </a>
   
 </li>
@@ -1907,7 +2828,11 @@
       
         <li class="md-nav__item">
   <a href="#ch4-installing-kubernetes" class="md-nav__link">
-    Ch.4 Installing Kubernetes
+    <span class="md-ellipsis">
+      
+        Ch.4 Installing Kubernetes
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.4 Installing Kubernetes">
@@ -1915,7 +2840,11 @@
         
           <li class="md-nav__item">
   <a href="#discuss-about-the-different-kubernetes-configuration-options" class="md-nav__link">
-    Discuss about the different Kubernetes configuration options.
+    <span class="md-ellipsis">
+      
+        Discuss about the different Kubernetes configuration options.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Discuss about the different Kubernetes configuration options.">
@@ -1923,28 +2852,44 @@
         
           <li class="md-nav__item">
   <a href="#all-in-one-single-node-installation" class="md-nav__link">
-    All-in-One Single-Node Installation
+    <span class="md-ellipsis">
+      
+        All-in-One Single-Node Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#single-node-etcd-single-master-and-multi-worker-installation" class="md-nav__link">
-    Single-Node etcd, Single-Master, and Multi-Worker Installation
+    <span class="md-ellipsis">
+      
+        Single-Node etcd, Single-Master, and Multi-Worker Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#single-node-etcd-multi-master-and-multi-worker-installation" class="md-nav__link">
-    Single-Node etcd, Multi-Master, and Multi-Worker Installation
+    <span class="md-ellipsis">
+      
+        Single-Node etcd, Multi-Master, and Multi-Worker Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#multi-node-etcd-multi-master-and-multi-worker-installation" class="md-nav__link">
-    Multi-Node etcd, Multi-Master, and Multi-Worker Installation
+    <span class="md-ellipsis">
+      
+        Multi-Node etcd, Multi-Master, and Multi-Worker Installation
+      
+    </span>
   </a>
   
 </li>
@@ -1956,14 +2901,22 @@
         
           <li class="md-nav__item">
   <a href="#discuss-infrastructure-considerations-before-installing-kubernetes" class="md-nav__link">
-    Discuss infrastructure considerations before installing Kubernetes.
+    <span class="md-ellipsis">
+      
+        Discuss infrastructure considerations before installing Kubernetes.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-infrastructure-choices-for-a-kubernetes-deployment" class="md-nav__link">
-    Discuss infrastructure choices for a Kubernetes deployment.
+    <span class="md-ellipsis">
+      
+        Discuss infrastructure choices for a Kubernetes deployment.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Discuss infrastructure choices for a Kubernetes deployment.">
@@ -1971,21 +2924,33 @@
         
           <li class="md-nav__item">
   <a href="#localhost-installation" class="md-nav__link">
-    Localhost Installation
+    <span class="md-ellipsis">
+      
+        Localhost Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#on-premise-installation" class="md-nav__link">
-    On-Premise Installation
+    <span class="md-ellipsis">
+      
+        On-Premise Installation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cloud-installation" class="md-nav__link">
-    Cloud Installation
+    <span class="md-ellipsis">
+      
+        Cloud Installation
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Cloud Installation">
@@ -1993,21 +2958,33 @@
         
           <li class="md-nav__item">
   <a href="#hosted-solutions" class="md-nav__link">
-    Hosted Solutions
+    <span class="md-ellipsis">
+      
+        Hosted Solutions
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#turnkey-cloud-solutions" class="md-nav__link">
-    Turnkey Cloud Solutions
+    <span class="md-ellipsis">
+      
+        Turnkey Cloud Solutions
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#bare-metal" class="md-nav__link">
-    Bare Metal
+    <span class="md-ellipsis">
+      
+        Bare Metal
+      
+    </span>
   </a>
   
 </li>
@@ -2024,7 +3001,11 @@
         
           <li class="md-nav__item">
   <a href="#review-kubernetes-installation-tools-and-resources" class="md-nav__link">
-    Review Kubernetes installation tools and resources.
+    <span class="md-ellipsis">
+      
+        Review Kubernetes installation tools and resources.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Review Kubernetes installation tools and resources.">
@@ -2032,21 +3013,33 @@
         
           <li class="md-nav__item">
   <a href="#kubeadm" class="md-nav__link">
-    kubeadm
+    <span class="md-ellipsis">
+      
+        kubeadm
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kubespray" class="md-nav__link">
-    KubeSpray
+    <span class="md-ellipsis">
+      
+        KubeSpray
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kops" class="md-nav__link">
-    Kops
+    <span class="md-ellipsis">
+      
+        Kops
+      
+    </span>
   </a>
   
 </li>
@@ -2063,7 +3056,11 @@
       
         <li class="md-nav__item">
   <a href="#ch5-setting-up-a-single-node-k8s-cluster-with-minikube" class="md-nav__link">
-    Ch.5 Setting Up a Single-Node k8s Cluster with Minikube
+    <span class="md-ellipsis">
+      
+        Ch.5 Setting Up a Single-Node k8s Cluster with Minikube
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.5 Setting Up a Single-Node k8s Cluster with Minikube">
@@ -2071,14 +3068,22 @@
         
           <li class="md-nav__item">
   <a href="#discuss-minikube" class="md-nav__link">
-    Discuss Minikube.
+    <span class="md-ellipsis">
+      
+        Discuss Minikube.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#install-minikube-on-linux-mac-and-windows" class="md-nav__link">
-    Install Minikube on Linux, Mac, and Windows.
+    <span class="md-ellipsis">
+      
+        Install Minikube on Linux, Mac, and Windows.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Install Minikube on Linux, Mac, and Windows.">
@@ -2086,21 +3091,33 @@
         
           <li class="md-nav__item">
   <a href="#linux" class="md-nav__link">
-    Linux
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#mac" class="md-nav__link">
-    Mac
+    <span class="md-ellipsis">
+      
+        Mac
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
-    Windows
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
   </a>
   
 </li>
@@ -2117,7 +3134,11 @@
       
         <li class="md-nav__item">
   <a href="#ch6-accessing-minikube" class="md-nav__link">
-    Ch.6 Accessing Minikube
+    <span class="md-ellipsis">
+      
+        Ch.6 Accessing Minikube
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.6 Accessing Minikube">
@@ -2125,7 +3146,11 @@
         
           <li class="md-nav__item">
   <a href="#review-methods-to-access-any-kubernetes-cluster" class="md-nav__link">
-    Review methods to access any Kubernetes cluster.
+    <span class="md-ellipsis">
+      
+        Review methods to access any Kubernetes cluster.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Review methods to access any Kubernetes cluster.">
@@ -2133,21 +3158,33 @@
         
           <li class="md-nav__item">
   <a href="#command-line-interface-cli" class="md-nav__link">
-    Command Line Interface (CLI)
+    <span class="md-ellipsis">
+      
+        Command Line Interface (CLI)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#graphical-user-interface-gui" class="md-nav__link">
-    Graphical User Interface (GUI)
+    <span class="md-ellipsis">
+      
+        Graphical User Interface (GUI)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#apis" class="md-nav__link">
-    APIs.
+    <span class="md-ellipsis">
+      
+        APIs.
+      
+    </span>
   </a>
   
 </li>
@@ -2159,7 +3196,11 @@
         
           <li class="md-nav__item">
   <a href="#configure-kubectl-for-linux-macos-and-windows" class="md-nav__link">
-    Configure kubectl for Linux, macOS, and Windows.
+    <span class="md-ellipsis">
+      
+        Configure kubectl for Linux, macOS, and Windows.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Configure kubectl for Linux, macOS, and Windows.">
@@ -2167,21 +3208,33 @@
         
           <li class="md-nav__item">
   <a href="#linux_1" class="md-nav__link">
-    Linux
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#macos" class="md-nav__link">
-    macOS
+    <span class="md-ellipsis">
+      
+        macOS
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#windows_1" class="md-nav__link">
-    Windows
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
   </a>
   
 </li>
@@ -2193,14 +3246,22 @@
         
           <li class="md-nav__item">
   <a href="#access-the-minikube-dashboard" class="md-nav__link">
-    Access the Minikube dashboard.
+    <span class="md-ellipsis">
+      
+        Access the Minikube dashboard.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#access-minikube-via-apis" class="md-nav__link">
-    Access Minikube via APIs.
+    <span class="md-ellipsis">
+      
+        Access Minikube via APIs.
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Access Minikube via APIs.">
@@ -2208,14 +3269,22 @@
         
           <li class="md-nav__item">
   <a href="#with-kubectl-proxy" class="md-nav__link">
-    With kubectl proxy
+    <span class="md-ellipsis">
+      
+        With kubectl proxy
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#without-kubectl-proxy" class="md-nav__link">
-    Without kubectl proxy
+    <span class="md-ellipsis">
+      
+        Without kubectl proxy
+      
+    </span>
   </a>
   
 </li>
@@ -2232,7 +3301,11 @@
       
         <li class="md-nav__item">
   <a href="#ch7-kubernetes-building-blocks" class="md-nav__link">
-    Ch.7 Kubernetes Building Blocks
+    <span class="md-ellipsis">
+      
+        Ch.7 Kubernetes Building Blocks
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.7 Kubernetes Building Blocks">
@@ -2240,21 +3313,33 @@
         
           <li class="md-nav__item">
   <a href="#review-the-kubernetes-object-model" class="md-nav__link">
-    Review the Kubernetes object model.
+    <span class="md-ellipsis">
+      
+        Review the Kubernetes object model.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-labels-and-selectors" class="md-nav__link">
-    Discuss Labels and Selectors.
+    <span class="md-ellipsis">
+      
+        Discuss Labels and Selectors.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#discuss-kubernetes-building-blocks" class="md-nav__link">
-    Discuss Kubernetes building blocks
+    <span class="md-ellipsis">
+      
+        Discuss Kubernetes building blocks
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Discuss Kubernetes building blocks">
@@ -2262,35 +3347,55 @@
         
           <li class="md-nav__item">
   <a href="#pods" class="md-nav__link">
-    Pods
+    <span class="md-ellipsis">
+      
+        Pods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#replicationcontroller-rc" class="md-nav__link">
-    ReplicationController (rc)
+    <span class="md-ellipsis">
+      
+        ReplicationController (rc)
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#replicasets" class="md-nav__link">
-    ReplicaSets
+    <span class="md-ellipsis">
+      
+        ReplicaSets
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#deployments" class="md-nav__link">
-    Deployments
+    <span class="md-ellipsis">
+      
+        Deployments
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#namespaces" class="md-nav__link">
-    Namespaces
+    <span class="md-ellipsis">
+      
+        Namespaces
+      
+    </span>
   </a>
   
 </li>
@@ -2307,7 +3412,11 @@
       
         <li class="md-nav__item">
   <a href="#ch8-authentication-authorization-admission-control" class="md-nav__link">
-    Ch.8 Authentication, Authorization, Admission Control
+    <span class="md-ellipsis">
+      
+        Ch.8 Authentication, Authorization, Admission Control
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.8 Authentication, Authorization, Admission Control">
@@ -2315,7 +3424,11 @@
         
           <li class="md-nav__item">
   <a href="#stages-of-k8s-api-access" class="md-nav__link">
-    Stages of k8s API access
+    <span class="md-ellipsis">
+      
+        Stages of k8s API access
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Stages of k8s API access">
@@ -2323,7 +3436,11 @@
         
           <li class="md-nav__item">
   <a href="#authentication" class="md-nav__link">
-    Authentication
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Authentication">
@@ -2331,7 +3448,11 @@
         
           <li class="md-nav__item">
   <a href="#authentication-modules" class="md-nav__link">
-    Authentication Modules
+    <span class="md-ellipsis">
+      
+        Authentication Modules
+      
+    </span>
   </a>
   
 </li>
@@ -2343,7 +3464,11 @@
         
           <li class="md-nav__item">
   <a href="#authorization" class="md-nav__link">
-    Authorization
+    <span class="md-ellipsis">
+      
+        Authorization
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Authorization">
@@ -2351,7 +3476,11 @@
         
           <li class="md-nav__item">
   <a href="#authorization-modules" class="md-nav__link">
-    Authorization Modules
+    <span class="md-ellipsis">
+      
+        Authorization Modules
+      
+    </span>
   </a>
   
 </li>
@@ -2363,7 +3492,11 @@
         
           <li class="md-nav__item">
   <a href="#admission-control" class="md-nav__link">
-    Admission Control
+    <span class="md-ellipsis">
+      
+        Admission Control
+      
+    </span>
   </a>
   
 </li>
@@ -2380,7 +3513,11 @@
       
         <li class="md-nav__item">
   <a href="#ch9-services" class="md-nav__link">
-    Ch.9 Services
+    <span class="md-ellipsis">
+      
+        Ch.9 Services
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.9 Services">
@@ -2388,21 +3525,33 @@
         
           <li class="md-nav__item">
   <a href="#objective" class="md-nav__link">
-    Objective:
+    <span class="md-ellipsis">
+      
+        Objective:
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#connecting-users-to-pods" class="md-nav__link">
-    Connecting Users to Pods
+    <span class="md-ellipsis">
+      
+        Connecting Users to Pods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#services" class="md-nav__link">
-    Services
+    <span class="md-ellipsis">
+      
+        Services
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Services">
@@ -2410,7 +3559,11 @@
         
           <li class="md-nav__item">
   <a href="#service-object-example" class="md-nav__link">
-    Service Object Example
+    <span class="md-ellipsis">
+      
+        Service Object Example
+      
+    </span>
   </a>
   
 </li>
@@ -2422,21 +3575,33 @@
         
           <li class="md-nav__item">
   <a href="#kube-proxy_1" class="md-nav__link">
-    kube-proxy
+    <span class="md-ellipsis">
+      
+        kube-proxy
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#service-discovery" class="md-nav__link">
-    Service Discovery
+    <span class="md-ellipsis">
+      
+        Service Discovery
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#servicetype" class="md-nav__link">
-    ServiceType
+    <span class="md-ellipsis">
+      
+        ServiceType
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="ServiceType">
@@ -2444,35 +3609,55 @@
         
           <li class="md-nav__item">
   <a href="#clusterip" class="md-nav__link">
-    ClusterIP
+    <span class="md-ellipsis">
+      
+        ClusterIP
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#nodeport" class="md-nav__link">
-    NodePort
+    <span class="md-ellipsis">
+      
+        NodePort
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#loadbalancer" class="md-nav__link">
-    LoadBalancer
+    <span class="md-ellipsis">
+      
+        LoadBalancer
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#externalip" class="md-nav__link">
-    ExternalIP
+    <span class="md-ellipsis">
+      
+        ExternalIP
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#externalname" class="md-nav__link">
-    ExternalName
+    <span class="md-ellipsis">
+      
+        ExternalName
+      
+    </span>
   </a>
   
 </li>
@@ -2489,63 +3674,99 @@
       
         <li class="md-nav__item">
   <a href="#ch10-deploying-a-stand-alone-application" class="md-nav__link">
-    Ch.10 Deploying a Stand-Alone Application
+    <span class="md-ellipsis">
+      
+        Ch.10 Deploying a Stand-Alone Application
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#minikube-gui" class="md-nav__link">
-    Minikube GUI
+    <span class="md-ellipsis">
+      
+        Minikube GUI
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#kubectl-cli" class="md-nav__link">
-    kubectl CLI
+    <span class="md-ellipsis">
+      
+        kubectl CLI
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#labels-selectors" class="md-nav__link">
-    Labels / Selectors
+    <span class="md-ellipsis">
+      
+        Labels / Selectors
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#delete-deployment" class="md-nav__link">
-    Delete Deployment
+    <span class="md-ellipsis">
+      
+        Delete Deployment
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#deployment-yaml" class="md-nav__link">
-    Deployment YAML
+    <span class="md-ellipsis">
+      
+        Deployment YAML
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#create-expose-wnodeport" class="md-nav__link">
-    Create / Expose w/NodePort
+    <span class="md-ellipsis">
+      
+        Create / Expose w/NodePort
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#access-app-using-exposed-nodeport" class="md-nav__link">
-    Access App Using Exposed NodePort
+    <span class="md-ellipsis">
+      
+        Access App Using Exposed NodePort
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#liveness-readiness-probes" class="md-nav__link">
-    Liveness / Readiness Probes
+    <span class="md-ellipsis">
+      
+        Liveness / Readiness Probes
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Liveness / Readiness Probes">
@@ -2553,28 +3774,44 @@
         
           <li class="md-nav__item">
   <a href="#liveness-command" class="md-nav__link">
-    Liveness Command
+    <span class="md-ellipsis">
+      
+        Liveness Command
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#liveness-http-request" class="md-nav__link">
-    Liveness HTTP Request
+    <span class="md-ellipsis">
+      
+        Liveness HTTP Request
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tcp-liveness-probe" class="md-nav__link">
-    TCP Liveness Probe
+    <span class="md-ellipsis">
+      
+        TCP Liveness Probe
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#readiness-probes" class="md-nav__link">
-    Readiness Probes
+    <span class="md-ellipsis">
+      
+        Readiness Probes
+      
+    </span>
   </a>
   
 </li>
@@ -2586,7 +3823,11 @@
       
         <li class="md-nav__item">
   <a href="#ch11-kubernetes-volume-management" class="md-nav__link">
-    Ch.11 Kubernetes Volume Management
+    <span class="md-ellipsis">
+      
+        Ch.11 Kubernetes Volume Management
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.11 Kubernetes Volume Management">
@@ -2594,14 +3835,22 @@
         
           <li class="md-nav__item">
   <a href="#volumes" class="md-nav__link">
-    Volumes
+    <span class="md-ellipsis">
+      
+        Volumes
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#volume-types" class="md-nav__link">
-    Volume Types
+    <span class="md-ellipsis">
+      
+        Volume Types
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Volume Types">
@@ -2609,21 +3858,33 @@
         
           <li class="md-nav__item">
   <a href="#persistent-volumes" class="md-nav__link">
-    Persistent Volumes
+    <span class="md-ellipsis">
+      
+        Persistent Volumes
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#persistentvolumeclaims" class="md-nav__link">
-    PersistentVolumeClaims
+    <span class="md-ellipsis">
+      
+        PersistentVolumeClaims
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#container-storage-interface-csi" class="md-nav__link">
-    Container Storage Interface (CSI)
+    <span class="md-ellipsis">
+      
+        Container Storage Interface (CSI)
+      
+    </span>
   </a>
   
 </li>
@@ -2640,7 +3901,11 @@
       
         <li class="md-nav__item">
   <a href="#ch12-deploying-a-multi-tier-application" class="md-nav__link">
-    Ch.12 Deploying a Multi-Tier Application
+    <span class="md-ellipsis">
+      
+        Ch.12 Deploying a Multi-Tier Application
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.12 Deploying a Multi-Tier Application">
@@ -2648,7 +3913,11 @@
         
           <li class="md-nav__item">
   <a href="#rsvp-application" class="md-nav__link">
-    RSVP Application
+    <span class="md-ellipsis">
+      
+        RSVP Application
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="RSVP Application">
@@ -2656,28 +3925,44 @@
         
           <li class="md-nav__item">
   <a href="#backend" class="md-nav__link">
-    Backend
+    <span class="md-ellipsis">
+      
+        Backend
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#frontend" class="md-nav__link">
-    Frontend
+    <span class="md-ellipsis">
+      
+        Frontend
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#access-rsvp-application" class="md-nav__link">
-    Access RSVP Application
+    <span class="md-ellipsis">
+      
+        Access RSVP Application
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#scale-frontend" class="md-nav__link">
-    Scale Frontend
+    <span class="md-ellipsis">
+      
+        Scale Frontend
+      
+    </span>
   </a>
   
 </li>
@@ -2694,7 +3979,11 @@
       
         <li class="md-nav__item">
   <a href="#ch13-configmaps-and-secrets" class="md-nav__link">
-    Ch.13 ConfigMaps and Secrets
+    <span class="md-ellipsis">
+      
+        Ch.13 ConfigMaps and Secrets
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.13 ConfigMaps and Secrets">
@@ -2702,7 +3991,11 @@
         
           <li class="md-nav__item">
   <a href="#configmaps" class="md-nav__link">
-    ConfigMaps
+    <span class="md-ellipsis">
+      
+        ConfigMaps
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="ConfigMaps">
@@ -2710,35 +4003,55 @@
         
           <li class="md-nav__item">
   <a href="#create-configmap-cli" class="md-nav__link">
-    Create ConfigMap @ CLI
+    <span class="md-ellipsis">
+      
+        Create ConfigMap @ CLI
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#get-configmap-details" class="md-nav__link">
-    Get ConfigMap Details
+    <span class="md-ellipsis">
+      
+        Get ConfigMap Details
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#create-configmap-from-file" class="md-nav__link">
-    Create ConfigMap from file.
+    <span class="md-ellipsis">
+      
+        Create ConfigMap from file.
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-configmap-in-pods" class="md-nav__link">
-    Use ConfigMap in Pods
+    <span class="md-ellipsis">
+      
+        Use ConfigMap in Pods
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#mount-configmap-as-volume" class="md-nav__link">
-    Mount ConfigMap as Volume
+    <span class="md-ellipsis">
+      
+        Mount ConfigMap as Volume
+      
+    </span>
   </a>
   
 </li>
@@ -2750,7 +4063,11 @@
         
           <li class="md-nav__item">
   <a href="#secrets" class="md-nav__link">
-    Secrets
+    <span class="md-ellipsis">
+      
+        Secrets
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Secrets">
@@ -2758,14 +4075,22 @@
         
           <li class="md-nav__item">
   <a href="#create-secret-manually" class="md-nav__link">
-    Create Secret Manually
+    <span class="md-ellipsis">
+      
+        Create Secret Manually
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#use-secrets-inside-pods" class="md-nav__link">
-    Use Secrets Inside Pods
+    <span class="md-ellipsis">
+      
+        Use Secrets Inside Pods
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Use Secrets Inside Pods">
@@ -2773,14 +4098,22 @@
         
           <li class="md-nav__item">
   <a href="#environment-variable" class="md-nav__link">
-    Environment Variable
+    <span class="md-ellipsis">
+      
+        Environment Variable
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#mount-as-volume" class="md-nav__link">
-    Mount as Volume
+    <span class="md-ellipsis">
+      
+        Mount as Volume
+      
+    </span>
   </a>
   
 </li>
@@ -2802,7 +4135,11 @@
       
         <li class="md-nav__item">
   <a href="#ch14-ingress" class="md-nav__link">
-    Ch.14 Ingress
+    <span class="md-ellipsis">
+      
+        Ch.14 Ingress
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.14 Ingress">
@@ -2810,7 +4147,11 @@
         
           <li class="md-nav__item">
   <a href="#ingress-controller" class="md-nav__link">
-    Ingress Controller
+    <span class="md-ellipsis">
+      
+        Ingress Controller
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ingress Controller">
@@ -2818,21 +4159,33 @@
         
           <li class="md-nav__item">
   <a href="#start-ingress-controller-wminikube" class="md-nav__link">
-    Start Ingress Controller w/Minikube
+    <span class="md-ellipsis">
+      
+        Start Ingress Controller w/Minikube
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#deploy-ingress-resource" class="md-nav__link">
-    Deploy Ingress Resource
+    <span class="md-ellipsis">
+      
+        Deploy Ingress Resource
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#access-services-using-ingress" class="md-nav__link">
-    Access Services Using Ingress
+    <span class="md-ellipsis">
+      
+        Access Services Using Ingress
+      
+    </span>
   </a>
   
 </li>
@@ -2849,7 +4202,11 @@
       
         <li class="md-nav__item">
   <a href="#ch15-advanced-topics" class="md-nav__link">
-    Ch.15 Advanced Topics
+    <span class="md-ellipsis">
+      
+        Ch.15 Advanced Topics
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Ch.15 Advanced Topics">
@@ -2857,70 +4214,110 @@
         
           <li class="md-nav__item">
   <a href="#annotations" class="md-nav__link">
-    Annotations
+    <span class="md-ellipsis">
+      
+        Annotations
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#deployment-features" class="md-nav__link">
-    Deployment Features
+    <span class="md-ellipsis">
+      
+        Deployment Features
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#jobs" class="md-nav__link">
-    Jobs
+    <span class="md-ellipsis">
+      
+        Jobs
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#quota-management" class="md-nav__link">
-    Quota Management
+    <span class="md-ellipsis">
+      
+        Quota Management
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#daemonsets" class="md-nav__link">
-    DaemonSets
+    <span class="md-ellipsis">
+      
+        DaemonSets
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#statefulsets" class="md-nav__link">
-    StatefulSets
+    <span class="md-ellipsis">
+      
+        StatefulSets
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#kubernetes-cluster-federation" class="md-nav__link">
-    Kubernetes Cluster Federation
+    <span class="md-ellipsis">
+      
+        Kubernetes Cluster Federation
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#custom-resources" class="md-nav__link">
-    Custom Resources
+    <span class="md-ellipsis">
+      
+        Custom Resources
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#helm" class="md-nav__link">
-    Helm
+    <span class="md-ellipsis">
+      
+        Helm
+      
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#monitoring-and-logging" class="md-nav__link">
-    Monitoring and Logging
+    <span class="md-ellipsis">
+      
+        Monitoring and Logging
+      
+    </span>
   </a>
   
 </li>
@@ -2932,7 +4329,11 @@
       
         <li class="md-nav__item">
   <a href="#ch16-community" class="md-nav__link">
-    Ch.16 Community
+    <span class="md-ellipsis">
+      
+        Ch.16 Community
+      
+    </span>
   </a>
   
 </li>
@@ -2945,18 +4346,21 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
+          
+            <div class="md-content" data-md-component="content">
               
+              <article class="md-content__inner md-typeset">
                 
-                  <a href="https://github.com/WesRoach/wesroach.github.io/edit/master/docs/kubernetes/edx.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                  <h1>EDx</h1>
-                
-                <h2 id="ch1-container-orchestration">Ch1. Container Orchestration<a class="headerlink" href="#ch1-container-orchestration" title="Permanent link">&para;</a></h2>
+                  
+
+
+  
+  
+
+
+  <h1>EDx</h1>
+
+<h2 id="ch1-container-orchestration">Ch1. Container Orchestration<a class="headerlink" href="#ch1-container-orchestration" title="Permanent link">&para;</a></h2>
 <h3 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Define the concept of container orchestration.</li>
@@ -3378,22 +4782,22 @@
 <p>Start Here: <a href="https://github.com/kubernetes/minikube">Github Installation directions</a>.</p>
 <h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install VirtualBox</span>
-sudo apt-get install virtualbox
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>virtualbox
 <span class="c1"># Install Minikube</span>
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.25.0/minikube-linux-amd64 <span class="o">&amp;&amp;</span> chmod +x minikube <span class="o">&amp;&amp;</span> sudo mv minikube /usr/local/bin/
+curl<span class="w"> </span>-Lo<span class="w"> </span>minikube<span class="w"> </span>https://storage.googleapis.com/minikube/releases/v0.25.0/minikube-linux-amd64<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>minikube<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>minikube<span class="w"> </span>/usr/local/bin/
 <span class="c1"># Validate Minikube installation</span>
-minikube start
-minikube status
-minikube stop
+minikube<span class="w"> </span>start
+minikube<span class="w"> </span>status
+minikube<span class="w"> </span>stop
 </code></pre></div>
 <h4 id="mac">Mac<a class="headerlink" href="#mac" title="Permanent link">&para;</a></h4>
 <p>Install <a href="http://download.virtualbox.org/virtualbox/5.1.22/VirtualBox-5.1.22-115126-OSX.dmg">VirtualBox</a> on macOS</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Install Minikube</span>
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.25.0/minikube-darwin-amd64 <span class="o">&amp;&amp;</span> chmod +x minikube <span class="o">&amp;&amp;</span> sudo mv minikube /usr/local/bin/
+curl<span class="w"> </span>-Lo<span class="w"> </span>minikube<span class="w"> </span>https://storage.googleapis.com/minikube/releases/v0.25.0/minikube-darwin-amd64<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>minikube<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>minikube<span class="w"> </span>/usr/local/bin/
 <span class="c1"># Validate Minikube installation</span>
-minikube start
-minikube status
-minikube stop
+minikube<span class="w"> </span>start
+minikube<span class="w"> </span>status
+minikube<span class="w"> </span>stop
 </code></pre></div>
 <h4 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3414,15 +4818,15 @@ minikube stop
 <p>Set default VM driver for Minikube</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">minikube</span> <span class="n">config</span> <span class="nb">set </span><span class="n">vm-driver</span> <span class="n">virtualbox</span>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">minikube</span> <span class="n">config</span> <span class="nb">set </span><span class="n">vm-driver</span> <span class="n">virtualbox</span>
 <span class="c"># These changes will take effect upon a minikube delete and then a minikube start</span>
 </code></pre></div>
 <ul>
 <li>Validate Installation</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">WINDOWS</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">minikube</span> <span class="nb">start</span>
-<span class="nb">PS </span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">WINDOWS</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">minikube</span> <span class="n">status</span>
-<span class="nb">PS </span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">WINDOWS</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">minikube</span> <span class="n">stop</span>
+<div class="highlight"><pre><span></span><code><span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">WINDOWS</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">minikube</span> <span class="nb">start</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">WINDOWS</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">minikube</span> <span class="n">status</span>
+<span class="nb">PS </span><span class="n">C</span><span class="p">:\</span><span class="n">WINDOWS</span><span class="p">\</span><span class="n">system32</span><span class="p">&gt;</span> <span class="n">minikube</span> <span class="n">stop</span>
 </code></pre></div>
 <h2 id="ch6-accessing-minikube">Ch.6 Accessing Minikube<a class="headerlink" href="#ch6-accessing-minikube" title="Permanent link">&para;</a></h2>
 <h3 id="review-methods-to-access-any-kubernetes-cluster">Review methods to access any Kubernetes cluster.<a class="headerlink" href="#review-methods-to-access-any-kubernetes-cluster" title="Permanent link">&para;</a></h3>
@@ -3443,7 +4847,7 @@ minikube stop
 </ul>
 </li>
 <li><strong>Named Group</strong><ul>
-<li>objects in <strong>/apis/<span><span class="MathJax_Preview">NAME/</span><script type="math/tex">NAME/</script></span>VERSION</strong> format</li>
+<li>objects in <strong>/apis/<span class="arithmatex"><span class="MathJax_Preview">NAME/</span><script type="math/tex">NAME/</script></span>VERSION</strong> format</li>
 <li>API versions imply levels of stability/support:<ul>
 <li>Alpha - may be dropped @ any point in time, without notice.<ul>
 <li>Ex: <strong>/apis/batch/v2alpha1</strong></li>
@@ -3474,26 +4878,26 @@ minikube stop
 <h3 id="configure-kubectl-for-linux-macos-and-windows">Configure kubectl for Linux, macOS, and Windows.<a class="headerlink" href="#configure-kubectl-for-linux-macos-and-windows" title="Permanent link">&para;</a></h3>
 <h4 id="linux_1">Linux<a class="headerlink" href="#linux_1" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Download latest stable kubectl binary</span>
-curl -LO https://storage.googleapis.com/kubernetes-release/release/<span class="k">$(</span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt<span class="k">)</span>/bin/linux/amd64/kubectl
+curl<span class="w"> </span>-LO<span class="w"> </span>https://storage.googleapis.com/kubernetes-release/release/<span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://storage.googleapis.com/kubernetes-release/release/stable.txt<span class="k">)</span>/bin/linux/amd64/kubectl
 
 <span class="c1"># Make kubectl executable</span>
-chmod +x ./kubectl
+chmod<span class="w"> </span>+x<span class="w"> </span>./kubectl
 
 <span class="c1"># Move into PATH</span>
-sudo mv ./kubectl /usr/local/bin/kubectl
+sudo<span class="w"> </span>mv<span class="w"> </span>./kubectl<span class="w"> </span>/usr/local/bin/kubectl
 </code></pre></div>
 <h4 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># Download latest stable kubectl binary</span>
-curl -LO https://storage.googleapis.com/kubernetes-release/release/<span class="k">$(</span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt<span class="k">)</span>/bin/darwin/amd64/kubectl
+curl<span class="w"> </span>-LO<span class="w"> </span>https://storage.googleapis.com/kubernetes-release/release/<span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>https://storage.googleapis.com/kubernetes-release/release/stable.txt<span class="k">)</span>/bin/darwin/amd64/kubectl
 
 <span class="c1"># Make kubectl executable</span>
-chmod +x ./kubectl
+chmod<span class="w"> </span>+x<span class="w"> </span>./kubectl
 
 <span class="c1"># Move into PATH</span>
-sudo mv ./kubectl /usr/local/bin/kubectl
+sudo<span class="w"> </span>mv<span class="w"> </span>./kubectl<span class="w"> </span>/usr/local/bin/kubectl
 </code></pre></div>
 <p><strong>OR</strong> using Brew:</p>
-<div class="highlight"><pre><span></span><code>brew install kubectl
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>kubectl
 </code></pre></div>
 <h4 id="windows_1">Windows<a class="headerlink" href="#windows_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3505,26 +4909,26 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Example download 1.9.3</span>
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.9.3/bin/windows/amd64/kubectl.exe<span class="sb">`</span>
+curl<span class="w"> </span>-LO<span class="w"> </span>https://storage.googleapis.com/kubernetes-release/release/v1.9.3/bin/windows/amd64/kubectl.exe<span class="sb">`</span>
 </code></pre></div>
 <ul>
 <li>Once downloaded - move kubectl binary to PATH</li>
 </ul>
 <h3 id="access-the-minikube-dashboard">Access the Minikube dashboard.<a class="headerlink" href="#access-the-minikube-dashboard" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>minikube dashboard
+<div class="highlight"><pre><span></span><code>minikube<span class="w"> </span>dashboard
 </code></pre></div>
 <p><strong>or</strong></p>
-<p><div class="highlight"><pre><span></span><code>kubectl proxy
+<p><div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>proxy
 </code></pre></div>
 - <strong>kubectl</strong> authenticates with API server on Master node
 - Makes dashboard available @ <a href="http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy/#!/overview?namespace=default">http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard:/proxy/#!/overview?namespace=default</a>
 - <strong>kubernetes-dashboard</strong> service runs inside <strong>kube-system</strong> namespace.</p>
 <h3 id="access-minikube-via-apis">Access Minikube via APIs.<a class="headerlink" href="#access-minikube-via-apis" title="Permanent link">&para;</a></h3>
 <h4 id="with-kubectl-proxy">With <code>kubectl proxy</code><a class="headerlink" href="#with-kubectl-proxy" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code>kubectl proxy
+<p><div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>proxy
 </code></pre></div>
 In a new session:
-<div class="highlight"><pre><span></span><code>curl http://localhost:8001
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:8001
 </code></pre></div></p>
 <h4 id="without-kubectl-proxy">Without <code>kubectl proxy</code><a class="headerlink" href="#without-kubectl-proxy" title="Permanent link">&para;</a></h4>
 <ul>
@@ -3534,13 +4938,13 @@ In a new session:
 </li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># Acquire Token</span>
-<span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl describe secret -n kube-system <span class="k">$(</span>kubectl get secrets -n kube-system <span class="p">|</span> grep default <span class="p">|</span> cut -f1 -d <span class="s1">&#39; &#39;</span><span class="k">)</span> <span class="p">|</span> grep -E <span class="s1">&#39;^token&#39;</span> <span class="p">|</span> cut -f2 -d<span class="s1">&#39;:&#39;</span> <span class="p">|</span> tr -d <span class="s1">&#39;\t&#39;</span> <span class="p">|</span> tr -d <span class="s2">&quot; &quot;</span><span class="k">)</span>
+<span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>describe<span class="w"> </span>secret<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span><span class="k">$(</span>kubectl<span class="w"> </span>get<span class="w"> </span>secrets<span class="w"> </span>-n<span class="w"> </span>kube-system<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>default<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f1<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;^token&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f2<span class="w"> </span>-d<span class="s1">&#39;:&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;\t&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="k">)</span>
 
 <span class="c1"># Retrieve API server endpoint</span>
-<span class="nv">APISERVER</span><span class="o">=</span><span class="k">$(</span>kubectl config view <span class="p">|</span> grep https <span class="p">|</span> cut -f <span class="m">2</span>- -d <span class="s2">&quot;:&quot;</span> <span class="p">|</span> tr -d <span class="s2">&quot; &quot;</span><span class="k">)</span>
+<span class="nv">APISERVER</span><span class="o">=</span><span class="k">$(</span>kubectl<span class="w"> </span>config<span class="w"> </span>view<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>https<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f<span class="w"> </span><span class="m">2</span>-<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="k">)</span>
 
 <span class="c1"># Access API Server using curl</span>
-curl <span class="nv">$APISERVER</span> --header <span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span> --insecure
+curl<span class="w"> </span><span class="nv">$APISERVER</span><span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>--insecure
 </code></pre></div>
 <h2 id="ch7-kubernetes-building-blocks">Ch.7 Kubernetes Building Blocks<a class="headerlink" href="#ch7-kubernetes-building-blocks" title="Permanent link">&para;</a></h2>
 <h3 id="review-the-kubernetes-object-model">Review the Kubernetes object model.<a class="headerlink" href="#review-the-kubernetes-object-model" title="Permanent link">&para;</a></h3>
@@ -3719,11 +5123,11 @@ curl <span class="nv">$APISERVER</span> --header <span class="s2">&quot;Authoriz
 <li>names of resources/objects created in <strong>Namespace</strong> are unique, but not across <strong>Namespaces</strong>.</li>
 </ul>
 <p>List all <strong>Namespaces</strong>:
-<div class="highlight"><pre><span></span><code>$ kubectl get namespaces
-NAME          STATUS       AGE
-default       Active       11h
-kube-public   Active       11h
-kube-system   Active       11h
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>namespaces
+NAME<span class="w">          </span>STATUS<span class="w">       </span>AGE
+default<span class="w">       </span>Active<span class="w">       </span>11h
+kube-public<span class="w">   </span>Active<span class="w">       </span>11h
+kube-system<span class="w">   </span>Active<span class="w">       </span>11h
 </code></pre></div></p>
 <ul>
 <li>k8s creates 2 default Namespaces:<ul>
@@ -3902,14 +5306,14 @@ kube-system   Active       11h
 <li>k8s grants access to API requests - combine policies with attributes.</li>
 <li>Ex: user <em>nkhare</em> can only read Pods in Namespace <strong>lfs158</strong>:
 <div class="highlight"><pre><span></span><code><span class="o">{</span>
-  <span class="s2">&quot;apiVersion&quot;</span>: <span class="s2">&quot;abac.authorization.kubernetes.io/v1beta1&quot;</span>,
-  <span class="s2">&quot;kind&quot;</span>: <span class="s2">&quot;Policy&quot;</span>,
-  <span class="s2">&quot;spec&quot;</span>: <span class="o">{</span>
-    <span class="s2">&quot;user&quot;</span>: <span class="s2">&quot;nkhare&quot;</span>,
-    <span class="s2">&quot;namespace&quot;</span>: <span class="s2">&quot;lfs158&quot;</span>,
-    <span class="s2">&quot;resource&quot;</span>: <span class="s2">&quot;pods&quot;</span>,
-    <span class="s2">&quot;readonly&quot;</span>: <span class="nb">true</span>
-  <span class="o">}</span>
+<span class="w">  </span><span class="s2">&quot;apiVersion&quot;</span>:<span class="w"> </span><span class="s2">&quot;abac.authorization.kubernetes.io/v1beta1&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;kind&quot;</span>:<span class="w"> </span><span class="s2">&quot;Policy&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;spec&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;user&quot;</span>:<span class="w"> </span><span class="s2">&quot;nkhare&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;namespace&quot;</span>:<span class="w"> </span><span class="s2">&quot;lfs158&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;resource&quot;</span>:<span class="w"> </span><span class="s2">&quot;pods&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;readonly&quot;</span>:<span class="w"> </span><span class="nb">true</span>
+<span class="w">  </span><span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></li>
 <li>enable w/<code>--authorization-mode=ABAC</code> option to API server.<ul>
@@ -3943,15 +5347,15 @@ kube-system   Active       11h
 <li>Two kids of roles:<ul>
 <li><strong>Role</strong><ul>
 <li>grant access to resource within specific Namespace
-<div class="highlight"><pre><span></span><code>kind: Role
-apiVersion: rbac.authorization.k8s.io/v1
+<div class="highlight"><pre><span></span><code>kind:<span class="w"> </span>Role
+apiVersion:<span class="w"> </span>rbac.authorization.k8s.io/v1
 metadata:
-  namespace: lfs158
-  name: pod-reader
+<span class="w">  </span>namespace:<span class="w"> </span>lfs158
+<span class="w">  </span>name:<span class="w"> </span>pod-reader
 rules:
-- apiGroups: <span class="o">[</span><span class="s2">&quot;&quot;</span><span class="o">]</span> <span class="c1"># &quot;&quot; indicates the core API group</span>
-  resources: <span class="o">[</span><span class="s2">&quot;pods&quot;</span><span class="o">]</span>
-  verbs: <span class="o">[</span><span class="s2">&quot;get&quot;</span>, <span class="s2">&quot;watch&quot;</span>, <span class="s2">&quot;list&quot;</span><span class="o">]</span>
+-<span class="w"> </span>apiGroups:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;&quot;</span><span class="o">]</span><span class="w"> </span><span class="c1"># &quot;&quot; indicates the core API group</span>
+<span class="w">  </span>resources:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;pods&quot;</span><span class="o">]</span>
+<span class="w">  </span>verbs:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;get&quot;</span>,<span class="w"> </span><span class="s2">&quot;watch&quot;</span>,<span class="w"> </span><span class="s2">&quot;list&quot;</span><span class="o">]</span>
 </code></pre></div></li>
 <li>creates <strong>pod-reader</strong> role<ul>
 <li>access only to Pods of <strong>lfs158</strong> Namespace.</li>
@@ -3966,19 +5370,19 @@ rules:
 <li>Once <strong>Role</strong> is created - bind users with <em>RoleBinding</em><ul>
 <li><em>RoleBinding</em><ul>
 <li>bind users to same namespace as a Role.
-<div class="highlight"><pre><span></span><code>kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
+<div class="highlight"><pre><span></span><code>kind:<span class="w"> </span>RoleBinding
+apiVersion:<span class="w"> </span>rbac.authorization.k8s.io/v1
 metadata:
-  name: pod-read-access
-  namespace: lfs158
+<span class="w">  </span>name:<span class="w"> </span>pod-read-access
+<span class="w">  </span>namespace:<span class="w"> </span>lfs158
 subjects:
-- kind: User
-  name: nkhare
-  apiGroup: rbac.authorization.k8s.io
+-<span class="w"> </span>kind:<span class="w"> </span>User
+<span class="w">  </span>name:<span class="w"> </span>nkhare
+<span class="w">  </span>apiGroup:<span class="w"> </span>rbac.authorization.k8s.io
 roleRef:
-  kind: Role
-  name: pod-reader
-  apiGroup: rbac.authorization.k8s.io
+<span class="w">  </span>kind:<span class="w"> </span>Role
+<span class="w">  </span>name:<span class="w"> </span>pod-reader
+<span class="w">  </span>apiGroup:<span class="w"> </span>rbac.authorization.k8s.io
 </code></pre></div></li>
 <li>user <em>nkhare</em> access to read Pods of <strong>lfs158</strong> Namespace.</li>
 </ul>
@@ -4074,17 +5478,17 @@ roleRef:
 </ul>
 <p><img alt="group-pods-2" src="img/group-pods-2.png" /></p>
 <h4 id="service-object-example">Service Object Example<a class="headerlink" href="#service-object-example" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>kind: Service
-apiVersion: v1
+<div class="highlight"><pre><span></span><code>kind:<span class="w"> </span>Service
+apiVersion:<span class="w"> </span>v1
 metadata:
-  name: frontend-svc
+<span class="w">  </span>name:<span class="w"> </span>frontend-svc
 spec:
-  selector:
-    app: frontend
-  ports:
-    - protocol: TCP
-      port: <span class="m">80</span>
-      targetPort: <span class="m">5000</span>
+<span class="w">  </span>selector:
+<span class="w">    </span>app:<span class="w"> </span>frontend
+<span class="w">  </span>ports:
+<span class="w">    </span>-<span class="w"> </span>protocol:<span class="w"> </span>TCP
+<span class="w">      </span>port:<span class="w"> </span><span class="m">80</span>
+<span class="w">      </span>targetPort:<span class="w"> </span><span class="m">5000</span>
 </code></pre></div>
 <p>Explain:</p>
 <ul>
@@ -4304,9 +5708,9 @@ spec:
 </li>
 </ul>
 <h2 id="minikube-gui">Minikube GUI<a class="headerlink" href="#minikube-gui" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>minikube start
-minikube status
-minikube dashboard
+<div class="highlight"><pre><span></span><code>minikube<span class="w"> </span>start
+minikube<span class="w"> </span>status
+minikube<span class="w"> </span>dashboard
 </code></pre></div>
 <ul>
 <li>Deploy webserver usign nginx:alpine image:<ul>
@@ -4328,20 +5732,20 @@ minikube dashboard
 </ul>
 <p><img alt="deploy-containerized-app-web-gui-3" src="img/deploy-containerized-app-web-gui-3.png" /></p>
 <h2 id="kubectl-cli">kubectl CLI<a class="headerlink" href="#kubectl-cli" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>kubectl get deployments
-kubectl get replicasets
-kubectl get pods
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>deployments
+kubectl<span class="w"> </span>get<span class="w"> </span>replicasets
+kubectl<span class="w"> </span>get<span class="w"> </span>pods
 </code></pre></div>
 <h2 id="labels-selectors">Labels / Selectors<a class="headerlink" href="#labels-selectors" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>kubectl describe pod webserver-74d8bd488f-xxxxx
-kubectl get pods -L k8s-app,label2
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>webserver-74d8bd488f-xxxxx
+kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-L<span class="w"> </span>k8s-app,label2
 <span class="c1"># -L option = add additional columns in output</span>
 
-kubectl get pods -l k8s-app<span class="o">=</span>webserver
+kubectl<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-l<span class="w"> </span>k8s-app<span class="o">=</span>webserver
 <span class="c1"># -l option = selector</span>
 </code></pre></div>
 <h2 id="delete-deployment">Delete Deployment<a class="headerlink" href="#delete-deployment" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>kubectl delete deployments webserver
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>delete<span class="w"> </span>deployments<span class="w"> </span>webserver
 <span class="c1"># Also deletes ReplicaSets &amp; Pods</span>
 </code></pre></div>
 <h2 id="deployment-yaml">Deployment YAML<a class="headerlink" href="#deployment-yaml" title="Permanent link">&para;</a></h2>
@@ -4372,7 +5776,7 @@ spec:
         ports:
         - containerPort: 80
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f webserver.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>webserver.yaml
 </code></pre></div>
 <h2 id="create-expose-wnodeport">Create / Expose w/NodePort<a class="headerlink" href="#create-expose-wnodeport" title="Permanent link">&para;</a></h2>
 <ul>
@@ -4399,12 +5803,12 @@ spec:
   selector:
     app: nginx
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f webserver-svc.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>webserver-svc.yaml
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl get svc
-NAME          TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>        AGE
-kubernetes    ClusterIP   <span class="m">10</span>.96.0.1        &lt;none&gt;        <span class="m">443</span>/TCP        4d
-web-service   NodePort    <span class="m">10</span>.108.132.106   &lt;none&gt;        <span class="m">80</span>:31791/TCP   3m
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>svc
+NAME<span class="w">          </span>TYPE<span class="w">        </span>CLUSTER-IP<span class="w">       </span>EXTERNAL-IP<span class="w">   </span>PORT<span class="o">(</span>S<span class="o">)</span><span class="w">        </span>AGE
+kubernetes<span class="w">    </span>ClusterIP<span class="w">   </span><span class="m">10</span>.96.0.1<span class="w">        </span>&lt;none&gt;<span class="w">        </span><span class="m">443</span>/TCP<span class="w">        </span>4d
+web-service<span class="w">   </span>NodePort<span class="w">    </span><span class="m">10</span>.108.132.106<span class="w">   </span>&lt;none&gt;<span class="w">        </span><span class="m">80</span>:31791/TCP<span class="w">   </span>3m
 </code></pre></div></p>
 <ul>
 <li>ClusterIP: 10.108.132.106</li>
@@ -4415,15 +5819,15 @@ web-service   NodePort    <span class="m">10</span>.108.132.106   &lt;none&gt;  
 </li>
 </ul>
 <p>Deployment / Service creation can happen in any order.</p>
-<div class="highlight"><pre><span></span><code>kubectl describe svc web-service
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>describe<span class="w"> </span>svc<span class="w"> </span>web-service
 </code></pre></div>
 <p><strong>web-service</strong> uses <strong>app=nginx</strong> as Selector, which selects the three Pods - listed as endpoints. So, whenever a request is sent to our Service - served by one of Pods listed in <strong>Endpoints</strong> section.</p>
 <h2 id="access-app-using-exposed-nodeport">Access App Using Exposed NodePort<a class="headerlink" href="#access-app-using-exposed-nodeport" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>minikube ip
+<div class="highlight"><pre><span></span><code>minikube<span class="w"> </span>ip
 </code></pre></div>
 <p>Open browser @ listed IP and <code>kubectl describe svc web-service</code> NodePort.</p>
 <p><strong>or</strong>, at CLI:</p>
-<div class="highlight"><pre><span></span><code>minikube service web-service
+<div class="highlight"><pre><span></span><code>minikube<span class="w"> </span>service<span class="w"> </span>web-service
 </code></pre></div>
 <h2 id="liveness-readiness-probes">Liveness / Readiness Probes<a class="headerlink" href="#liveness-readiness-probes" title="Permanent link">&para;</a></h2>
 <p><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/">Kubernetes documentation</a></p>
@@ -4470,9 +5874,9 @@ spec:
       initialDelaySeconds: 3
       periodSeconds: 5
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f liveness-exec.yaml
-kubectl get pods
-kubectl describe pod liveness-exec
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>liveness-exec.yaml
+kubectl<span class="w"> </span>get<span class="w"> </span>pods
+kubectl<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>liveness-exec
 </code></pre></div>
 - periodSeconds: <strong>tmp/healthy</strong> checked every 5 seconds.
 - initialDelaySeconds: requests kubelet to wait 3 seoncds before first probe.</p>
@@ -4482,29 +5886,29 @@ kubectl describe pod liveness-exec
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># liveness-http.yaml</span>
 
-apiVersion: v1
-kind: Pod
+apiVersion:<span class="w"> </span>v1
+kind:<span class="w"> </span>Pod
 metadata:
-  labels:
-    test: liveness
-  name: liveness-exec
+<span class="w">  </span>labels:
+<span class="w">    </span>test:<span class="w"> </span>liveness
+<span class="w">  </span>name:<span class="w"> </span>liveness-exec
 spec:
-  containers:
-  - name: liveness
-    image: k8s.gcr.io/busybox
-    args:
-    - /bin/sh
-    - -c
-    - touch /tmp/healthy<span class="p">;</span> sleep <span class="m">30</span><span class="p">;</span> rm -rf /tmp/healthy<span class="p">;</span> sleep <span class="m">600</span>
-    livenessProbe:
-      httpGet:
-        path: /healthz
-        port: <span class="m">8080</span>
-        httpHeaders:
-        - name: X-Custom-Header
-          value: Awesome
-      initialDelaySeconds: <span class="m">3</span>
-      periodSeconds: <span class="m">3</span>
+<span class="w">  </span>containers:
+<span class="w">  </span>-<span class="w"> </span>name:<span class="w"> </span>liveness
+<span class="w">    </span>image:<span class="w"> </span>k8s.gcr.io/busybox
+<span class="w">    </span>args:
+<span class="w">    </span>-<span class="w"> </span>/bin/sh
+<span class="w">    </span>-<span class="w"> </span>-c
+<span class="w">    </span>-<span class="w"> </span>touch<span class="w"> </span>/tmp/healthy<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">30</span><span class="p">;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/healthy<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">600</span>
+<span class="w">    </span>livenessProbe:
+<span class="w">      </span>httpGet:
+<span class="w">        </span>path:<span class="w"> </span>/healthz
+<span class="w">        </span>port:<span class="w"> </span><span class="m">8080</span>
+<span class="w">        </span>httpHeaders:
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>X-Custom-Header
+<span class="w">          </span>value:<span class="w"> </span>Awesome
+<span class="w">      </span>initialDelaySeconds:<span class="w"> </span><span class="m">3</span>
+<span class="w">      </span>periodSeconds:<span class="w"> </span><span class="m">3</span>
 </code></pre></div>
 <h3 id="tcp-liveness-probe">TCP Liveness Probe<a class="headerlink" href="#tcp-liveness-probe" title="Permanent link">&para;</a></h3>
 <ul>
@@ -4512,51 +5916,51 @@ spec:
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># liveness-tcp.yaml</span>
 
-apiVersion: v1
-kind: Pod
+apiVersion:<span class="w"> </span>v1
+kind:<span class="w"> </span>Pod
 metadata:
-  labels:
-    test: liveness
-  name: liveness-exec
+<span class="w">  </span>labels:
+<span class="w">    </span>test:<span class="w"> </span>liveness
+<span class="w">  </span>name:<span class="w"> </span>liveness-exec
 spec:
-  containers:
-  - name: liveness
-    image: k8s.gcr.io/busybox
-    args:
-    - /bin/sh
-    - -c
-    - touch /tmp/healthy<span class="p">;</span> sleep <span class="m">30</span><span class="p">;</span> rm -rf /tmp/healthy<span class="p">;</span> sleep <span class="m">600</span>
-    livenessProbe:
-      tcpSocket:
-        port: <span class="m">8080</span>
-      initialDelaySeconds: <span class="m">15</span>
-      periodSeconds: <span class="m">20</span>
+<span class="w">  </span>containers:
+<span class="w">  </span>-<span class="w"> </span>name:<span class="w"> </span>liveness
+<span class="w">    </span>image:<span class="w"> </span>k8s.gcr.io/busybox
+<span class="w">    </span>args:
+<span class="w">    </span>-<span class="w"> </span>/bin/sh
+<span class="w">    </span>-<span class="w"> </span>-c
+<span class="w">    </span>-<span class="w"> </span>touch<span class="w"> </span>/tmp/healthy<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">30</span><span class="p">;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/healthy<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">600</span>
+<span class="w">    </span>livenessProbe:
+<span class="w">      </span>tcpSocket:
+<span class="w">        </span>port:<span class="w"> </span><span class="m">8080</span>
+<span class="w">      </span>initialDelaySeconds:<span class="w"> </span><span class="m">15</span>
+<span class="w">      </span>periodSeconds:<span class="w"> </span><span class="m">20</span>
 </code></pre></div>
 <h3 id="readiness-probes">Readiness Probes<a class="headerlink" href="#readiness-probes" title="Permanent link">&para;</a></h3>
 <p>Application must meet conditions before receiving traffic.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># readiness-probe.yaml</span>
 
-apiVersion: v1
-kind: Pod
+apiVersion:<span class="w"> </span>v1
+kind:<span class="w"> </span>Pod
 metadata:
-  labels:
-    test: readiness
-  name: readiness-exec
+<span class="w">  </span>labels:
+<span class="w">    </span>test:<span class="w"> </span>readiness
+<span class="w">  </span>name:<span class="w"> </span>readiness-exec
 spec:
-  containers:
-  - name: readiness
-    image: k8s.gcr.io/busybox
-    args:
-    - /bin/sh
-    - -c
-    - sleep <span class="m">20</span><span class="p">;</span> touch /tmp/healthy<span class="p">;</span> sleep <span class="m">20</span><span class="p">;</span> rm -rf /tmp/healthy<span class="p">;</span> sleep <span class="m">600</span>
-    readinessProbe:
-      exec:
-        command:
-        - cat
-        - /tmp/healthy
-      initialDelaySeconds: <span class="m">5</span>
-      periodSeconds: <span class="m">5</span>
+<span class="w">  </span>containers:
+<span class="w">  </span>-<span class="w"> </span>name:<span class="w"> </span>readiness
+<span class="w">    </span>image:<span class="w"> </span>k8s.gcr.io/busybox
+<span class="w">    </span>args:
+<span class="w">    </span>-<span class="w"> </span>/bin/sh
+<span class="w">    </span>-<span class="w"> </span>-c
+<span class="w">    </span>-<span class="w"> </span>sleep<span class="w"> </span><span class="m">20</span><span class="p">;</span><span class="w"> </span>touch<span class="w"> </span>/tmp/healthy<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">20</span><span class="p">;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/healthy<span class="p">;</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">600</span>
+<span class="w">    </span>readinessProbe:
+<span class="w">      </span>exec:
+<span class="w">        </span>command:
+<span class="w">        </span>-<span class="w"> </span>cat
+<span class="w">        </span>-<span class="w"> </span>/tmp/healthy
+<span class="w">      </span>initialDelaySeconds:<span class="w"> </span><span class="m">5</span>
+<span class="w">      </span>periodSeconds:<span class="w"> </span><span class="m">5</span>
 </code></pre></div>
 <h2 id="ch11-kubernetes-volume-management">Ch.11 Kubernetes Volume Management<a class="headerlink" href="#ch11-kubernetes-volume-management" title="Permanent link">&para;</a></h2>
 <ul>
@@ -4695,8 +6099,8 @@ spec:
 - rsvp.py
     - look for MONGODB_HOST env variable for db endpoint.
     - connect to it on port 27017</p>
-<div class="highlight"><pre><span></span><code><span class="nv">MONGODB_HOST</span><span class="o">=</span>os.environ.get<span class="o">(</span><span class="s1">&#39;MONGODB_HOST&#39;</span>, <span class="s1">&#39;localhost&#39;</span><span class="o">)</span>
-<span class="nv">client</span> <span class="o">=</span> MongoCLient<span class="o">(</span>MONGODB_HOST, <span class="m">27017</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">MONGODB_HOST</span><span class="o">=</span>os.environ.get<span class="o">(</span><span class="s1">&#39;MONGODB_HOST&#39;</span>,<span class="w"> </span><span class="s1">&#39;localhost&#39;</span><span class="o">)</span>
+<span class="nv">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>MongoCLient<span class="o">(</span>MONGODB_HOST,<span class="w"> </span><span class="m">27017</span><span class="o">)</span>
 </code></pre></div>
 <ul>
 <li>Deploy with 1 backend / 1 frontend</li>
@@ -4705,47 +6109,47 @@ spec:
 <h4 id="backend">Backend<a class="headerlink" href="#backend" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># rsvp-db.yaml</span>
 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion:<span class="w"> </span>apps/v1
+kind:<span class="w"> </span>Deployment
 metadata:
-  name: rsvp-db
-  labels:
-    appdb: rsvpdb
+<span class="w">  </span>name:<span class="w"> </span>rsvp-db
+<span class="w">  </span>labels:
+<span class="w">    </span>appdb:<span class="w"> </span>rsvpdb
 spec:
-  replicas: <span class="m">1</span>
-  selector:
-    matchLabels:
-      appdb: rsvpdb
-  template:
-    metadata:
-      labels:
-        appdb: rsvpdb
-    spec:
-      containers:
-      - name: rsvp-db
-        image: mongo:3.3
-        ports:
-        - containerPort: <span class="m">27017</span>
+<span class="w">  </span>replicas:<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>selector:
+<span class="w">    </span>matchLabels:
+<span class="w">      </span>appdb:<span class="w"> </span>rsvpdb
+<span class="w">  </span>template:
+<span class="w">    </span>metadata:
+<span class="w">      </span>labels:
+<span class="w">        </span>appdb:<span class="w"> </span>rsvpdb
+<span class="w">    </span>spec:
+<span class="w">      </span>containers:
+<span class="w">      </span>-<span class="w"> </span>name:<span class="w"> </span>rsvp-db
+<span class="w">        </span>image:<span class="w"> </span>mongo:3.3
+<span class="w">        </span>ports:
+<span class="w">        </span>-<span class="w"> </span>containerPort:<span class="w"> </span><span class="m">27017</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f rsvp-db.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>rsvp-db.yaml
 </code></pre></div>
 <p>Create <strong>mongodb</strong> service.</p>
 <p><div class="highlight"><pre><span></span><code><span class="c1"># rsvp-db-service.yaml</span>
 
-apiVersion: v1
-kind: Service
+apiVersion:<span class="w"> </span>v1
+kind:<span class="w"> </span>Service
 metadata:
-  name: mongodb
-  labels:
-    app: rsvpdb
+<span class="w">  </span>name:<span class="w"> </span>mongodb
+<span class="w">  </span>labels:
+<span class="w">    </span>app:<span class="w"> </span>rsvpdb
 spec:
-  ports:
-  - port: <span class="m">27017</span>
-    protocol: TCP
-  selector:
-    appdb: rsvpdb
+<span class="w">  </span>ports:
+<span class="w">  </span>-<span class="w"> </span>port:<span class="w"> </span><span class="m">27017</span>
+<span class="w">    </span>protocol:<span class="w"> </span>TCP
+<span class="w">  </span>selector:
+<span class="w">    </span>appdb:<span class="w"> </span>rsvpdb
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f rsvp-db-service.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>rsvp-db-service.yaml
 </code></pre></div></p>
 <ul>
 <li>did not specify <em>ServiceType</em><ul>
@@ -4754,9 +6158,9 @@ spec:
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>kubectl get deployments
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>deployments
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl get services
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>services
 </code></pre></div>
 <h4 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4770,33 +6174,33 @@ spec:
 <p>Create Deployment for <strong>rsvp</strong> Frontend.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># rsvp-web.yaml</span>
 
-apiVersion: apps/v1
-kind: Deployment
+apiVersion:<span class="w"> </span>apps/v1
+kind:<span class="w"> </span>Deployment
 metadata:
-  name: rsvp
-  labels:
-    app: rsvp
+<span class="w">  </span>name:<span class="w"> </span>rsvp
+<span class="w">  </span>labels:
+<span class="w">    </span>app:<span class="w"> </span>rsvp
 spec:
-  replicas: <span class="m">1</span>
-  selector:
-    matchLabels:
-      app: rsvp
-  template:
-    metadata:
-      labels:
-        app: rsvp
-    spec:
-      containers:
-      - name: rsvp-app
-        image: teamcloudyuga/rsvpapp
-        env:
-        - name: MONGODB_HOST
-          value: mongodb
-        ports:
-        - containerPort: <span class="m">5000</span>
-          name: web-port
+<span class="w">  </span>replicas:<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span>selector:
+<span class="w">    </span>matchLabels:
+<span class="w">      </span>app:<span class="w"> </span>rsvp
+<span class="w">  </span>template:
+<span class="w">    </span>metadata:
+<span class="w">      </span>labels:
+<span class="w">        </span>app:<span class="w"> </span>rsvp
+<span class="w">    </span>spec:
+<span class="w">      </span>containers:
+<span class="w">      </span>-<span class="w"> </span>name:<span class="w"> </span>rsvp-app
+<span class="w">        </span>image:<span class="w"> </span>teamcloudyuga/rsvpapp
+<span class="w">        </span>env:
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>MONGODB_HOST
+<span class="w">          </span>value:<span class="w"> </span>mongodb
+<span class="w">        </span>ports:
+<span class="w">        </span>-<span class="w"> </span>containerPort:<span class="w"> </span><span class="m">5000</span>
+<span class="w">          </span>name:<span class="w"> </span>web-port
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f rsvp-web.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>rsvp-web.yaml
 </code></pre></div>
 <ul>
 <li>passing name of MongoDB Service, <strong>mongodb</strong>, as env variable.<ul>
@@ -4813,22 +6217,22 @@ spec:
 <p>Create Service for <strong>rsvp</strong> Frontend.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># rsvp-web-service.yaml</span>
 
-apiVersion: v1
-kind: Service
+apiVersion:<span class="w"> </span>v1
+kind:<span class="w"> </span>Service
 metadata:
-  name: rsvp
-  labels:
-    app: rsvp
+<span class="w">  </span>name:<span class="w"> </span>rsvp
+<span class="w">  </span>labels:
+<span class="w">    </span>app:<span class="w"> </span>rsvp
 spec:
-  type: NodePort
-  ports:
-  - port: <span class="m">80</span>
-    targetPort: web-port
-    protocol: TCP
-  selector:
-    app: rsvp
+<span class="w">  </span>type:<span class="w"> </span>NodePort
+<span class="w">  </span>ports:
+<span class="w">  </span>-<span class="w"> </span>port:<span class="w"> </span><span class="m">80</span>
+<span class="w">    </span>targetPort:<span class="w"> </span>web-port
+<span class="w">    </span>protocol:<span class="w"> </span>TCP
+<span class="w">  </span>selector:
+<span class="w">    </span>app:<span class="w"> </span>rsvp
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f rsvp-web-service.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>rsvp-web-service.yaml
 </code></pre></div>
 <ul>
 <li>Note:<ul>
@@ -4840,22 +6244,22 @@ spec:
 </li>
 </ul>
 <p>Look @ available deployments and services:</p>
-<div class="highlight"><pre><span></span><code>kubectl get deployments
-kubectl get services
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>deployments
+kubectl<span class="w"> </span>get<span class="w"> </span>services
 </code></pre></div>
 <h4 id="access-rsvp-application">Access RSVP Application<a class="headerlink" href="#access-rsvp-application" title="Permanent link">&para;</a></h4>
-<p><div class="highlight"><pre><span></span><code>minikube ip
+<p><div class="highlight"><pre><span></span><code>minikube<span class="w"> </span>ip
 <span class="c1"># NodePort Port</span>
-kubectl get services
+kubectl<span class="w"> </span>get<span class="w"> </span>services
 </code></pre></div>
 <strong>OR</strong>
-<div class="highlight"><pre><span></span><code>minikube service rsvp
+<div class="highlight"><pre><span></span><code>minikube<span class="w"> </span>service<span class="w"> </span>rsvp
 </code></pre></div></p>
 <p><img alt="rsvpapp1" src="img/rsvpapp1.png" /></p>
 <h4 id="scale-frontend">Scale Frontend<a class="headerlink" href="#scale-frontend" title="Permanent link">&para;</a></h4>
 <p>Scale from 1 to 4 replicas:</p>
-<div class="highlight"><pre><span></span><code>kubectl scale deployment rsvp --replicas<span class="o">=</span><span class="m">3</span>
-kubectl get deployments
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>scale<span class="w"> </span>deployment<span class="w"> </span>rsvp<span class="w"> </span>--replicas<span class="o">=</span><span class="m">3</span>
+kubectl<span class="w"> </span>get<span class="w"> </span>deployments
 </code></pre></div>
 <p>Refreshing site will show multiple Host: rsvp-xxx-xxx as routed to different endpoints.</p>
 <h2 id="ch13-configmaps-and-secrets">Ch.13 ConfigMaps and Secrets<a class="headerlink" href="#ch13-configmaps-and-secrets" title="Permanent link">&para;</a></h2>
@@ -4877,50 +6281,50 @@ kubectl get deployments
 </li>
 </ul>
 <h4 id="create-configmap-cli">Create <strong>ConfigMap</strong> @ CLI<a class="headerlink" href="#create-configmap-cli" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>kubectl create configmap my-config --from-literal<span class="o">=</span><span class="nv">key1</span><span class="o">=</span>value1 --from-literal<span class="o">=</span><span class="nv">key2</span><span class="o">=</span>value2
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>configmap<span class="w"> </span>my-config<span class="w"> </span>--from-literal<span class="o">=</span><span class="nv">key1</span><span class="o">=</span>value1<span class="w"> </span>--from-literal<span class="o">=</span><span class="nv">key2</span><span class="o">=</span>value2
 </code></pre></div>
 <h4 id="get-configmap-details">Get <strong>ConfigMap</strong> Details<a class="headerlink" href="#get-configmap-details" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>kubectl get configmaps my-config -o yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>configmaps<span class="w"> </span>my-config<span class="w"> </span>-o<span class="w"> </span>yaml
 </code></pre></div>
 <h4 id="create-configmap-from-file">Create <strong>ConfigMap</strong> from file.<a class="headerlink" href="#create-configmap-from-file" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># customer1-configmap.yaml</span>
 
-apiVersion: v1
-kind: ConfigMap
+apiVersion:<span class="w"> </span>v1
+kind:<span class="w"> </span>ConfigMap
 metadata:
-  name: customer1
+<span class="w">  </span>name:<span class="w"> </span>customer1
 data:
-  TEXT1: Customer1_Company
-  TEXT2: Welcomes You
-  COMPANY: Customer1 Company Technology Pct. Ltd.
+<span class="w">  </span>TEXT1:<span class="w"> </span>Customer1_Company
+<span class="w">  </span>TEXT2:<span class="w"> </span>Welcomes<span class="w"> </span>You
+<span class="w">  </span>COMPANY:<span class="w"> </span>Customer1<span class="w"> </span>Company<span class="w"> </span>Technology<span class="w"> </span>Pct.<span class="w"> </span>Ltd.
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f customer1-configmap.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>customer1-configmap.yaml
 </code></pre></div>
 <h4 id="use-configmap-in-pods">Use ConfigMap in Pods<a class="headerlink" href="#use-configmap-in-pods" title="Permanent link">&para;</a></h4>
 <p>While creating deployment - assign values for env variables from <strong>customer1</strong> ConfigMap:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># container</span>
 ....
-  containers:
-      - name: rsvp-app
-        image: teamcloudyuga/rsvpapp
-        env:
-        - name: MONGODB_HOST
-          value: mongodb
-        - name: TEXT1
-          valueFrom:
-            configMapKeyRef:
-              name: customer1
-              key: TEXT1
-        - name: TEXT2
-          valueFrom:
-            configMapKeyRef:
-              name: customer1
-              key: TEXT2
-        - name: COMPANY
-          valueFrom:
-            configMapKeyRef:
-              name: customer1
-              key: COMPANY
+<span class="w">  </span>containers:
+<span class="w">      </span>-<span class="w"> </span>name:<span class="w"> </span>rsvp-app
+<span class="w">        </span>image:<span class="w"> </span>teamcloudyuga/rsvpapp
+<span class="w">        </span>env:
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>MONGODB_HOST
+<span class="w">          </span>value:<span class="w"> </span>mongodb
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>TEXT1
+<span class="w">          </span>valueFrom:
+<span class="w">            </span>configMapKeyRef:
+<span class="w">              </span>name:<span class="w"> </span>customer1
+<span class="w">              </span>key:<span class="w"> </span>TEXT1
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>TEXT2
+<span class="w">          </span>valueFrom:
+<span class="w">            </span>configMapKeyRef:
+<span class="w">              </span>name:<span class="w"> </span>customer1
+<span class="w">              </span>key:<span class="w"> </span>TEXT2
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>COMPANY
+<span class="w">          </span>valueFrom:
+<span class="w">            </span>configMapKeyRef:
+<span class="w">              </span>name:<span class="w"> </span>customer1
+<span class="w">              </span>key:<span class="w"> </span>COMPANY
 ....
 </code></pre></div>
 <ul>
@@ -4943,28 +6347,28 @@ data:
 <li>Secret objects are <em>referenced</em> in Deployments.</li>
 <li>Secret data stored as plain text inside <strong>etcd</strong>.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>kubectl create secret generic my-password --from-literal<span class="o">=</span><span class="nv">password</span><span class="o">=</span>my3q1p@ssw0rd
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>my-password<span class="w"> </span>--from-literal<span class="o">=</span><span class="nv">password</span><span class="o">=</span>my3q1p@ssw0rd
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl get secret my-password
-kubectl describe secret my-password
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>my-password
+kubectl<span class="w"> </span>describe<span class="w"> </span>secret<span class="w"> </span>my-password
 </code></pre></div>
 <h4 id="create-secret-manually">Create Secret Manually<a class="headerlink" href="#create-secret-manually" title="Permanent link">&para;</a></h4>
 <p>With Secrets, each object must be encoded using base64.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> mysqlpassword <span class="p">|</span> base64
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>mysqlpassword<span class="w"> </span><span class="p">|</span><span class="w"> </span>base64
 </code></pre></div>
 <p>Use <strong>base64</strong> encoded password in config file:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># my-password.yaml</span>
 
-apiVersion: v1
-kind: Secret
+apiVersion:<span class="w"> </span>v1
+kind:<span class="w"> </span>Secret
 metadata:
-  name: my-password
-type: Opaque
+<span class="w">  </span>name:<span class="w"> </span>my-password
+type:<span class="w"> </span>Opaque
 data:
-  password: <span class="nv">bXlzcWxwYXNzd29yZAo</span><span class="o">=</span>
+<span class="w">  </span>password:<span class="w"> </span><span class="nv">bXlzcWxwYXNzd29yZAo</span><span class="o">=</span>
 </code></pre></div>
 <p><strong>base64</strong> != encryption:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;bXlzcWxwYXNzd29yZAo=&quot;</span> <span class="p">|</span> base64 --decode
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;bXlzcWxwYXNzd29yZAo=&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>--decode
 </code></pre></div>
 <h4 id="use-secrets-inside-pods">Use Secrets Inside Pods<a class="headerlink" href="#use-secrets-inside-pods" title="Permanent link">&para;</a></h4>
 <ul>
@@ -4977,18 +6381,18 @@ data:
 <h5 id="environment-variable">Environment Variable<a class="headerlink" href="#environment-variable" title="Permanent link">&para;</a></h5>
 <p>Reference a Secret &amp; assign value of its key as env variable <strong>WORDPRESS_DB_PASSWORD</strong>:</p>
 <div class="highlight"><pre><span></span><code>.....
-    spec:
-      containers:
-      - image: wordpress:4.7.3-apache
-        name: wordpress
-        env:
-        - name: WORDPRESS_DB_HOST
-          value: wordpress-mysql
-        - name: WORDPRESS_DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: my-password
-              key: password
+<span class="w">    </span>spec:
+<span class="w">      </span>containers:
+<span class="w">      </span>-<span class="w"> </span>image:<span class="w"> </span>wordpress:4.7.3-apache
+<span class="w">        </span>name:<span class="w"> </span>wordpress
+<span class="w">        </span>env:
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>WORDPRESS_DB_HOST
+<span class="w">          </span>value:<span class="w"> </span>wordpress-mysql
+<span class="w">        </span>-<span class="w"> </span>name:<span class="w"> </span>WORDPRESS_DB_PASSWORD
+<span class="w">          </span>valueFrom:
+<span class="w">            </span>secretKeyRef:
+<span class="w">              </span>name:<span class="w"> </span>my-password
+<span class="w">              </span>key:<span class="w"> </span>password
 .....
 </code></pre></div>
 <h5 id="mount-as-volume">Mount as Volume<a class="headerlink" href="#mount-as-volume" title="Permanent link">&para;</a></h5>
@@ -5033,25 +6437,25 @@ data:
 </ul>
 <div class="highlight"><pre><span></span><code><span class="c1"># webserver-ingress.yaml</span>
 
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion:<span class="w"> </span>extensions/v1beta1
+kind:<span class="w"> </span>Ingress
 metadata:
-  name: web-ingress
-  namespace: default
+<span class="w">  </span>name:<span class="w"> </span>web-ingress
+<span class="w">  </span>namespace:<span class="w"> </span>default
 spec:
-  rules:
-  - host: blue.example.com
-    http:
-      paths:
-      - backend:
-          serviceName: webserver-blue-svc
-          servicePort: <span class="m">80</span>
-  - host: green.example.com
-    http:
-      paths:
-      - backend:
-          serviceName: webserver-green-svc
-          servicePort: <span class="m">80</span>
+<span class="w">  </span>rules:
+<span class="w">  </span>-<span class="w"> </span>host:<span class="w"> </span>blue.example.com
+<span class="w">    </span>http:
+<span class="w">      </span>paths:
+<span class="w">      </span>-<span class="w"> </span>backend:
+<span class="w">          </span>serviceName:<span class="w"> </span>webserver-blue-svc
+<span class="w">          </span>servicePort:<span class="w"> </span><span class="m">80</span>
+<span class="w">  </span>-<span class="w"> </span>host:<span class="w"> </span>green.example.com
+<span class="w">    </span>http:
+<span class="w">      </span>paths:
+<span class="w">      </span>-<span class="w"> </span>backend:
+<span class="w">          </span>serviceName:<span class="w"> </span>webserver-green-svc
+<span class="w">          </span>servicePort:<span class="w"> </span><span class="m">80</span>
 </code></pre></div>
 <ul>
 <li>
@@ -5085,32 +6489,32 @@ spec:
 </ul>
 <h4 id="start-ingress-controller-wminikube">Start Ingress Controller w/Minikube<a class="headerlink" href="#start-ingress-controller-wminikube" title="Permanent link">&para;</a></h4>
 <p>Minikube v0.14.0+ contains Nginx Ingress Controller setup as addon:</p>
-<div class="highlight"><pre><span></span><code>minikube addons <span class="nb">enable</span> ingress
+<div class="highlight"><pre><span></span><code>minikube<span class="w"> </span>addons<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>ingress
 </code></pre></div>
 <h4 id="deploy-ingress-resource">Deploy Ingress Resource<a class="headerlink" href="#deploy-ingress-resource" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># webserver-ingress.yaml</span>
 
-apiVersion: extensions/v1beta1
-kind: Ingress
+apiVersion:<span class="w"> </span>extensions/v1beta1
+kind:<span class="w"> </span>Ingress
 metadata:
-  name: web-ingress
-  namespace: default
+<span class="w">  </span>name:<span class="w"> </span>web-ingress
+<span class="w">  </span>namespace:<span class="w"> </span>default
 spec:
-  rules:
-  - host: blue.example.com
-    http:
-      paths:
-      - backend:
-          serviceName: webserver-blue-svc
-          servicePort: <span class="m">80</span>
-  - host: green.example.com
-    http:
-      paths:
-      - backend:
-          serviceName: webserver-green-svc
-          servicePort: <span class="m">80</span>
+<span class="w">  </span>rules:
+<span class="w">  </span>-<span class="w"> </span>host:<span class="w"> </span>blue.example.com
+<span class="w">    </span>http:
+<span class="w">      </span>paths:
+<span class="w">      </span>-<span class="w"> </span>backend:
+<span class="w">          </span>serviceName:<span class="w"> </span>webserver-blue-svc
+<span class="w">          </span>servicePort:<span class="w"> </span><span class="m">80</span>
+<span class="w">  </span>-<span class="w"> </span>host:<span class="w"> </span>green.example.com
+<span class="w">    </span>http:
+<span class="w">      </span>paths:
+<span class="w">      </span>-<span class="w"> </span>backend:
+<span class="w">          </span>serviceName:<span class="w"> </span>webserver-green-svc
+<span class="w">          </span>servicePort:<span class="w"> </span><span class="m">80</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>kubectl create -f webserver-ingress.yaml
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>webserver-ingress.yaml
 </code></pre></div>
 <h4 id="access-services-using-ingress">Access Services Using Ingress<a class="headerlink" href="#access-services-using-ingress" title="Permanent link">&para;</a></h4>
 <ul>
@@ -5124,22 +6528,22 @@ spec:
 </li>
 </ul>
 <p>Setup on Minikube (local VM), update host config file (<strong>/etc/hosts</strong> on Mac/Linux):</p>
-<div class="highlight"><pre><span></span><code>minikube ip
+<div class="highlight"><pre><span></span><code>minikube<span class="w"> </span>ip
 <span class="m">192</span>.168.99.100
 
-cat /etc/hosts
-<span class="m">127</span>.0.0.1        localhost
-::1              localhost
-<span class="m">192</span>.168.99.100   blue.example.com green.example.com
+cat<span class="w"> </span>/etc/hosts
+<span class="m">127</span>.0.0.1<span class="w">        </span>localhost
+::1<span class="w">              </span>localhost
+<span class="m">192</span>.168.99.100<span class="w">   </span>blue.example.com<span class="w"> </span>green.example.com
 </code></pre></div>
 <h2 id="ch15-advanced-topics">Ch.15 Advanced Topics<a class="headerlink" href="#ch15-advanced-topics" title="Permanent link">&para;</a></h2>
 <h3 id="annotations"><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/">Annotations</a><a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Attach arbitrary non-identifying metadata to any objects, K-V</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;annotations&quot;</span><span class="p">:</span> <span class="p">{</span>
-  <span class="nt">&quot;key1&quot;</span> <span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;key2&quot;</span> <span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;key1&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;key2&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value2&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 <ul>
@@ -5152,22 +6556,22 @@ cat /etc/hosts
 </li>
 </ul>
 <p>Ex: While Create Deployment, add description like:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
-<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">webserver</span>
-  <span class="nt">annotations</span><span class="p">:</span>
-    <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment based PoC dates 2nd June&#39;2017</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">webserver</span>
+<span class="w">  </span><span class="nt">annotations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment based PoC dates 2nd June&#39;2017</span>
 <span class="l l-Scalar l-Scalar-Plain">....</span>
 </code></pre></div>
 <p>Look @ annotations while describing object:</p>
-<div class="highlight"><pre><span></span><code>kubectl describe deployment webserver
-Name:                webserver
-Namespace:           default
-CreationTimestamp:   Sat, <span class="m">03</span> Jun <span class="m">2017</span> <span class="m">05</span>:10:38 +0530
-Labels:              <span class="nv">app</span><span class="o">=</span>webserver
-Annotations:         deployment.kubernetes.io/revision<span class="o">=</span><span class="m">1</span>
-                     <span class="nv">description</span><span class="o">=</span>Deployment based PoC dates 2nd June<span class="err">&#39;</span><span class="m">2017</span>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>describe<span class="w"> </span>deployment<span class="w"> </span>webserver
+Name:<span class="w">                </span>webserver
+Namespace:<span class="w">           </span>default
+CreationTimestamp:<span class="w">   </span>Sat,<span class="w"> </span><span class="m">03</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">2017</span><span class="w"> </span><span class="m">05</span>:10:38<span class="w"> </span>+0530
+Labels:<span class="w">              </span><span class="nv">app</span><span class="o">=</span>webserver
+Annotations:<span class="w">         </span>deployment.kubernetes.io/revision<span class="o">=</span><span class="m">1</span>
+<span class="w">                     </span><span class="nv">description</span><span class="o">=</span>Deployment<span class="w"> </span>based<span class="w"> </span>PoC<span class="w"> </span>dates<span class="w"> </span>2nd<span class="w"> </span>June<span class="err">&#39;</span><span class="m">2017</span>
 ...
 </code></pre></div>
 <h3 id="deployment-features">Deployment Features<a class="headerlink" href="#deployment-features" title="Permanent link">&para;</a></h3>
@@ -5400,101 +6804,84 @@ Annotations:         deployment.kubernetes.io/revision<span class="o">=</span><s
 - <a href="https://training.linuxfoundation.org/linux-courses/system-administration-training/kubernetes-administration">Kubernetes Administrator</a>
 - <a href="https://www.cncf.io/certification/expert/cka/">Certified Kubernetes Adminsitrator Exam</a>
 - <a href="https://www.cncf.io/certification/expert/cka/ckad/">Certified Kubernetes Application Developer Program</a></p>
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../dask/dask.html" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Dask
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../sas/sas.html" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              SAS
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021 Wes Roach
-          </div>
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 Wes Roach
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        
+<div class="md-social">
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://github.com/WesRoach" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
-      </a>
+    
+    <a href="https://github.com/WesRoach" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/WesRoach" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-      </a>
+    
+    <a href="https://twitter.com/WesRoach" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://www.linkedin.com/in/wes-roach/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://www.linkedin.com/in/wes-roach/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -5503,10 +6890,15 @@ Annotations:         deployment.kubernetes.io/revision<span class="o">=</span><s
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.4ea5477f.min.js"></script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>

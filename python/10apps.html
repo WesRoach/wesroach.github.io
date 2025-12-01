@@ -7,14 +7,23 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-      
         <meta name="author" content="Wes Roach">
       
       
         <link rel="canonical" href="http://wesroach.dev/python/10apps.html">
       
+      
+        <link rel="prev" href="../about.html">
+      
+      
+        <link rel="next" href="../pandas/pandas.html">
+      
+      
+        
+      
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -22,34 +31,32 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.e35208c4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#4051b5">
-        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
-    
+      
+
+
     
     
       
+    
+    
+      
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-        
-<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113461484-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
+
     
     
   </head>
@@ -60,10 +67,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -80,16 +85,22 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
+    <a href="../index.html" title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -108,45 +119,57 @@
       </div>
     </div>
     
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
       
-<div class="md-search" data-md-component="search" role="dialog">
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
-        
-<a href="https://github.com/WesRoach/wesroach.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/WesRoach/wesroach.github.io" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     WesRoach/wesroach.github.io
@@ -155,11 +178,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -173,23 +199,23 @@
                     
 
 
+
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
+    <a href="../index.html" title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/WesRoach/wesroach.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/WesRoach/wesroach.github.io" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     WesRoach/wesroach.github.io
@@ -201,14 +227,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../index.html" class="md-nav__link">
-        Summary
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -216,14 +254,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../about.html" class="md-nav__link">
-        About Me
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -231,54 +281,106 @@
     
       
       
-      
-
   
   
     
   
   
+  
+    
+    
+    
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
-      
-      <label class="md-nav__link" for="__nav_3">
-        Python
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Python" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Python
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
           
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
+  <span class="md-ellipsis">
     
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
   
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          10Apps
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10Apps
+  
+
+    
+  </span>
+  
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="10apps.html" class="md-nav__link md-nav__link--active">
-        10Apps
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10Apps
+  
+
+    
+  </span>
+  
+  
+
       </a>
       
         
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -294,35 +396,55 @@
       
         <li class="md-nav__item">
   <a href="#accept-user-input" class="md-nav__link">
-    Accept user input
+    <span class="md-ellipsis">
+      
+        Accept user input
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#if-else-statements" class="md-nav__link">
-    if / else statements
+    <span class="md-ellipsis">
+      
+        if / else statements
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#while-loops" class="md-nav__link">
-    while loops
+    <span class="md-ellipsis">
+      
+        while loops
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#string-formatting" class="md-nav__link">
-    string formatting
+    <span class="md-ellipsis">
+      
+        string formatting
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
-    functions
+    <span class="md-ellipsis">
+      
+        functions
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="functions">
@@ -330,7 +452,11 @@
         
           <li class="md-nav__item">
   <a href="#app3-birthday" class="md-nav__link">
-    App3 - birthday
+    <span class="md-ellipsis">
+      
+        App3 - birthday
+      
+    </span>
   </a>
   
 </li>
@@ -342,21 +468,33 @@
       
         <li class="md-nav__item">
   <a href="#dates" class="md-nav__link">
-    dates
+    <span class="md-ellipsis">
+      
+        dates
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#times" class="md-nav__link">
-    times
+    <span class="md-ellipsis">
+      
+        times
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#timespans" class="md-nav__link">
-    timespans
+    <span class="md-ellipsis">
+      
+        timespans
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="timespans">
@@ -364,7 +502,11 @@
         
           <li class="md-nav__item">
   <a href="#app4" class="md-nav__link">
-    App4
+    <span class="md-ellipsis">
+      
+        App4
+      
+    </span>
   </a>
   
 </li>
@@ -376,49 +518,77 @@
       
         <li class="md-nav__item">
   <a href="#multiple-files-modules" class="md-nav__link">
-    multiple files / modules
+    <span class="md-ellipsis">
+      
+        multiple files / modules
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#file-io" class="md-nav__link">
-    file i/o
+    <span class="md-ellipsis">
+      
+        file i/o
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#os-independent-path-management" class="md-nav__link">
-    os independent path management
+    <span class="md-ellipsis">
+      
+        os independent path management
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#for-in-loops" class="md-nav__link">
-    for-in loops
+    <span class="md-ellipsis">
+      
+        for-in loops
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#iterators" class="md-nav__link">
-    iterators
+    <span class="md-ellipsis">
+      
+        iterators
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_-_name_-_" class="md-nav__link">
-    _ _name_ _
+    <span class="md-ellipsis">
+      
+        _ _name_ _
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#doc-strings" class="md-nav__link">
-    doc strings
+    <span class="md-ellipsis">
+      
+        doc strings
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="doc strings">
@@ -426,7 +596,11 @@
         
           <li class="md-nav__item">
   <a href="#app5" class="md-nav__link">
-    App5
+    <span class="md-ellipsis">
+      
+        App5
+      
+    </span>
   </a>
   
 </li>
@@ -438,42 +612,66 @@
       
         <li class="md-nav__item">
   <a href="#screen-scraping" class="md-nav__link">
-    screen scraping
+    <span class="md-ellipsis">
+      
+        screen scraping
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#http-requests" class="md-nav__link">
-    http requests
+    <span class="md-ellipsis">
+      
+        http requests
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#virtual-environments" class="md-nav__link">
-    virtual environments
+    <span class="md-ellipsis">
+      
+        virtual environments
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#tuples-and-named-tuples" class="md-nav__link">
-    tuples and named tuples
+    <span class="md-ellipsis">
+      
+        tuples and named tuples
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#beautiful-soup-package" class="md-nav__link">
-    beautiful soup package
+    <span class="md-ellipsis">
+      
+        beautiful soup package
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#slicing" class="md-nav__link">
-    slicing
+    <span class="md-ellipsis">
+      
+        slicing
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="slicing">
@@ -481,7 +679,11 @@
         
           <li class="md-nav__item">
   <a href="#app6" class="md-nav__link">
-    App6
+    <span class="md-ellipsis">
+      
+        App6
+      
+    </span>
   </a>
   
 </li>
@@ -493,14 +695,22 @@
       
         <li class="md-nav__item">
   <a href="#http-clients-binary-data" class="md-nav__link">
-    http clients (binary data)
+    <span class="md-ellipsis">
+      
+        http clients (binary data)
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#subprocesses-platform" class="md-nav__link">
-    subprocesses / platform
+    <span class="md-ellipsis">
+      
+        subprocesses / platform
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="subprocesses / platform">
@@ -508,7 +718,11 @@
         
           <li class="md-nav__item">
   <a href="#app-7" class="md-nav__link">
-    App 7
+    <span class="md-ellipsis">
+      
+        App 7
+      
+    </span>
   </a>
   
 </li>
@@ -520,21 +734,33 @@
       
         <li class="md-nav__item">
   <a href="#classes" class="md-nav__link">
-    classes
+    <span class="md-ellipsis">
+      
+        classes
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#inheritance" class="md-nav__link">
-    inheritance
+    <span class="md-ellipsis">
+      
+        inheritance
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#duck-typing-and-polymorphism" class="md-nav__link">
-    duck typing and polymorphism
+    <span class="md-ellipsis">
+      
+        duck typing and polymorphism
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="duck typing and polymorphism">
@@ -542,7 +768,11 @@
         
           <li class="md-nav__item">
   <a href="#app8" class="md-nav__link">
-    App8
+    <span class="md-ellipsis">
+      
+        App8
+      
+    </span>
   </a>
   
 </li>
@@ -554,21 +784,33 @@
       
         <li class="md-nav__item">
   <a href="#generator-methods" class="md-nav__link">
-    generator methods
+    <span class="md-ellipsis">
+      
+        generator methods
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#yield-from" class="md-nav__link">
-    yield from
+    <span class="md-ellipsis">
+      
+        yield from
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#recursion" class="md-nav__link">
-    recursion
+    <span class="md-ellipsis">
+      
+        recursion
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="recursion">
@@ -576,7 +818,11 @@
         
           <li class="md-nav__item">
   <a href="#app9" class="md-nav__link">
-    App9
+    <span class="md-ellipsis">
+      
+        App9
+      
+    </span>
   </a>
   
 </li>
@@ -588,49 +834,77 @@
       
         <li class="md-nav__item">
   <a href="#dictionaries" class="md-nav__link">
-    dictionaries
+    <span class="md-ellipsis">
+      
+        dictionaries
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#lambda-methods" class="md-nav__link">
-    lambda methods
+    <span class="md-ellipsis">
+      
+        lambda methods
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#csv-file-format-and-parsing" class="md-nav__link">
-    csv file format and parsing
+    <span class="md-ellipsis">
+      
+        csv file format and parsing
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#coding-for-python-3-and-2" class="md-nav__link">
-    coding for python 3 and 2
+    <span class="md-ellipsis">
+      
+        coding for python 3 and 2
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#list-comprehensions" class="md-nav__link">
-    list comprehensions
+    <span class="md-ellipsis">
+      
+        list comprehensions
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#generator-expressions" class="md-nav__link">
-    generator expressions
+    <span class="md-ellipsis">
+      
+        generator expressions
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#data-pipelines" class="md-nav__link">
-    data pipelines
+    <span class="md-ellipsis">
+      
+        data pipelines
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="data pipelines">
@@ -638,7 +912,11 @@
         
           <li class="md-nav__item">
   <a href="#app10" class="md-nav__link">
-    App10
+    <span class="md-ellipsis">
+      
+        App10
+      
+    </span>
   </a>
   
 </li>
@@ -650,28 +928,44 @@
       
         <li class="md-nav__item">
   <a href="#error-and-exception-handling" class="md-nav__link">
-    error and exception handling
+    <span class="md-ellipsis">
+      
+        error and exception handling
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#try-except" class="md-nav__link">
-    try / except
+    <span class="md-ellipsis">
+      
+        try / except
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#handling-errors-by-type" class="md-nav__link">
-    handling errors by type
+    <span class="md-ellipsis">
+      
+        handling errors by type
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#raising-errors" class="md-nav__link">
-    raising errors
+    <span class="md-ellipsis">
+      
+        raising errors
+      
+    </span>
   </a>
   
 </li>
@@ -683,23 +977,37 @@
     </li>
   
 
-          
-        </ul>
-      </nav>
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../pandas/pandas.html" class="md-nav__link">
-        Pandas
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -707,14 +1015,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../dask/dask.html" class="md-nav__link">
-        Dask
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dask
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -722,56 +1042,108 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      <label class="md-nav__link" for="__nav_6">
-        Kubernetes
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          Kubernetes
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
           
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kubernetes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../kubernetes/edx.html" class="md-nav__link">
-        EDx
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDx
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-          
-        </ul>
-      </nav>
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../sas/sas.html" class="md-nav__link">
-        SAS
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAS
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -779,80 +1151,164 @@
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      <label class="md-nav__link" for="__nav_8">
-        Networking
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Networking" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Networking
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
           
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../networking/osi.html" class="md-nav__link">
-        OSI
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSI
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-          
+              
             
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../networking/arp.html" class="md-nav__link">
-        ARP
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ARP
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-          
+              
             
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../networking/subnetting.html" class="md-nav__link">
-        Subnetting
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-          
-        </ul>
-      </nav>
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../license.html" class="md-nav__link">
-        License
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -870,6 +1326,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -885,35 +1342,55 @@
       
         <li class="md-nav__item">
   <a href="#accept-user-input" class="md-nav__link">
-    Accept user input
+    <span class="md-ellipsis">
+      
+        Accept user input
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#if-else-statements" class="md-nav__link">
-    if / else statements
+    <span class="md-ellipsis">
+      
+        if / else statements
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#while-loops" class="md-nav__link">
-    while loops
+    <span class="md-ellipsis">
+      
+        while loops
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#string-formatting" class="md-nav__link">
-    string formatting
+    <span class="md-ellipsis">
+      
+        string formatting
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
-    functions
+    <span class="md-ellipsis">
+      
+        functions
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="functions">
@@ -921,7 +1398,11 @@
         
           <li class="md-nav__item">
   <a href="#app3-birthday" class="md-nav__link">
-    App3 - birthday
+    <span class="md-ellipsis">
+      
+        App3 - birthday
+      
+    </span>
   </a>
   
 </li>
@@ -933,21 +1414,33 @@
       
         <li class="md-nav__item">
   <a href="#dates" class="md-nav__link">
-    dates
+    <span class="md-ellipsis">
+      
+        dates
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#times" class="md-nav__link">
-    times
+    <span class="md-ellipsis">
+      
+        times
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#timespans" class="md-nav__link">
-    timespans
+    <span class="md-ellipsis">
+      
+        timespans
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="timespans">
@@ -955,7 +1448,11 @@
         
           <li class="md-nav__item">
   <a href="#app4" class="md-nav__link">
-    App4
+    <span class="md-ellipsis">
+      
+        App4
+      
+    </span>
   </a>
   
 </li>
@@ -967,49 +1464,77 @@
       
         <li class="md-nav__item">
   <a href="#multiple-files-modules" class="md-nav__link">
-    multiple files / modules
+    <span class="md-ellipsis">
+      
+        multiple files / modules
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#file-io" class="md-nav__link">
-    file i/o
+    <span class="md-ellipsis">
+      
+        file i/o
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#os-independent-path-management" class="md-nav__link">
-    os independent path management
+    <span class="md-ellipsis">
+      
+        os independent path management
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#for-in-loops" class="md-nav__link">
-    for-in loops
+    <span class="md-ellipsis">
+      
+        for-in loops
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#iterators" class="md-nav__link">
-    iterators
+    <span class="md-ellipsis">
+      
+        iterators
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_-_name_-_" class="md-nav__link">
-    _ _name_ _
+    <span class="md-ellipsis">
+      
+        _ _name_ _
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#doc-strings" class="md-nav__link">
-    doc strings
+    <span class="md-ellipsis">
+      
+        doc strings
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="doc strings">
@@ -1017,7 +1542,11 @@
         
           <li class="md-nav__item">
   <a href="#app5" class="md-nav__link">
-    App5
+    <span class="md-ellipsis">
+      
+        App5
+      
+    </span>
   </a>
   
 </li>
@@ -1029,42 +1558,66 @@
       
         <li class="md-nav__item">
   <a href="#screen-scraping" class="md-nav__link">
-    screen scraping
+    <span class="md-ellipsis">
+      
+        screen scraping
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#http-requests" class="md-nav__link">
-    http requests
+    <span class="md-ellipsis">
+      
+        http requests
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#virtual-environments" class="md-nav__link">
-    virtual environments
+    <span class="md-ellipsis">
+      
+        virtual environments
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#tuples-and-named-tuples" class="md-nav__link">
-    tuples and named tuples
+    <span class="md-ellipsis">
+      
+        tuples and named tuples
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#beautiful-soup-package" class="md-nav__link">
-    beautiful soup package
+    <span class="md-ellipsis">
+      
+        beautiful soup package
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#slicing" class="md-nav__link">
-    slicing
+    <span class="md-ellipsis">
+      
+        slicing
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="slicing">
@@ -1072,7 +1625,11 @@
         
           <li class="md-nav__item">
   <a href="#app6" class="md-nav__link">
-    App6
+    <span class="md-ellipsis">
+      
+        App6
+      
+    </span>
   </a>
   
 </li>
@@ -1084,14 +1641,22 @@
       
         <li class="md-nav__item">
   <a href="#http-clients-binary-data" class="md-nav__link">
-    http clients (binary data)
+    <span class="md-ellipsis">
+      
+        http clients (binary data)
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#subprocesses-platform" class="md-nav__link">
-    subprocesses / platform
+    <span class="md-ellipsis">
+      
+        subprocesses / platform
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="subprocesses / platform">
@@ -1099,7 +1664,11 @@
         
           <li class="md-nav__item">
   <a href="#app-7" class="md-nav__link">
-    App 7
+    <span class="md-ellipsis">
+      
+        App 7
+      
+    </span>
   </a>
   
 </li>
@@ -1111,21 +1680,33 @@
       
         <li class="md-nav__item">
   <a href="#classes" class="md-nav__link">
-    classes
+    <span class="md-ellipsis">
+      
+        classes
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#inheritance" class="md-nav__link">
-    inheritance
+    <span class="md-ellipsis">
+      
+        inheritance
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#duck-typing-and-polymorphism" class="md-nav__link">
-    duck typing and polymorphism
+    <span class="md-ellipsis">
+      
+        duck typing and polymorphism
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="duck typing and polymorphism">
@@ -1133,7 +1714,11 @@
         
           <li class="md-nav__item">
   <a href="#app8" class="md-nav__link">
-    App8
+    <span class="md-ellipsis">
+      
+        App8
+      
+    </span>
   </a>
   
 </li>
@@ -1145,21 +1730,33 @@
       
         <li class="md-nav__item">
   <a href="#generator-methods" class="md-nav__link">
-    generator methods
+    <span class="md-ellipsis">
+      
+        generator methods
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#yield-from" class="md-nav__link">
-    yield from
+    <span class="md-ellipsis">
+      
+        yield from
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#recursion" class="md-nav__link">
-    recursion
+    <span class="md-ellipsis">
+      
+        recursion
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="recursion">
@@ -1167,7 +1764,11 @@
         
           <li class="md-nav__item">
   <a href="#app9" class="md-nav__link">
-    App9
+    <span class="md-ellipsis">
+      
+        App9
+      
+    </span>
   </a>
   
 </li>
@@ -1179,49 +1780,77 @@
       
         <li class="md-nav__item">
   <a href="#dictionaries" class="md-nav__link">
-    dictionaries
+    <span class="md-ellipsis">
+      
+        dictionaries
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#lambda-methods" class="md-nav__link">
-    lambda methods
+    <span class="md-ellipsis">
+      
+        lambda methods
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#csv-file-format-and-parsing" class="md-nav__link">
-    csv file format and parsing
+    <span class="md-ellipsis">
+      
+        csv file format and parsing
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#coding-for-python-3-and-2" class="md-nav__link">
-    coding for python 3 and 2
+    <span class="md-ellipsis">
+      
+        coding for python 3 and 2
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#list-comprehensions" class="md-nav__link">
-    list comprehensions
+    <span class="md-ellipsis">
+      
+        list comprehensions
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#generator-expressions" class="md-nav__link">
-    generator expressions
+    <span class="md-ellipsis">
+      
+        generator expressions
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#data-pipelines" class="md-nav__link">
-    data pipelines
+    <span class="md-ellipsis">
+      
+        data pipelines
+      
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="data pipelines">
@@ -1229,7 +1858,11 @@
         
           <li class="md-nav__item">
   <a href="#app10" class="md-nav__link">
-    App10
+    <span class="md-ellipsis">
+      
+        App10
+      
+    </span>
   </a>
   
 </li>
@@ -1241,28 +1874,44 @@
       
         <li class="md-nav__item">
   <a href="#error-and-exception-handling" class="md-nav__link">
-    error and exception handling
+    <span class="md-ellipsis">
+      
+        error and exception handling
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#try-except" class="md-nav__link">
-    try / except
+    <span class="md-ellipsis">
+      
+        try / except
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#handling-errors-by-type" class="md-nav__link">
-    handling errors by type
+    <span class="md-ellipsis">
+      
+        handling errors by type
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#raising-errors" class="md-nav__link">
-    raising errors
+    <span class="md-ellipsis">
+      
+        raising errors
+      
+    </span>
   </a>
   
 </li>
@@ -1275,16 +1924,19 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
+          
+            <div class="md-content" data-md-component="content">
               
+              <article class="md-content__inner md-typeset">
                 
-                  <a href="https://github.com/WesRoach/wesroach.github.io/edit/master/docs/python/10apps.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="learn-python-by-building-10-apps">Learn Python by Building 10 Apps<a class="headerlink" href="#learn-python-by-building-10-apps" title="Permanent link">&para;</a></h1>
+                  
+
+
+  
+  
+
+
+<h1 id="learn-python-by-building-10-apps">Learn Python by Building 10 Apps<a class="headerlink" href="#learn-python-by-building-10-apps" title="Permanent link">&para;</a></h1>
 <h2 id="accept-user-input">Accept user input<a class="headerlink" href="#accept-user-input" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Prompt: &quot;</span><span class="p">)</span>
 </code></pre></div>
@@ -1307,13 +1959,13 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="functions">functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">my_function</span><span class="p">():</span>
     <span class="n">do</span> <span class="n">some</span> <span class="n">things</span>
     <span class="k">return</span> <span class="n">new_thing</span>
 </code></pre></div>
 <h3 id="app3-birthday">App3 - birthday<a class="headerlink" href="#app3-birthday" title="Permanent link">&para;</a></h3>
 <h2 id="dates">dates<a class="headerlink" href="#dates" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
 <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="c1"># date = datetime.date(year, month, day)</span>
 <span class="n">May_1_2018</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1330,7 +1982,7 @@
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
 <h2 id="file-io">file i/o<a class="headerlink" href="#file-io" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;journals&#39;</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.jrl&#39;</span><span class="p">))</span>
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
@@ -1355,8 +2007,8 @@
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="doc-strings">doc strings<a class="headerlink" href="#doc-strings" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This method creates and loads a new journal.</span>
 
 <span class="sd">    :param name: The base name of the journal to load.</span>
@@ -1365,8 +2017,8 @@
 </code></pre></div>
 <h3 id="app5">App5<a class="headerlink" href="#app5" title="Permanent link">&para;</a></h3>
 <h2 id="screen-scraping">screen scraping<a class="headerlink" href="#screen-scraping" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">bs4</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bs4</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.wunderground.com/weather-forecast/72202&#39;</span>
 
 <span class="c1"># get page</span>
@@ -1384,7 +2036,7 @@
     <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;wu-label&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="http-requests">http requests<a class="headerlink" href="#http-requests" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.wunderground.com/weather-forecast/72202&#39;</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </code></pre></div>
@@ -1404,7 +2056,7 @@
 <span class="n">t</span><span class="p">,</span> <span class="n">la</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">m</span>
 <span class="c1"># t=22.5, la=44.234, lo=19.02, q=&#39;strong&#39;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">collections</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
 
 <span class="n">WeatherReport</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span>
     <span class="s1">&#39;Measurement&#39;</span><span class="p">,</span>
@@ -1421,7 +2073,7 @@
 <span class="c1">#  Measurement(temp=22.5, lat=44.234, long=19.02, quality=&#39;strong&#39;)</span>
 </code></pre></div>
 <h2 id="beautiful-soup-package">beautiful soup package<a class="headerlink" href="#beautiful-soup-package" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bs4</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">bs4</span>
 
 <span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">reponse</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -1443,26 +2095,26 @@
 </code></pre></div>
 <h3 id="app6">App6<a class="headerlink" href="#app6" title="Permanent link">&para;</a></h3>
 <h2 id="http-clients-binary-data">http clients (binary data)<a class="headerlink" href="#http-clients-binary-data" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-<span class="kn">import</span> <span class="nn">requests</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="k">def</span> <span class="nf">get_cat</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_cat</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://consuming-python-services-api.azurewebsites.net/cats/random&#39;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">get_data_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="n">save_image</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">get_data_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_data_from_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">raw</span>
 
-<span class="k">def</span> <span class="nf">save_image</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_image</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.jpg&#39;</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fout</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="subprocesses-platform">subprocesses / platform<a class="headerlink" href="#subprocesses-platform" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">platform</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">platform</span>
 <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">:</span>
     <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s1">&#39;open&#39;</span><span class="p">,</span> <span class="n">folder</span><span class="p">])</span>
 <span class="k">elif</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;Windows&#39;</span><span class="p">:</span>
@@ -1474,28 +2126,28 @@
 </code></pre></div>
 <h3 id="app-7">App 7<a class="headerlink" href="#app-7" title="Permanent link">&para;</a></h3>
 <h2 id="classes">classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Creature</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Creature</span><span class="p">:</span>
     <span class="c1"># initializer</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Creature </span><span class="si">{}</span><span class="s2"> of level </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> walks around&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 </code></pre></div>
 <h2 id="inheritance">inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Dragon</span><span class="p">(</span><span class="n">Creature</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Dragon</span><span class="p">(</span><span class="n">Creature</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">scale_thickness</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">scale_thickness</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span> <span class="c1"># initializer for Creature</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale_thickness</span> <span class="o">=</span> <span class="n">scale_thickness</span>
 
-    <span class="k">def</span> <span class="nf">breath_fire</span><span class="p">():</span> <span class="o">...</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">breath_fire</span><span class="p">():</span> <span class="o">...</span>
 </code></pre></div>
 <h2 id="duck-typing-and-polymorphism">duck typing and polymorphism<a class="headerlink" href="#duck-typing-and-polymorphism" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># all types derive from Creature</span>
@@ -1523,7 +2175,7 @@
 <h3 id="app8">App8<a class="headerlink" href="#app8" title="Permanent link">&para;</a></h3>
 <h2 id="generator-methods">generator methods<a class="headerlink" href="#generator-methods" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># yield makes fibonacci a generator method</span>
-<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">limit</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">limit</span><span class="p">):</span>
     <span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="nb">next</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -1535,7 +2187,7 @@
         <span class="c1"># yield keyword returns one element of a sequence</span>
 </code></pre></div>
 <h2 id="yield-from">yield from<a class="headerlink" href="#yield-from" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">search_folders</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">search_folders</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
     <span class="c1"># for macOS if .DS_Store error</span>
     <span class="c1"># glob.glob(os.path.join(folder, &#39;*&#39;))</span>
     <span class="n">items</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder</span><span class="p">)</span>
@@ -1547,7 +2199,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">yield from</span> <span class="n">search_file</span><span class="p">(</span><span class="n">full_item</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">search_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">search_text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">search_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">search_text</span><span class="p">):</span>
     <span class="c1"># matches = []</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
 
@@ -1559,7 +2211,7 @@
                 <span class="k">yield</span> <span class="n">m</span>
 </code></pre></div>
 <h2 id="recursion">recursion<a class="headerlink" href="#recursion" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="c1"># base case - break out of loop</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
@@ -1581,7 +2233,7 @@
     <span class="c1"># use info[&#39;age&#39;]</span>
 </code></pre></div>
 <h2 id="lambda-methods">lambda methods<a class="headerlink" href="#lambda-methods" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_sig_nums</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">predicate</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">find_sig_nums</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">predicate</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">predicate</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
             <span class="k">yield</span> <span class="n">n</span>
@@ -1591,8 +2243,8 @@
 <span class="c1"># sig -&gt; [1, 1, 3, 5, 13, 21]</span>
 </code></pre></div>
 <h2 id="csv-file-format-and-parsing">csv file format and parsing<a class="headerlink" href="#csv-file-format-and-parsing" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Purchase</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">street</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">zipcode</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">beds</span><span class="p">,</span> <span class="n">baths</span><span class="p">,</span> <span class="n">sq__ft</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Purchase</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">street</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">zipcode</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">beds</span><span class="p">,</span> <span class="n">baths</span><span class="p">,</span> <span class="n">sq__ft</span><span class="p">,</span>
                  <span class="n">home_type</span><span class="p">,</span> <span class="n">sale_date</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">longitude</span> <span class="o">=</span> <span class="n">longitude</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="n">latitude</span>
@@ -1608,7 +2260,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">street</span> <span class="o">=</span> <span class="n">street</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">create_from_dict</span><span class="p">(</span><span class="n">lookup</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_from_dict</span><span class="p">(</span><span class="n">lookup</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Purchase</span><span class="p">(</span>
             <span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;street&#39;</span><span class="p">],</span>
             <span class="n">lookup</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">],</span>
@@ -1625,7 +2277,7 @@
         <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">load_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fin</span><span class="p">:</span>
         <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
         <span class="n">purchases</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1637,16 +2289,16 @@
 </code></pre></div>
 <h2 id="coding-for-python-3-and-2">coding for python 3 and 2<a class="headerlink" href="#coding-for-python-3-and-2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">statistics</span> <span class="c1"># only Python 3.4.3+</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span> <span class="c1"># only Python 3.4.3+</span>
 <span class="k">except</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">statistics_2_stand_in</span> <span class="k">as</span> <span class="nn">statistics</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">statistics_2_stand_in</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">statistics</span>
 
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">the_avg</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 
 <span class="c1"># statistics_2_stand_in.py</span>
-<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
     <span class="c1"># your implementation of mean here...</span>
     <span class="k">return</span> <span class="n">avg</span>
 </code></pre></div>
@@ -1723,106 +2375,89 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unexpected error. Details: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </code></pre></div>
 <h2 id="raising-errors">raising errors<a class="headerlink" href="#raising-errors" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">find_movies</span><span class="p">(</span><span class="n">search_text</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">find_movies</span><span class="p">(</span><span class="n">search_text</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">search_text</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">search_text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Search text is required.&quot;</span><span class="p">)</span>
         <span class="c1"># raise will immediately return from function with error</span>
 </code></pre></div>
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        <a href="../about.html" class="md-footer__link md-footer__link--prev" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              About Me
-            </div>
-          </div>
-        </a>
-      
-      
-        <a href="../pandas/pandas.html" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Pandas
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021 Wes Roach
-          </div>
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 Wes Roach
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        
+<div class="md-social">
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://github.com/WesRoach" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
-      </a>
+    
+    <a href="https://github.com/WesRoach" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/WesRoach" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-      </a>
+    
+    <a href="https://twitter.com/WesRoach" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+    
+    
+    
     
       
       
-        
-        
-      
-      <a href="https://www.linkedin.com/in/wes-roach/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://www.linkedin.com/in/wes-roach/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -1831,10 +2466,15 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.4ea5477f.min.js"></script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
