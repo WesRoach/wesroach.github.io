@@ -3,3 +3,7 @@ site/
 
 # ignore files
 *.glue
+
+# Python cache
+__pycache__/
+*.pyc
