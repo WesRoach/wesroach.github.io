@@ -1,6 +1,6 @@
 # Project information
-site_name: ''
-site_description: ''
+site_name: 'Wes Roach'
+site_description: 'Personal site of Wes Roach'
 site_author: 'Wes Roach'
 site_url: 'http://wesroach.dev'
 
@@ -30,16 +30,35 @@ copyright: 'Copyright &copy; 2021 Wes Roach'
 # Configuration
 theme:
   name: 'material'
+  custom_dir: overrides
   language: 'en'
   palette:
-    primary: 'indigo'
-    accent: 'indigo'
+    - scheme: default
+      primary: white
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  feature:
-    tabs: false
+  features:
+    - navigation.instant
+    - search.suggest
+    - search.highlight
 use_directory_urls: false
+
+# Hooks
+hooks:
+  - hooks/recent_articles.py
+
+# Custom CSS
+extra_css:
+  - stylesheets/custom.css
 
 # Customization
 extra:

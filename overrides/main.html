@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block hero %}
+<!-- Floating hamburger menu - only visible on mobile -->
+<label class="mobile-menu-button" for="__drawer">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+</label>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+{% if page and page.meta and page.meta.date %}
+<script>
+(function() {
+  var date = document.createElement('div');
+  date.className = 'article-date';
+  date.textContent = 'Written on {{ page.meta.date }}';
+  var h1 = document.querySelector('.md-content__inner h1');
+  if (h1) h1.after(date);
+})();
+</script>
+{% endif %}
+{% endblock %}
