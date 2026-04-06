@@ -25,5 +25,5 @@ uv run mkdocs build
 ### Serve
 
 ```bash
-uv run mkdocs serve
+uv run mkdocs serve --livereload
 ```

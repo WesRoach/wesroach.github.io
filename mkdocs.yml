@@ -6,26 +6,23 @@ site_url: 'http://wesroach.dev'
 
 nav:
   - Summary: index.md
-  - About Me: about.md
-  - Python:
-    - 10Apps: python/10apps.md
-  - Pandas: pandas/pandas.md
-  - Dask: dask/dask.md
-  - Kubernetes:
-    - EDx: kubernetes/edx.md
-  - SAS: sas/sas.md
-  - Networking:
-    - OSI: networking/osi.md
-    - ARP: networking/arp.md
-    - Subnetting: networking/subnetting.md
-  - License: license.md
+  # - Python:
+  #   - 10Apps: python/10apps.md
+  # - Pandas: pandas/pandas.md
+  # - Kubernetes:
+  #   - EDx: kubernetes/edx.md
+  # - Networking:
+  #   - OSI: networking/osi.md
+  #   - ARP: networking/arp.md
+  #   - Subnetting: networking/subnetting.md
+  # - License: license.md
 
 # Repository
 repo_name: 'WesRoach/wesroach.github.io'
 repo_url: 'https://github.com/WesRoach/wesroach.github.io'
 
 # Copyright
-copyright: 'Copyright &copy; 2021 Wes Roach'
+copyright: 'Copyright &copy; 2026 Wes Roach'
 
 # Configuration
 theme:
