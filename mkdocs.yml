@@ -6,6 +6,9 @@ site_url: 'http://wesroach.dev'
 
 nav:
   - Summary: index.md
+  - Abode:
+    - Bermuda Grass:
+      - Schedule: bermuda_schedule.md
   # - Python:
   #   - 10Apps: python/10apps.md
   # - Pandas: pandas/pandas.md
