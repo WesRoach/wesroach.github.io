@@ -4,11 +4,11 @@ site_description: 'Personal site of Wes Roach'
 site_author: 'Wes Roach'
 site_url: 'http://wesroach.dev'
 
+exclude_docs: |
+  abode/
+
 nav:
   - Summary: index.md
-  - Abode:
-    - Bermuda Grass:
-      - Schedule: bermuda_schedule.md
   - Workstation:
     - Shell Setup:
       - Git Helpers: workstation/shell-setup/index.md
