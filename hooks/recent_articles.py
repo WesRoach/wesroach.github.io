@@ -3,6 +3,7 @@
 import os
 import yaml
 from datetime import date
+from mkdocs.structure.files import InclusionLevel
 
 
 def on_env(env, config, files):
@@ -12,6 +13,8 @@ def on_env(env, config, files):
 
     for f in files:
         if not f.src_path.endswith('.md'):
+            continue
+        if not f.inclusion.is_in_nav():
             continue
         if f.src_path in ('index.md', 'articles.md'):
             continue
