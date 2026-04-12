@@ -5,7 +5,7 @@
 ## Prerequisites
 
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
-- [just](https://just.systems) — `winget install Casey.Just`
+- [make](https://gnuwin32.sourceforge.net/packages/make.htm) — `winget install ezwinports.make`
 - [lychee](https://lychee.cli.rs/) — `winget install lycheeverse.lychee` (required for `make lint`)
 
 ## Setup
@@ -18,8 +18,8 @@ uv sync
 
 | Command | Description |
 |---------|-------------|
-| `just serve` | Start local dev server with live reload |
-| `just build` | Build static site to `./site` |
-| `just lint` | Build then check for broken links |
-| `just test` | Run test suite |
-| `just deploy` | Build and deploy to GitHub Pages |
+| `make serve` | Start local dev server with live reload |
+| `make build` | Build static site to `./site` |
+| `make lint` | Build then check for broken links |
+| `make test` | Run test suite |
+| `make deploy` | Build and deploy to GitHub Pages |
