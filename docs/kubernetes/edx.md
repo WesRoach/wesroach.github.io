@@ -1,3 +1,6 @@
+---
+date: 2018-10-06
+---
 ## Ch1. Container Orchestration
 
 ### Learning Objectives

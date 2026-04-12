@@ -1,3 +1,6 @@
+---
+date: 2019-12-22
+---
 # OSI Model
 
 [https://www.youtube.com/watch?v=nFnLPGk8WjA](https://www.youtube.com/watch?v=nFnLPGk8WjA)

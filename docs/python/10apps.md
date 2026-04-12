@@ -1,3 +1,6 @@
+---
+date: 2018-05-16
+---
 # Learn Python by Building 10 Apps
 
 ## Accept user input

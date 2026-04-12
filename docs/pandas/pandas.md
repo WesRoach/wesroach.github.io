@@ -1,3 +1,6 @@
+---
+date: 2018-05-16
+---
 # Pandas Notes
 
 ## Data Structures
