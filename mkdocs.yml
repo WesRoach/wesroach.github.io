@@ -55,6 +55,17 @@ theme:
     - search.highlight
 use_directory_urls: false
 
+# Plugins
+plugins:
+  - search
+  - rss:
+      match_path: ".*"
+      date_from_meta:
+        as_creation: date
+      image: http://wesroach.dev/img/profile.jpeg
+      length: 20
+      use_git: false
+
 # Hooks
 hooks:
   - hooks/recent_articles.py
