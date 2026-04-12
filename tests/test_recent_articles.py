@@ -13,6 +13,7 @@ def _make_file(src_path, inclusion):
     f = MagicMock()
     f.src_path = src_path
     f.inclusion = inclusion
+    f.dest_uri = src_path.replace('.md', '.html')
     return f
 
 
@@ -74,6 +75,14 @@ def test_index_md_excluded_regardless_of_inclusion():
         files = [_make_file("index.md", InclusionLevel.INCLUDED)]
         env = _run_hook(docs_dir, files)
         assert env.globals["all_articles"] == []
+
+
+def test_url_uses_dest_uri():
+    with tempfile.TemporaryDirectory() as docs_dir:
+        _write_article(docs_dir, "workstation/shell-setup/index.md", date="2025-01-01", title="Shell Setup")
+        files = [_make_file("workstation/shell-setup/index.md", InclusionLevel.INCLUDED)]
+        env = _run_hook(docs_dir, files)
+        assert env.globals["all_articles"][0]["url"] == "workstation/shell-setup/index.html"
 
 
 def test_recent_articles_capped_at_five():

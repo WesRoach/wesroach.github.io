@@ -39,7 +39,7 @@ def on_env(env, config, files):
 
             articles.append({
                 'title': front_matter.get('title', f.src_path),
-                'url': f.src_path.replace('.md', '/'),
+                'url': f.dest_uri,
                 'date': d,
                 'description': description,
             })
