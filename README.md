@@ -2,28 +2,24 @@
 
 [wesroach.dev](https://www.wesroach.dev)
 
+## Prerequisites
+
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
+- [make](https://gnuwin32.sourceforge.net/packages/make.htm) — `winget install ezwinports.make`
+- [lychee](https://lychee.cli.rs/) — `winget install lycheeverse.lychee` (required for `make lint`)
+
 ## Setup
 
 ```bash
 uv sync
 ```
 
-## Deploy
+## Common tasks
 
-```bash
-uv run mkdocs gh-deploy
-```
-
-## Local Development
-
-### Build
-
-```bash
-uv run mkdocs build
-```
-
-### Serve
-
-```bash
-uv run mkdocs serve --livereload
-```
+| Command | Description |
+|---------|-------------|
+| `make serve` | Start local dev server with live reload |
+| `make build` | Build static site to `./site` |
+| `make lint` | Build then check for broken links |
+| `make test` | Run test suite |
+| `make deploy` | Build and deploy to GitHub Pages |
