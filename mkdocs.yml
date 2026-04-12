@@ -6,6 +6,14 @@ site_url: 'http://wesroach.dev'
 
 exclude_docs: |
   abode/
+  data-engineering/
+  drafts/
+  kubernetes/
+  license.md
+  networking/
+  pandas/
+  python/
+  sas/
 
 nav:
   - Summary: index.md
@@ -59,7 +67,7 @@ use_directory_urls: false
 plugins:
   - search
   - rss:
-      match_path: ".*"
+      match_path: "^(?!index\\.md$).*"
       date_from_meta:
         as_creation: date
       image: http://wesroach.dev/img/profile.jpeg
