@@ -1,3 +1,5 @@
+SHELL := bash
+
 .PHONY: build serve deploy lint test
 
 build:
