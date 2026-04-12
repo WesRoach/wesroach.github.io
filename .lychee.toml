@@ -1,0 +1,20 @@
+# Regex patterns matched against the full URL
+exclude = [
+    # Self-referential — internal links are already checked as local files
+    "https?://wesroach\\.dev",
+    # Social sites that rate-limit or require auth
+    "https://twitter\\.com",
+    "https://x\\.com",
+    "https://www\\.linkedin\\.com",
+    # Local dev server
+    "http://localhost",
+    "http://127\\.0\\.0\\.1",
+    # Google Analytics endpoint embedded by MkDocs
+    "https://www\\.google-analytics\\.com",
+    # RSS XSL stylesheet (served by lychee from file:// — not a real URL)
+    "rss\\.xsl",
+]
+
+timeout = 30
+max_retries = 3
+max_concurrency = 8
