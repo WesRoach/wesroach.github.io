@@ -5,9 +5,12 @@ import yaml
 from datetime import date
 from mkdocs.structure.files import InclusionLevel
 
+_all_articles = []
+
 
 def on_env(env, config, files):
     """Add recent_articles and all_articles to Jinja environment."""
+    global _all_articles
     docs_dir = config['docs_dir']
     articles = []
 
@@ -47,6 +50,18 @@ def on_env(env, config, files):
             continue
 
     articles.sort(key=lambda x: x['date'], reverse=True)
+    _all_articles = articles
     env.globals['recent_articles'] = articles[:5]
     env.globals['all_articles'] = articles
     return env
+
+
+def on_page_markdown(markdown, page, config, files, **kwargs):
+    """Generate the articles index page content."""
+    if page.file.src_path != 'articles.md':
+        return markdown
+
+    lines = ['# All Articles\n']
+    for article in _all_articles:
+        lines.append(f"- [{article['title']}]({article['url']}) — {article['date']}")
+    return '\n'.join(lines)

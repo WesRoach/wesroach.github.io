@@ -59,9 +59,11 @@
           <a href="{{ article.url | url }}" class="md-nav__link">{{ article.title }}</a>
         </li>
         {% endfor %}
+        {% if all_articles | length > recent_articles | length %}
         <li class="md-nav__item">
-          <a href="{{ 'articles/' | url }}" class="md-nav__link more-articles-link">… More articles</a>
+          <a href="{{ 'articles.html' | url }}" class="md-nav__link more-articles-link">… More articles</a>
         </li>
+        {% endif %}
       </ul>
     </li>
   </ul>

@@ -6,7 +6,7 @@ import jinja2
 import pytest
 from mkdocs.structure.files import InclusionLevel
 
-from hooks.recent_articles import on_env
+from hooks.recent_articles import on_env, on_page_markdown
 
 
 def _make_file(src_path, inclusion):
@@ -83,6 +83,51 @@ def test_url_uses_dest_uri():
         files = [_make_file("workstation/shell-setup/index.md", InclusionLevel.INCLUDED)]
         env = _run_hook(docs_dir, files)
         assert env.globals["all_articles"][0]["url"] == "workstation/shell-setup/index.html"
+
+
+def test_articles_page_lists_all_nav_articles():
+    with tempfile.TemporaryDirectory() as docs_dir:
+        _write_article(docs_dir, "a.md", date="2025-02-01", title="Article A")
+        _write_article(docs_dir, "b.md", date="2025-01-01", title="Article B")
+        files = [
+            _make_file("a.md", InclusionLevel.INCLUDED),
+            _make_file("b.md", InclusionLevel.INCLUDED),
+        ]
+        _run_hook(docs_dir, files)
+
+        page = MagicMock()
+        page.file.src_path = "articles.md"
+        result = on_page_markdown("", page, {"docs_dir": docs_dir}, files)
+
+        assert "Article A" in result
+        assert "Article B" in result
+        assert "a.html" in result
+        assert "b.html" in result
+
+
+def test_articles_page_ordered_newest_first():
+    with tempfile.TemporaryDirectory() as docs_dir:
+        _write_article(docs_dir, "old.md", date="2020-01-01", title="Old")
+        _write_article(docs_dir, "new.md", date="2025-06-01", title="New")
+        files = [
+            _make_file("old.md", InclusionLevel.INCLUDED),
+            _make_file("new.md", InclusionLevel.INCLUDED),
+        ]
+        _run_hook(docs_dir, files)
+
+        page = MagicMock()
+        page.file.src_path = "articles.md"
+        result = on_page_markdown("", page, {"docs_dir": docs_dir}, files)
+
+        assert result.index("New") < result.index("Old")
+
+
+def test_non_articles_page_markdown_unchanged():
+    page = MagicMock()
+    page.file.src_path = "index.md"
+    original = "# Original content"
+    result = on_page_markdown(original, page, {}, [])
+    assert result == original
 
 
 def test_recent_articles_capped_at_five():
